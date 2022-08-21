@@ -5,12 +5,21 @@
 
 local keymap = require('core.keymap')
 local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap
-local silent, noremap = keymap.silent, keymap.noremap
+local silent, noremap, expr, remap = keymap.silent, keymap.noremap, keymap.expr, keymap.remap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
 
 -- Use space as leader key
 vim.g.mapleader = ' '
+require('keymap.smarttab')
+
+imap({
+  -- tab key
+  { '<TAB>', _G.smart_tab, opts(expr, silent, remap) },
+  { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
+  { '<C-h>', '<Bs>', opts(noremap) },
+  { '<C-e>', '<End>', opts(noremap) },
+})
 
 -- leaderkey
 nmap({ ' ', '', opts(noremap) })
@@ -35,13 +44,13 @@ nmap({
   { '<C-l>', '<C-w>l', opts(noremap) },
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
+  { 'E', cmd('BufferLineCyclePrev'), opts(noremap, silent) },
+  { 'R', cmd('BufferLineCycleNext'), opts(noremap, silent) }
 })
 
-imap({
-  -- insert mode
-  { '<C-h>', '<Bs>', opts(noremap) },
-  { '<C-e>', '<End>', opts(noremap) },
-})
 
 -- commandline remap
 cmap({ '<C-b>', '<Left>', opts(noremap) })
+
+
+
