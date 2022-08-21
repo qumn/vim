@@ -26,3 +26,16 @@ plugin({
 })
 
 plugin({ 'L3MON4D3/LuaSnip', event = 'InsertEnter', config = conf.lua_snip })
+
+
+plugin({
+  'williamboman/mason.nvim',
+  config = conf.mason
+})
+
+plugin({
+  'glepnir/lspsaga.nvim',
+  branch = "main",
+  after = 'nvim-lspconfig',
+  config = conf.lspsaga
+})
