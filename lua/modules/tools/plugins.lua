@@ -15,3 +15,14 @@ plugin({
     { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
   },
 })
+
+plugin({
+  "mfussenegger/nvim-treehopper"
+})
+
+plugin({
+  "phaazon/hop.nvim",
+  config = function()
+    require('hop').setup()
+  end
+})

@@ -23,9 +23,19 @@ nmap({
   -- nvimtree
   { '<Leader>e', cmd('NvimTreeFindFileToggle'), opts(noremap, silent) },
   -- Telescope
+  { 's', '<Nop>', opts(noremap, silent) },
   { 'sb', cmd('Telescope buffers theme=get_ivy'), opts(noremap, silent) },
   { 'sa', cmd('Telescope live_grep theme=get_ivy'), opts(noremap, silent) },
   { 'sf', cmd('Telescope find_files theme=get_ivy'), opts(noremap, silent) },
   { 'so', cmd('Telescope oldfiles theme=get_ivy'), opts(noremap, silent) },
-  { 'ss', cmd('Telescope symbols theme=get_ivy'), opts(noremap, silent) },
+  { 'ss', cmd('Telescope lsp_document_symbols theme=get_ivy'), opts(noremap, silent) },
+  { 'sS', cmd('Telescope lsp_workspace_symbols theme=get_ivy'), opts(noremap, silent) },
+  -- hop
+  { "sl", cmd("HopWordAC"), opts(noremap, silent)},
+  { "sh", cmd("HopWordBC"), opts(noremap, silent)},
+  { "sj", cmd("HopLineStartAC"), opts(noremap, silent)},
+  { "sk", cmd("HopLineStartBC"), opts(noremap, silent)},
+  -- treehop
+  { 'sm', cmd('lua require("tsht").move()'), opts(noremap, silent)},
+  { 'sv', cmd('lua require("tsht").nodes()'), opts(noremap, silent)}
 })
