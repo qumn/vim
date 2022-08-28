@@ -73,6 +73,16 @@ function config.nvim_tree()
       },
     },
     renderer = {
+      indent_markers = {
+        enable = true,
+        inline_arrows = true,
+        icons = {
+          corner = "└",
+          edge = "│",
+          item = "│",
+          none = " ",
+        },
+      },
       icons = {
         glyphs = {
           default = '',
