@@ -166,4 +166,16 @@ function config.lspsaga()
     end, { silent = true })
 end
 
+
+function config.auto_pairs()
+  require('nvim-autopairs').setup({})
+  local status, cmp = pcall(require, 'cmp')
+  if not status then
+    vim.cmd([[packadd nvim-cmp]])
+  end
+  cmp = require('cmp')
+  local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+end
+
 return config

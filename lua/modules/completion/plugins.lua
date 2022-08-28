@@ -39,3 +39,5 @@ plugin({
   after = 'nvim-lspconfig',
   config = conf.lspsaga
 })
+
+plugin({ 'windwp/nvim-autopairs', event = 'InsertEnter', config = conf.auto_pairs })
