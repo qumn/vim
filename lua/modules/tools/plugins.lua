@@ -15,3 +15,8 @@ plugin({
     { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
   },
 })
+
+plugin({
+  "ahmedkhalf/project.nvim",
+  config = conf.project
+})
