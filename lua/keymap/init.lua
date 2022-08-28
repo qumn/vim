@@ -29,9 +29,6 @@ nmap({
   { 'so', cmd('Telescope oldfiles theme=get_ivy'), opts(noremap, silent) },
   { 'sh', cmd('Telescope help_tags theme=get_ivy'), opts(noremap, silent) },
   { 'ss', cmd('Telescope lsp_document_symbols theme=get_ivy'), opts(noremap, silent) },
-
   { 'gc', cmd('Telescope git_commits theme=get_ivy'), opts(noremap, silent) },
-
   { "<Leader>c", cmd('bd'), opts(noremap, silent) },
-
 })

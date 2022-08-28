@@ -97,7 +97,7 @@ vim.opt.number = true
 vim.opt.colorcolumn = '80'
 vim.opt.foldenable = true
 vim.opt.signcolumn = 'yes'
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 vim.opt.concealcursor = 'niv'
 
 if vim.loop.os_uname().sysname == 'Darwin' then
@@ -116,3 +116,4 @@ if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.python_host_prog = '/usr/bin/python'
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
+
