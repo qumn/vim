@@ -91,4 +91,5 @@ require("catppuccin").setup({
   color_overrides = {},
   highlight_overrides = {},
 })
+vim.g.catppuccin_flavour = "frappe"
 vim.cmd("colorscheme catppuccin")

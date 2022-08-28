@@ -26,3 +26,7 @@ plugin({
     require('hop').setup()
   end
 })
+plugin({
+  "ahmedkhalf/project.nvim",
+  config = conf.project
+})

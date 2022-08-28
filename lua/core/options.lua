@@ -117,15 +117,3 @@ if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
 
-vim.g.clipboard = {
-  name = 'win32yank-wsl',
-  copy = {
-    ['+'] = 'win32yank.exe -i --crlf',
-    ['*'] = 'win32yank.exe -i --crlf',
-  },
-  paste = {
-    ['+'] = 'win32yank.exe -o --lf',
-    ['*'] = 'win32yank.exe -o --lf',
-  },
-  cache_enabled = 0,
-}
