@@ -50,7 +50,7 @@ nmap({
   { '<C-k>', '<C-w>k', opts(noremap) },
   { 'E', cmd('BufferLineCyclePrev'), opts(noremap, silent) },
   { 'R', cmd('BufferLineCycleNext'), opts(noremap, silent) },
-  { '==', cmd('lua vim.lsp.buf.formatting_sync()'), opts(noremap, silent) },
+  { '==', cmd("lua require'keymap.format'.format()"), opts(noremap, silent) },
 })
 
 

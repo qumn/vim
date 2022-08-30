@@ -64,7 +64,7 @@ function config.nvim_cmp()
     -- You can set mappings if you want
     mapping = cmp.mapping.preset.insert({
       ['<C-e>'] = cmp.config.disable,
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
     }),
     snippet = {
       expand = function(args)
@@ -178,4 +178,29 @@ function config.auto_pairs()
   cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 end
 
+function config.null_ls()
+  local null_ls_status_ok, null_ls = pcall(require, "null-ls")
+  if not null_ls_status_ok then
+    return
+  end
+
+  -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+  local formatting = null_ls.builtins.formatting
+  -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+  local diagnostics = null_ls.builtins.diagnostics
+
+  null_ls.setup {
+    debug = false,
+    sources = {
+      formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
+      formatting.black.with { extra_args = { "--fast" } },
+      formatting.stylua,
+      -- formatting.rustfmt,
+      diagnostics.flake8,
+    },
+  }
+end
+
 return config
+
+

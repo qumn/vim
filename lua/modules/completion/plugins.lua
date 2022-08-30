@@ -41,3 +41,9 @@ plugin({
 })
 
 plugin({ 'windwp/nvim-autopairs', event = 'InsertEnter', config = conf.auto_pairs })
+
+plugin({
+  'jose-elias-alvarez/null-ls.nvim',
+  config = conf.null_ls,
+})
+
