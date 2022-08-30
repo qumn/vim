@@ -37,3 +37,11 @@ plugin({
   config = conf.gitsigns,
   requires = { 'nvim-lua/plenary.nvim', opt = true },
 })
+
+vim.g.gitblame_date_format = "%r"
+plugin({
+  'f-person/git-blame.nvim',
+  event = 'BufRead',
+  config = function ()
+  end
+})
