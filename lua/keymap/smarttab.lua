@@ -15,9 +15,9 @@ _G.smart_tab = function()
   end
 
   if cmp.visible() and not luasnip_status then
-    return '<C-n>'
+    return "<cmd>lua require'cmp'.confirm({select= true, behavior=require'cmp'.ConfirmBehavior.Insert})<CR>"
   elseif luasnip_status then
-    return '<Plug>luasnip-expand-or-jump'
+    return "<cmd>lua require'luasnip'.expand_or_jump()<CR>"
   elseif has_words_before() then
     return '<Tab>'
   else
@@ -37,4 +37,5 @@ _G.smart_shift_tab = function()
     return '<S-Tab>'
   end
 end
+
 

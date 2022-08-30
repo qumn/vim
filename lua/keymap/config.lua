@@ -4,7 +4,7 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
-local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap
+local nmap, imap, cmap, xmap, smap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.smap
 local silent, noremap, expr, remap = keymap.silent, keymap.noremap, keymap.expr, keymap.remap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
@@ -19,6 +19,10 @@ imap({
   { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
   { '<C-h>', '<Bs>', opts(noremap) },
   { '<C-e>', '<End>', opts(noremap) },
+})
+smap({
+  { '<TAB>', _G.smart_tab, opts(expr, silent, remap) },
+  { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
 })
 
 -- leaderkey
@@ -45,7 +49,8 @@ nmap({
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
   { 'E', cmd('BufferLineCyclePrev'), opts(noremap, silent) },
-  { 'R', cmd('BufferLineCycleNext'), opts(noremap, silent) }
+  { 'R', cmd('BufferLineCycleNext'), opts(noremap, silent) },
+  { '==', cmd('lua vim.lsp.buf.formatting_sync()'), opts(noremap, silent) },
 })
 
 
