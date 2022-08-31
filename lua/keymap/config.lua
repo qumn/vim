@@ -34,6 +34,8 @@ nmap({
   -- noremal remap
   -- close buffer
   { '<C-x>k', cmd('bdelete'), opts(noremap, silent) },
+  { 'H', '^', opts(noremap, silent) },
+  { 'L', '$', opts(noremap, silent) },
   -- save
   { '<C-s>', cmd('write'), opts(noremap) },
   -- yank

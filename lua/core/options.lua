@@ -4,6 +4,7 @@
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
 
 vim.opt.termguicolors = true
+vim.opt.guifont = "Cascadia Code:h18"
 vim.opt.mouse = 'nv'
 vim.opt.errorbells = true
 vim.opt.visualbell = true

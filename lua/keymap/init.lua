@@ -32,6 +32,8 @@ nmap({
   { 'sS', cmd('Telescope lsp_workspace_symbols theme=get_ivy'), opts(noremap, silent) },
   { 'gc', cmd('Telescope git_commits theme=get_ivy'), opts(noremap, silent) },
   { 'sh', cmd('Telescope help_tags theme=get_ivy'), opts(noremap, silent) },
+  { 'sp', cmd('Telescope project theme=get_ivy'), opts(noremap, silent) },
+  { '<Leader>sk', cmd('Telescope keymaps theme=get_ivy'), opts(noremap, silent) },
   -- hop
   { "sl", cmd("HopWordAC"), opts(noremap, silent)},
   { "sh", cmd("HopWordBC"), opts(noremap, silent)},
@@ -41,5 +43,7 @@ nmap({
   { 'sm', cmd('lua require("tsht").move()'), opts(noremap, silent)},
   { 'sv', cmd('lua require("tsht").nodes()'), opts(noremap, silent)},
   -- other
-  { "<Leader>c", cmd('bd'), opts(noremap, silent) },
+  { "<Leader>c", cmd("bd"), opts(noremap, silent) },
+  { '<Leader>h', cmd('nohlsearch'), opts(noremap, silent) },
+  { '<Leader>w', cmd('w!'), opts(noremap, silent) },
 })
