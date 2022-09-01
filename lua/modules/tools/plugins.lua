@@ -5,6 +5,8 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.tools.config')
 
+plugin({ 'antoinemadec/FixCursorHold.nvim', event = 'BufReadPre' })
+
 plugin({
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
@@ -19,7 +21,8 @@ plugin({
 })
 
 plugin({
-  "mfussenegger/nvim-treehopper"
+  "mfussenegger/nvim-treehopper",
+  event = "BufRead"
 })
 
 plugin({
@@ -38,3 +41,4 @@ plugin({
     event = 'BufRead',
     config = conf.tmux
 })
+
