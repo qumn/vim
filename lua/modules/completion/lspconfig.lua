@@ -125,6 +125,7 @@ local servers = {
   'pyright',
   -- 'denols',
   'bashls',
+  'jsonls'
 }
 
 lspconfig.tsserver.setup({
