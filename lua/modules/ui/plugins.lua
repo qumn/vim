@@ -5,8 +5,6 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
--- plugin({ 'glepnir/zephyr-nvim', config = conf.zephyr })
-
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
 
 plugin({
@@ -23,7 +21,11 @@ plugin({
   requires = 'kyazdani42/nvim-web-devicons',
 })
 
-plugin({ 'akinsho/nvim-bufferline.lua', config = conf.nvim_bufferline, requires = 'kyazdani42/nvim-web-devicons' })
+plugin({
+  'akinsho/nvim-bufferline.lua',
+  config = conf.nvim_bufferline,
+  requires = 'kyazdani42/nvim-web-devicons'
+})
 
 plugin({
     "catppuccin/nvim",
@@ -68,4 +70,10 @@ plugin({
 
 plugin({
   "stevearc/dressing.nvim"
+})
+
+plugin({
+  'lukas-reineke/indent-blankline.nvim',
+  event = 'BufRead',
+  config = conf.indent_blankline,
 })
