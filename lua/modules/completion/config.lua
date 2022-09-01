@@ -5,7 +5,7 @@
 local config = {}
 
 -- config server in this function
-function config.nvim_lsp() 
+function config.nvim_lsp()
   require('modules.completion.lspconfig')
 end
 
@@ -154,16 +154,6 @@ function config.lspsaga()
 
     -- Signature help
     keymap("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
-
-    local action = require("lspsaga.action")
-    -- scroll in hover doc or  definition preview window
-    vim.keymap.set("n", "<C-f>", function()
-      action.smart_scroll_with_saga(1)
-    end, { silent = true })
-    -- scroll in hover doc or  definition preview window
-    vim.keymap.set("n", "<C-b>", function()
-      action.smart_scroll_with_saga(-1)
-    end, { silent = true })
 end
 
 

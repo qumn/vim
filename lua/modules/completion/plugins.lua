@@ -35,12 +35,16 @@ plugin({
 
 plugin({
   'glepnir/lspsaga.nvim',
-  branch = "main",
+  -- branch = "main",
   after = 'nvim-lspconfig',
   config = conf.lspsaga
 })
 
-plugin({ 'windwp/nvim-autopairs', event = 'InsertEnter', config = conf.auto_pairs })
+plugin({
+  'windwp/nvim-autopairs',
+  event = 'InsertEnter',
+  config = conf.auto_pairs
+})
 
 plugin({
   'jose-elias-alvarez/null-ls.nvim',
