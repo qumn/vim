@@ -54,4 +54,18 @@ function config.project()
     }
 end
 
+function config.tmux()
+  require("tmux").setup({
+      copy_sync = {
+          enable = false, -- 启动这个选项会使':'变得非常慢
+      },
+      navigation = {
+          enable_default_keybindings = true,
+      },
+      resize = {
+          enable_default_keybindings = true,
+      }
+  })
+end
+
 return config

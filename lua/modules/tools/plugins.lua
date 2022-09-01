@@ -32,3 +32,9 @@ plugin({
   "ahmedkhalf/project.nvim",
   config = conf.project
 })
+
+plugin({
+    "aserowy/tmux.nvim",
+    event = 'BufRead',
+    config = conf.tmux
+})

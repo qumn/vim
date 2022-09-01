@@ -46,10 +46,6 @@ nmap({
   -- remove trailing white space
   { '<Leader>t', cmd('TrimTrailingWhitespace'), opts(noremap) },
   -- window jump
-  { '<C-h>', '<C-w>h', opts(noremap) },
-  { '<C-l>', '<C-w>l', opts(noremap) },
-  { '<C-j>', '<C-w>j', opts(noremap) },
-  { '<C-k>', '<C-w>k', opts(noremap) },
   { 'E', cmd('BufferLineCyclePrev'), opts(noremap, silent) },
   { 'R', cmd('BufferLineCycleNext'), opts(noremap, silent) },
   { '==', cmd("lua require'keymap.format'.format()"), opts(noremap, silent) },
