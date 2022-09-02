@@ -99,25 +99,32 @@ lspconfig.clangd.setup({
   },
 })
 
-lspconfig.rust_analyzer.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    imports = {
-      granularity = {
-        group = 'module',
+if not packer_plugins['rust-tools.nvim'].loaded then
+  vim.cmd([[packadd rust-tools.nvim]])
+end
+
+local rt = require("rust-tools")
+rt.setup({
+    server = {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        imports = {
+          granularity = {
+            group = 'module',
+          },
+          prefix = 'self',
+        },
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true,
+        },
       },
-      prefix = 'self',
-    },
-    cargo = {
-      buildScripts = {
-        enable = true,
-      },
-    },
-    procMacro = {
-      enable = true,
-    },
-  },
+    }
 })
 
 local servers = {
