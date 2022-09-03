@@ -77,3 +77,10 @@ plugin({
   event = 'BufRead',
   config = conf.indent_blankline,
 })
+
+plugin({
+  'NvChad/nvim-colorizer.lua',
+  config = function()
+    require('colorizer').setup()
+  end
+})
