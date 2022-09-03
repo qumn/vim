@@ -69,6 +69,12 @@ function config.dashboard()
   db.preview_file_width = 80
   db.custom_center = {
     {
+      icon = '冷 ',
+      desc = 'Open Recent Project                     ',
+      shortcut = 'SPC s p',
+      action = 'Telescope projects',
+    },
+    {
       icon = '  ',
       desc = 'Update Plugins                          ',
       shortcut = 'SPC p u',

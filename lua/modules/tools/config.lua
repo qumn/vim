@@ -12,7 +12,6 @@ function config.telescope()
     vim.cmd([[packadd popup.nvim]])
     vim.cmd([[packadd telescope-fzy-native.nvim]])
     vim.cmd([[packadd telescope-file-browser.nvim]])
-    vim.cmd([[packadd telescope-project.nvim]])
   end
 
   require('telescope').setup({
@@ -31,17 +30,11 @@ function config.telescope()
         override_generic_sorter = false,
         override_file_sorter = true,
       },
-      project = {
-        base_dirs = {
-          '~/project/',
-          '~/.config/',
-        },
-      },
     },
   })
   require('telescope').load_extension('fzy_native')
   require('telescope').load_extension('file_browser')
-  require('telescope').load_extension('project')
+  require('telescope').load_extension('projects')
 end
 
 function config.project()

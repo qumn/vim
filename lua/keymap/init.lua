@@ -40,7 +40,7 @@ nmap({
   { 'sS', cmd('Telescope lsp_workspace_symbols theme=get_ivy'), opts(noremap, silent) },
   { 'gc', cmd('Telescope git_commits theme=get_ivy'), opts(noremap, silent) },
   { 'sh', cmd('Telescope help_tags theme=get_ivy'), opts(noremap, silent) },
-  { 'sp', cmd('Telescope project theme=get_ivy'), opts(noremap, silent) },
+  { 'sp', cmd('Telescope projects theme=get_ivy'), opts(noremap, silent) },
   { '<Leader>sk', cmd('Telescope keymaps theme=get_ivy'), opts(noremap, silent) },
   -- hop
   { 'sl', cmd('HopWordAC'), opts(noremap, silent) },
