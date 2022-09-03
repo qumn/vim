@@ -63,7 +63,20 @@ function config.nvim_cmp()
     },
     -- You can set mappings if you want
     mapping = cmp.mapping.preset.insert({
-      ['<C-e>'] = cmp.config.disable,
+      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<C-y>"] = cmp.mapping {
+        i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
+        c = function(fallback)
+          if cmp.visible() then
+            cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+          else
+            fallback()
+          end
+        end,
+      },
       ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
     }),
     snippet = {
@@ -85,9 +98,10 @@ function config.lua_snip()
   local ls = require('luasnip')
   local types = require('luasnip.util.types')
   ls.config.set_config({
-    history = true,
+    -- history = true,
     enable_autosnippets = true,
     updateevents = 'TextChanged,TextChangedI',
+    delete_check_events = "TextChanged,InsertEnter",
     ext_opts = {
       [types.choiceNode] = {
         active = {
@@ -126,7 +140,9 @@ function config.lspsaga()
     keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 
     -- Definition preview
-    keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+    keymap("n", "gp", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+    -- goto Definition
+    keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 
     -- Show line diagnostics
     keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
@@ -151,9 +167,6 @@ function config.lspsaga()
 
     -- Hover Doc
     keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-
-    -- Signature help
-    keymap("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
 end
 
 

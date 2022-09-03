@@ -78,7 +78,7 @@ vim.opt.equalalways = false
 vim.opt.laststatus = 2
 vim.opt.display = 'lastline'
 vim.opt.showbreak = '↳  '
-vim.opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←'
+vim.opt.listchars = 'tab:»·,nbsp:+,trail:▫,extends:→,precedes:←'
 vim.opt.pumblend = 10
 vim.opt.winblend = 10
 

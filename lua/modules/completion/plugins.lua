@@ -32,7 +32,11 @@ plugin({
   },
 })
 
-plugin({ 'L3MON4D3/LuaSnip', event = 'InsertEnter', config = conf.lua_snip })
+plugin({
+  'L3MON4D3/LuaSnip',
+  event = 'InsertEnter',
+  config = conf.lua_snip
+})
 
 
 plugin({
@@ -61,7 +65,7 @@ plugin({
 
 plugin({
   "ray-x/lsp_signature.nvim",
-  event = "BufRead",
+  event = "InsertEnter",
   config = function ()
     local cfg = {
       debug = false, -- set to true to enable debug logging
@@ -94,7 +98,7 @@ plugin({
       hint_enable = true, -- virtual hint enable
       hint_prefix = "🐼 ",  -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
       hint_scheme = "String",
-      hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
+      hi_parameter = "TSNote", -- TODO change to better color -- how your parameter will be highlight
       handler_opts = {
         border = "rounded"   -- double, rounded, single, shadow, none
       },
