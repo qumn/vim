@@ -41,3 +41,11 @@ plugin({
   event = 'BufRead',
   config = conf.tmux,
 })
+
+plugin({
+  'sindrets/diffview.nvim',
+  cmd = "DiffviewOpen",
+  requires = {
+    { 'nvim-lua/plenary.nvim', opt = true },
+  },
+})
