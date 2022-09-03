@@ -4,7 +4,7 @@
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
 
 vim.opt.termguicolors = true
-vim.opt.guifont = "Cascadia Code:h18"
+vim.opt.guifont = 'Cascadia Code:h18'
 vim.opt.mouse = 'nv'
 vim.opt.errorbells = true
 vim.opt.visualbell = true
@@ -118,4 +118,3 @@ if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.python_host_prog = '/usr/bin/python'
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
-

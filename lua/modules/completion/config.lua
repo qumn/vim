@@ -63,20 +63,20 @@ function config.nvim_cmp()
     },
     -- You can set mappings if you want
     mapping = cmp.mapping.preset.insert({
-      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-e>'] = cmp.mapping.abort(),
-      ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-y>"] = cmp.mapping {
-        i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-y>'] = cmp.mapping({
+        i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
         c = function(fallback)
           if cmp.visible() then
-            cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
           else
             fallback()
           end
         end,
-      },
+      }),
       ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
     }),
     snippet = {
@@ -91,7 +91,6 @@ function config.nvim_cmp()
       { name = 'buffer' },
     },
   })
-
 end
 
 function config.lua_snip()
@@ -101,7 +100,7 @@ function config.lua_snip()
     -- history = true,
     enable_autosnippets = true,
     updateevents = 'TextChanged,TextChangedI',
-    delete_check_events = "TextChanged,InsertEnter",
+    delete_check_events = 'TextChanged,InsertEnter',
     ext_opts = {
       [types.choiceNode] = {
         active = {
@@ -118,57 +117,56 @@ function config.lua_snip()
 end
 
 function config.mason()
-  require("mason").setup()
+  require('mason').setup()
 end
 
 function config.lspsaga()
-    local keymap = vim.keymap.set
-    local saga = require('lspsaga')
+  local keymap = vim.keymap.set
+  local saga = require('lspsaga')
 
-    saga.init_lsp_saga()
+  saga.init_lsp_saga()
 
-    -- Lsp finder find the symbol definition implmement reference
-    -- when you use action in finder like open vsplit then your can
-    -- use <C-t> to jump back
-    keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+  -- Lsp finder find the symbol definition implmement reference
+  -- when you use action in finder like open vsplit then your can
+  -- use <C-t> to jump back
+  keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', { silent = true })
 
-    -- Code action
-    keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-    keymap("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
+  -- Code action
+  keymap('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', { silent = true })
+  keymap('v', '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<CR>', { silent = true })
 
-    -- Rename
-    keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+  -- Rename
+  keymap('n', 'gr', '<cmd>Lspsaga rename<CR>', { silent = true })
 
-    -- Definition preview
-    keymap("n", "gp", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
-    -- goto Definition
-    keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+  -- Definition preview
+  keymap('n', 'gp', '<cmd>Lspsaga preview_definition<CR>', { silent = true })
+  -- goto Definition
+  keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
-    -- Show line diagnostics
-    keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+  -- Show line diagnostics
+  keymap('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', { silent = true })
 
-    -- Show cursor diagnostic
-    keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+  -- Show cursor diagnostic
+  keymap('n', '<leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>', { silent = true })
 
-    -- Diagnsotic jump
-    keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-    keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+  -- Diagnsotic jump
+  keymap('n', '[e', '<cmd>Lspsaga diagnostic_jump_next<CR>', { silent = true })
+  keymap('n', ']e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { silent = true })
 
-    -- Only jump to error
-    keymap("n", "[E", function()
-      require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-    end, { silent = true })
-    keymap("n", "]E", function()
-      require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-    end, { silent = true })
+  -- Only jump to error
+  keymap('n', '[E', function()
+    require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  end, { silent = true })
+  keymap('n', ']E', function()
+    require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })
+  end, { silent = true })
 
-    -- Outline
-    keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
+  -- Outline
+  keymap('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', { silent = true })
 
-    -- Hover Doc
-    keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+  -- Hover Doc
+  keymap('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { silent = true })
 end
-
 
 function config.auto_pairs()
   require('nvim-autopairs').setup({})
@@ -182,7 +180,7 @@ function config.auto_pairs()
 end
 
 function config.null_ls()
-  local null_ls_status_ok, null_ls = pcall(require, "null-ls")
+  local null_ls_status_ok, null_ls = pcall(require, 'null-ls')
   if not null_ls_status_ok then
     return
   end
@@ -192,18 +190,16 @@ function config.null_ls()
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
   local diagnostics = null_ls.builtins.diagnostics
 
-  null_ls.setup {
+  null_ls.setup({
     debug = false,
     sources = {
-      formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
-      formatting.black.with { extra_args = { "--fast" } },
+      formatting.prettier.with({ extra_args = { '--no-semi', '--single-quote', '--jsx-single-quote' } }),
+      formatting.black.with({ extra_args = { '--fast' } }),
       formatting.stylua,
       -- formatting.rustfmt,
       diagnostics.flake8,
     },
-  }
+  })
 end
 
 return config
-
-

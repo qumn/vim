@@ -17,7 +17,7 @@ function config.galaxyline()
 end
 
 function config.indent_blankline()
-   require('indent_blankline').setup({
+  require('indent_blankline').setup({
     char = '│',
     use_treesitter_scope = true,
     show_first_indent_level = true,
@@ -120,10 +120,10 @@ function config.nvim_tree()
         enable = true,
         inline_arrows = true,
         icons = {
-          corner = "└",
-          edge = "│",
-          item = "│",
-          none = " ",
+          corner = '└',
+          edge = '│',
+          item = '│',
+          none = ' ',
         },
       },
       icons = {
@@ -162,34 +162,34 @@ function config.gitsigns()
   require('gitsigns').setup({
     signs = {
       add = {
-        hl = "GitSignsAdd",
-        text = "▋",
-        numhl = "GitSignsAddNr",
-        linehl = "GitSignsAddLn",
+        hl = 'GitSignsAdd',
+        text = '▋',
+        numhl = 'GitSignsAddNr',
+        linehl = 'GitSignsAddLn',
       },
       change = {
-        hl = "GitSignsChange",
+        hl = 'GitSignsChange',
         text = '▋',
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
+        numhl = 'GitSignsChangeNr',
+        linehl = 'GitSignsChangeLn',
       },
       delete = {
-        hl = "GitSignsDelete",
+        hl = 'GitSignsDelete',
         text = '▋',
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
+        numhl = 'GitSignsDeleteNr',
+        linehl = 'GitSignsDeleteLn',
       },
       topdelete = {
-        hl = "GitSignsDelete",
+        hl = 'GitSignsDelete',
         text = '▔',
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
+        numhl = 'GitSignsDeleteNr',
+        linehl = 'GitSignsDeleteLn',
       },
       changedelete = {
-        hl = "GitSignsChange",
+        hl = 'GitSignsChange',
         text = '▎',
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
+        numhl = 'GitSignsChangeNr',
+        linehl = 'GitSignsChangeLn',
       },
     },
     keymaps = {

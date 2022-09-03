@@ -1,18 +1,18 @@
 local config = {}
 
 local ensure_installed = {
-  "bash",
-  "c",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
-  "yaml",
+  'bash',
+  'c',
+  'javascript',
+  'json',
+  'lua',
+  'python',
+  'typescript',
+  'tsx',
+  'css',
+  'rust',
+  'java',
+  'yaml',
 }
 
 function config.nvim_treesitter()

@@ -51,9 +51,5 @@ nmap({
   { '==', cmd("lua require'keymap.format'.format()"), opts(noremap, silent) },
 })
 
-
 -- commandline remap
 cmap({ '<C-b>', '<Left>', opts(noremap) })
-
-
-

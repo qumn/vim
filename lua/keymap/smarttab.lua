@@ -1,14 +1,13 @@
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0
-    and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 ---when inside a snippet, seeks to the nearest luasnip field if possible, and checks if it is jumpable
 ---@param dir number 1 for forward, -1 for backward; defaults to 1
 ---@return boolean true if a jumpable luasnip field is found while inside a snippet
 local function jumpable(dir)
-  local luasnip_ok, luasnip = pcall(require, "luasnip")
+  local luasnip_ok, luasnip = pcall(require, 'luasnip')
   if not luasnip_ok then
     return false
   end
@@ -133,9 +132,8 @@ _G.smart_shift_tab = function()
   end
 end
 
-
 _G.smart_return = function()
-  print("smart return")
+  print('smart return')
   local cmp = require('cmp')
   local ok, luasnip = pcall(require, 'luasnip')
   local luasnip_status = false
@@ -151,4 +149,4 @@ _G.smart_return = function()
   end
 end
 
-      -- ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+-- ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),

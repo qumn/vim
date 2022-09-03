@@ -30,10 +30,10 @@ function config.telescope()
       },
       project = {
         base_dirs = {
-          "~/project/",
-          "~/.config/"
+          '~/project/',
+          '~/.config/',
         },
-      }
+      },
     },
   })
   require('telescope').load_extension('fzy_native')
@@ -42,29 +42,29 @@ function config.telescope()
 end
 
 function config.project()
-    require("project_nvim").setup {
-      active = true,
-      on_config_done = nil,
-      manual_mode = false,
-      detection_methods = { "pattern" },
-      patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
-      show_hidden = false,
-      silent_chdir = true,
-      ignore_lsp = {},
-    }
+  require('project_nvim').setup({
+    active = true,
+    on_config_done = nil,
+    manual_mode = false,
+    detection_methods = { 'pattern' },
+    patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json' },
+    show_hidden = false,
+    silent_chdir = true,
+    ignore_lsp = {},
+  })
 end
 
 function config.tmux()
-  require("tmux").setup({
-      copy_sync = {
-          enable = false, -- 启动这个选项会使':'变得非常慢
-      },
-      navigation = {
-          enable_default_keybindings = true,
-      },
-      resize = {
-          enable_default_keybindings = true,
-      }
+  require('tmux').setup({
+    copy_sync = {
+      enable = false, -- 启动这个选项会使':'变得非常慢
+    },
+    navigation = {
+      enable_default_keybindings = true,
+    },
+    resize = {
+      enable_default_keybindings = true,
+    },
   })
 end
 

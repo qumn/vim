@@ -16,29 +16,28 @@ plugin({
     { 'nvim-lua/plenary.nvim', opt = true },
     { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
     { 'nvim-telescope/telescope-file-browser.nvim', opt = true },
-    { 'nvim-telescope/telescope-project.nvim', opt = true},
+    { 'nvim-telescope/telescope-project.nvim', opt = true },
   },
 })
 
 plugin({
-  "mfussenegger/nvim-treehopper",
-  event = "BufRead"
+  'mfussenegger/nvim-treehopper',
+  event = 'BufRead',
 })
 
 plugin({
-  "phaazon/hop.nvim",
+  'phaazon/hop.nvim',
   config = function()
     require('hop').setup()
-  end
+  end,
 })
 plugin({
-  "ahmedkhalf/project.nvim",
-  config = conf.project
+  'ahmedkhalf/project.nvim',
+  config = conf.project,
 })
 
 plugin({
-    "aserowy/tmux.nvim",
-    event = 'BufRead',
-    config = conf.tmux
+  'aserowy/tmux.nvim',
+  event = 'BufRead',
+  config = conf.tmux,
 })
-

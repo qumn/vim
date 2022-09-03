@@ -103,28 +103,28 @@ if not packer_plugins['rust-tools.nvim'].loaded then
   vim.cmd([[packadd rust-tools.nvim]])
 end
 
-local rt = require("rust-tools")
+local rt = require('rust-tools')
 rt.setup({
-    server = {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      settings = {
-        imports = {
-          granularity = {
-            group = 'module',
-          },
-          prefix = 'self',
+  server = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      imports = {
+        granularity = {
+          group = 'module',
         },
-        cargo = {
-          buildScripts = {
-            enable = true,
-          },
-        },
-        procMacro = {
+        prefix = 'self',
+      },
+      cargo = {
+        buildScripts = {
           enable = true,
         },
       },
-    }
+      procMacro = {
+        enable = true,
+      },
+    },
+  },
 })
 
 local servers = {
@@ -132,7 +132,7 @@ local servers = {
   'pyright',
   -- 'denols',
   'bashls',
-  'jsonls'
+  'jsonls',
 }
 
 lspconfig.tsserver.setup({

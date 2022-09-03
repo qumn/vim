@@ -1,18 +1,18 @@
-require("catppuccin").setup({
+require('catppuccin').setup({
   dim_inactive = {
     enabled = false,
-    shade = "dark",
+    shade = 'dark',
     percentage = 0.15,
   },
   transparent_background = false,
   term_colors = false,
   compile = {
     enabled = false,
-    path = vim.fn.stdpath "cache" .. "/catppuccin",
+    path = vim.fn.stdpath('cache') .. '/catppuccin',
   },
   styles = {
-    comments = { "italic" },
-    conditionals = { "italic" },
+    comments = { 'italic' },
+    conditionals = { 'italic' },
     loops = {},
     functions = {},
     keywords = {},
@@ -29,16 +29,16 @@ require("catppuccin").setup({
     native_lsp = {
       enabled = true,
       virtual_text = {
-        errors = { "italic" },
-        hints = { "italic" },
-        warnings = { "italic" },
-        information = { "italic" },
+        errors = { 'italic' },
+        hints = { 'italic' },
+        warnings = { 'italic' },
+        information = { 'italic' },
       },
       underlines = {
-        errors = { "underline" },
-        hints = { "underline" },
-        warnings = { "underline" },
-        information = { "underline" },
+        errors = { 'underline' },
+        hints = { 'underline' },
+        warnings = { 'underline' },
+        information = { 'underline' },
       },
     },
     coc_nvim = false,
@@ -91,5 +91,5 @@ require("catppuccin").setup({
   color_overrides = {},
   highlight_overrides = {},
 })
-vim.g.catppuccin_flavour = "frappe"
-vim.cmd("colorscheme catppuccin")
+vim.g.catppuccin_flavour = 'frappe'
+vim.cmd('colorscheme catppuccin')
