@@ -18,8 +18,8 @@ imap({
   { '<TAB>', _G.smart_tab, opts(expr, silent, remap) },
   { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
   { '<C-h>', '<Bs>', opts(noremap) },
-  { '<C-e>', '<End>', opts(noremap) },
 })
+
 smap({
   { '<TAB>', _G.smart_tab, opts(expr, silent, remap) },
   { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
