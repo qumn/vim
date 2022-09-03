@@ -54,6 +54,7 @@ nmap({
   { '<Leader>c', cmd('bd'), opts(noremap, silent) },
   { '<Leader>h', cmd('nohlsearch'), opts(noremap, silent) },
   { '<Leader>w', cmd('w!'), opts(noremap, silent) },
+  { '<Leader>tw', cmd('TranslateW'), opts(noremap) },
   -- lspsaga
   { 'gh', cmd('Lspsaga lsp_finder'), opts(noremap, silent) },
   { 'gr', cmd('Lspsaga rename'), opts(noremap, silent) },

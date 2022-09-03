@@ -191,7 +191,7 @@ function config.lsp_signature()
     hint_enable = true, -- virtual hint enable
     hint_prefix = '🐼 ', -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
     hint_scheme = 'String',
-    hi_parameter = 'TSNote', -- TODO change to better color -- how your parameter will be highlight
+    hi_parameter = 'TSNote', -- TODO: change to better color -- how your parameter will be highlight
     handler_opts = {
       border = 'rounded', -- double, rounded, single, shadow, none
     },

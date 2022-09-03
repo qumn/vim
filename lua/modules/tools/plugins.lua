@@ -27,6 +27,7 @@ plugin({
 
 plugin({
   'phaazon/hop.nvim',
+  cmd = { 'HopWordAC', 'HopWordBC', 'HopLineStartAC', 'HopLineStartBC' },
   config = function()
     require('hop').setup()
   end,
@@ -44,8 +45,65 @@ plugin({
 
 plugin({
   'sindrets/diffview.nvim',
-  cmd = "DiffviewOpen",
+  cmd = 'DiffviewOpen',
   requires = {
     { 'nvim-lua/plenary.nvim', opt = true },
   },
+})
+
+plugin({
+  'andymass/vim-matchup',
+  event = 'BufRead',
+  config = function()
+    vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+  end,
+})
+
+plugin({
+  'voldikss/vim-translator',
+  cmd = 'TranslateW',
+  config = function()
+    vim.g.translator_default_engines = { 'bing', 'haici' }
+  end,
+})
+
+plugin({
+  'folke/todo-comments.nvim',
+  event = 'BufRead',
+  config = function()
+    require('todo-comments').setup()
+  end,
+})
+
+plugin({
+  'tpope/vim-surround',
+  event = 'BufRead',
+  keys = { 'c', 'd', 'y' },
+})
+
+plugin({
+  'junegunn/vim-easy-align',
+  event = 'BufRead',
+  config = function()
+    vim.cmd([[
+      " Start interactive EasyAlign in visual mode (e.g. vipga)
+      xmap ga <Plug>(EasyAlign)
+
+      " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+      nmap ga <Plug>(EasyAlign)
+    ]])
+  end,
+})
+
+plugin({
+  'lambdalisue/suda.vim',
+  cmd = 'SudaWrite',
+  config = function()
+    vim.g.suda_smart_edit = 1
+  end,
+})
+
+plugin({
+  'sindrets/winshift.nvim',
+  cmd = 'WinShift',
 })
