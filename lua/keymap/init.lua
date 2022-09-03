@@ -6,11 +6,18 @@
 require('keymap.config')
 require('keymap.gui')
 local key = require('core.keymap')
-local nmap = key.nmap
+local nmap, vmap = key.nmap, key.vmap
 local silent, noremap = key.silent, key.noremap
 local opts = key.new_opts
 local cmd = key.cmd
 
+local jump_only_error_next = function()
+  require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end
+
+local jump_only_error_prev = function()
+  require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })
+end
 -- usage of plugins
 nmap({
   -- packer
@@ -47,4 +54,32 @@ nmap({
   { '<Leader>c', cmd('bd'), opts(noremap, silent) },
   { '<Leader>h', cmd('nohlsearch'), opts(noremap, silent) },
   { '<Leader>w', cmd('w!'), opts(noremap, silent) },
+  -- lspsaga
+  { 'gh', cmd('Lspsaga lsp_finder'), opts(noremap, silent) },
+  { 'gr', cmd('Lspsaga rename'), opts(noremap, silent) },
+  { 'gp', cmd('Lspsaga preview_definition'), opts(noremap, silent) },
+  { 'gd', cmd('lua vim.lsp.buf.definition()'), opts(noremap, silent) },
+  { '[e', cmd('Lspsaga diagnostic_jump_prev'), opts(noremap, silent) },
+  { ']e', cmd('Lspsaga diagnostic_jump_next'), opts(noremap, silent) },
+  { '<leader>ca', cmd('Lspsaga code_action'), opts(noremap, silent) },
+  { '<leader>cd', cmd('Lspsaga show_line_diagnostics'), opts(noremap, silent) },
+  { '<leader>cd', cmd('Lspsaga show_cursor_diagnostics'), opts(noremap, silent) },
+  { '<Leader>gg', cmd('Lspsaga open_floaterm lazygit'), opts(noremap, silent) },
+  { '[E', jump_only_error_prev, opts(silent) },
+  { ']E', jump_only_error_next, opts(noremap, silent) },
+  { '<leader>o', '<cmd>LSoutlineToggle<CR>', opts(noremap, silent) },
+  { '<leader>o', cmd('LSoutlineToggle'), opts(noremap, silent) }, -- outline use `o` to jump
+  { 'K', cmd('Lspsaga hover_doc'), opts(noremap, silent) },
+  -- gitsigns
+  { ']g', cmd('<cmd>lua require"gitsigns".next_hunk()<CR>'), opts(noremap, silent) },
+  { '[g', cmd('<cmd>lua require"gitsigns".prev_hunk()<CR>'), opts(noremap, silent) },
+  { '<leader>gs', cmd('lua require"gitsigns".stage_hunk()'), opts(noremap, silent) },
+  { '<leader>gu', cmd('lua require"gitsigns".undo_stage_hunk()'), opts(noremap, silent) },
+  { '<leader>gr', cmd('lua require"gitsigns".reset_hunk()'), opts(noremap, silent) },
+  { '<leader>gp', cmd('lua require"gitsigns".preview_hunk()'), opts(noremap, silent) },
+  { '<leader>gb', cmd('lua require"gitsigns".blame_line()'), opts(noremap, silent) },
+})
+
+vmap({
+  { '<leader>ca', cmd('<C-U>Lspsaga range_code_action'), opts(noremap, silent) },
 })
