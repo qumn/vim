@@ -71,8 +71,8 @@ nmap({
   { '<leader>o', cmd('LSoutlineToggle'), opts(noremap, silent) }, -- outline use `o` to jump
   { 'K', cmd('Lspsaga hover_doc'), opts(noremap, silent) },
   -- gitsigns
-  { ']g', cmd('<cmd>lua require"gitsigns".next_hunk()<CR>'), opts(noremap, silent) },
-  { '[g', cmd('<cmd>lua require"gitsigns".prev_hunk()<CR>'), opts(noremap, silent) },
+  { ']g', cmd('lua require"gitsigns".next_hunk()'), opts(noremap, silent) },
+  { '[g', cmd('lua require"gitsigns".prev_hunk()'), opts(noremap, silent) },
   { '<leader>gs', cmd('lua require"gitsigns".stage_hunk()'), opts(noremap, silent) },
   { '<leader>gu', cmd('lua require"gitsigns".undo_stage_hunk()'), opts(noremap, silent) },
   { '<leader>gr', cmd('lua require"gitsigns".reset_hunk()'), opts(noremap, silent) },
