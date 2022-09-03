@@ -4,6 +4,7 @@
 -- recommend plugins key defines in this file
 
 require('keymap.config')
+require('keymap.gui')
 local key = require('core.keymap')
 local nmap = key.nmap
 local silent, noremap = key.silent, key.noremap
