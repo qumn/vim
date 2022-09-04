@@ -79,8 +79,14 @@ nmap({
   { '<leader>gr', cmd('lua require"gitsigns".reset_hunk()'), opts(noremap, silent) },
   { '<leader>gp', cmd('lua require"gitsigns".preview_hunk()'), opts(noremap, silent) },
   { '<leader>gb', cmd('lua require"gitsigns".blame_line()'), opts(noremap, silent) },
+  -- diffview
+  { '<leader>gd', cmd('DiffviewFileHistory %'), opts(noremap, silent) },
+  { '<leader>ga', cmd('DiffviewFileHistory'), opts(noremap, silent) }, -- diffview all file 
+  { '<leader>go', cmd('DiffviewOpen'), opts(noremap, silent) },
+  { '<leader>gc', cmd('DiffviewClose'), opts(noremap, silent) },
 })
 
 vmap({
   { '<leader>ca', cmd('<C-U>Lspsaga range_code_action'), opts(noremap, silent) },
+  { '=', cmd('vim.lsp.buf.range_formatting()'), opts(noremap, silent) },
 })

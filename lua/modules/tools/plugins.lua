@@ -44,7 +44,7 @@ plugin({
 
 plugin({
   'sindrets/diffview.nvim',
-  cmd = 'DiffviewOpen',
+  cmd = {'DiffviewOpen', 'DiffviewFileHistory'},
   requires = {
     { 'nvim-lua/plenary.nvim', opt = true },
   },
@@ -105,4 +105,9 @@ plugin({
 plugin({
   'sindrets/winshift.nvim',
   cmd = 'WinShift',
+})
+
+plugin({
+ 'Shatur/neovim-session-manager',
+ config = conf.session_manager
 })
