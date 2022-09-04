@@ -111,3 +111,10 @@ plugin({
  'Shatur/neovim-session-manager',
  config = conf.session_manager
 })
+
+plugin({
+  'folke/which-key.nvim',
+  event = 'BufWinEnter',
+  config = conf.which_key,
+})
+

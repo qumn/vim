@@ -4,7 +4,7 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
-local nmap, imap, cmap, xmap, smap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.smap
+local nmap, imap, cmap, xmap, smap, vmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.smap, keymap.vmap
 local silent, noremap, expr, remap = keymap.silent, keymap.noremap, keymap.expr, keymap.remap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
@@ -51,3 +51,45 @@ nmap({
 
 -- commandline remap
 cmap({ '<C-b>', '<Left>', opts(noremap) })
+
+vmap({
+  { 'H', '^', opts(noremap, silent) },
+  { 'L', '$', opts(noremap, silent) },
+})
+-- gui specialize config
+vim.g.gui_font_default_size = 18
+vim.g.gui_font_size = vim.g.gui_font_default_size
+vim.g.gui_font_face = 'FiraCode Nerd Font'
+
+RefreshGuiFont = function()
+  vim.opt.guifont = string.format('%s:h%s', vim.g.gui_font_face, vim.g.gui_font_size)
+end
+
+ResizeGuiFont = function(delta)
+  vim.g.gui_font_size = vim.g.gui_font_size + delta
+  RefreshGuiFont()
+end
+
+ResetGuiFont = function()
+  vim.g.gui_font_size = vim.g.gui_font_default_size
+  RefreshGuiFont()
+end
+
+-- Call function on startup to set default value
+ResetGuiFont()
+
+-- Keymaps
+nmap({
+  '<C-=>',
+  function()
+    ResizeGuiFont(1)
+  end,
+  opts(noremap, silent),
+})
+nmap({
+  '<C-->',
+  function()
+    ResizeGuiFont(-1)
+  end,
+  opts(noremap, silent),
+})
