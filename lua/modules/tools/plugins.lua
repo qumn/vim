@@ -44,7 +44,7 @@ plugin({
 
 plugin({
   'sindrets/diffview.nvim',
-  cmd = {'DiffviewOpen', 'DiffviewFileHistory'},
+  cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
   requires = {
     { 'nvim-lua/plenary.nvim', opt = true },
   },
@@ -108,8 +108,8 @@ plugin({
 })
 
 plugin({
- 'Shatur/neovim-session-manager',
- config = conf.session_manager
+  'Shatur/neovim-session-manager',
+  config = conf.session_manager,
 })
 
 plugin({
@@ -118,3 +118,10 @@ plugin({
   config = conf.which_key,
 })
 
+plugin({
+  'numToStr/Comment.nvim',
+  event = 'BufRead',
+  config = function()
+    require('Comment').setup()
+  end,
+})
