@@ -22,20 +22,47 @@ function map.smart_quit()
 end
 
 map.nlmappings = {
+  [';'] = { cmd('Dashboard'), 'Dashboard' },
+  ['/'] = { '<Plug>(comment_toggle_linewise_current)', 'Comment toggle current line' },
   c = { cmd('bd'), 'Close Buffer' },
-  h = { cmd('nohlsearch'), 'Disable Search Highlight' },
+  h = { cmd('nohlsearch'), 'No Highlight' },
   w = { cmd('w!'), 'Save Buffer' },
   e = { cmd('NvimTreeFindFileToggle'), 'NvimTree Toggle' },
   n = { cmd('DashboardNewFile'), 'Dashboard New File' },
   o = { cmd('LSoutlineToggle'), 'LSoutlineToggle' }, -- outline use `o` to jump
   q = { map.smart_quit, 'Quit' },
+  b = {
+    name = 'Buffers',
+    j = { '<cmd>BufferLinePick<cr>', 'Jump' },
+    f = { '<cmd>Telescope buffers<cr>', 'Find' },
+    p = { '<cmd>BufferLineCyclePrev<cr>', 'Previous' },
+    n = { '<cmd>BufferLineCycleNext<cr>', 'Next' },
+    -- w = { "<cmd>BufferWipeout<cr>", "Wipeout" }, -- TODO: implement this for bufferline
+    e = {
+      '<cmd>BufferLinePickClose<cr>',
+      'Pick which buffer to close',
+    },
+    h = { '<cmd>BufferLineCloseLeft<cr>', 'Close all to the left' },
+    l = {
+      '<cmd>BufferLineCloseRight<cr>',
+      'Close all to the right',
+    },
+    D = {
+      '<cmd>BufferLineSortByDirectory<cr>',
+      'Sort by directory',
+    },
+    L = {
+      '<cmd>BufferLineSortByExtension<cr>',
+      'Sort by language',
+    },
+  },
   p = {
     name = 'Packer',
     u = { cmd('PackerUpdate'), 'Updater' },
     i = { cmd('PackerInstall'), 'Install' },
     c = { cmd('PackerCompile'), 'Compile' },
-    s = { cmd('PackerSync'), "Sync" },
-    S = { cmd('PackerStatus'), 'Compile' },
+    s = { cmd('PackerSync'), 'Sync' },
+    S = { cmd('PackerStatus'), 'Status' },
   },
   g = {
     name = 'Git',
@@ -49,6 +76,16 @@ map.nlmappings = {
     b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
     c = { '<cmd>Telescope git_commits<cr>', 'Checkout commit' },
     g = { cmd('Lspsaga open_floaterm lazygit'), 'lazygit' },
+  },
+  l = {
+    name = 'Lsp',
+    a = { cmd('Lspsaga code_action'), 'code action' },
+    d = { cmd('Lspsaga show_line_diagnostics'), 'Show Line Diagnostics' },
+    e = { cmd('Lspsaga rename'), 'Lsp Rename' },
+    i = { '<cmd>LspInfo<cr>', 'Info' },
+    I = { "<cmd>Mason<cr>", "Mason Info" },
+    f = { cmd("lua require'keymap.format'.format()"), 'Format' },
+    -- d = { cmd('Lspsaga show_cursor_diagnostics'), 'Show Cursor Diagnostics' },
   },
   d = {
     name = 'Diffview',
@@ -77,13 +114,6 @@ map.nlmappings = {
   t = {
     name = 'Translate',
     w = { cmd('TranslateW'), 'Translate' },
-  },
-  l = {
-    name = 'Lsp',
-    a = { cmd('Lspsaga code_action'), 'code action' },
-    d = { cmd('Lspsaga show_line_diagnostics'), 'Show Line Diagnostics' },
-    r = { cmd('Lspsaga rename'), 'Lsp Rename' },
-    -- d = { cmd('Lspsaga show_cursor_diagnostics'), 'Show Cursor Diagnostics' },
   },
 }
 
