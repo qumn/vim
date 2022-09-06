@@ -85,8 +85,8 @@ function config.nvim_cmp()
       end,
     },
     sources = {
-      { name = 'nvim_lsp' },
       { name = 'luasnip' },
+      { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'buffer' },
     },
@@ -153,7 +153,8 @@ function config.null_ls()
       formatting.prettier.with({ extra_args = { '--no-semi', '--single-quote', '--jsx-single-quote' } }),
       formatting.black.with({ extra_args = { '--fast' } }),
       formatting.stylua,
-      -- formatting.rustfmt,
+      -- formatting.jq,
+      formatting.rustfmt,
       diagnostics.flake8,
     },
   })

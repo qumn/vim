@@ -14,6 +14,10 @@ saga.init_lsp_saga({
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
 
 if not packer_plugins['cmp-nvim-lsp'].loaded then
   vim.cmd([[packadd cmp-nvim-lsp]])
@@ -74,6 +78,7 @@ lspconfig.gopls.setup({
 
 lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -90,6 +95,7 @@ lspconfig.sumneko_lua.setup({
 
 lspconfig.clangd.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   cmd = {
     'clangd',
     '--background-index',
@@ -127,6 +133,10 @@ rt.setup({
   },
 })
 
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+})
+
 local servers = {
   'dockerls',
   'pyright',
@@ -135,12 +145,9 @@ local servers = {
   'jsonls',
 }
 
-lspconfig.tsserver.setup({
-  on_attach = on_attach,
-})
-
 for _, server in ipairs(servers) do
   lspconfig[server].setup({
     on_attach = on_attach,
+    capabilities = capabilities,
   })
 end

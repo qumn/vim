@@ -7,7 +7,7 @@ local conf = require('modules.completion.config')
 
 plugin({
   'neovim/nvim-lspconfig',
-  ft = { 'lua', 'rust', 'c', 'cpp', 'sh', 'json' },
+  ft = { 'lua', 'rust', 'c', 'cpp', 'sh', 'json', 'javascript' },
   config = conf.nvim_lsp,
 })
 
