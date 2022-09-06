@@ -24,16 +24,21 @@ plugin({
 })
 
 plugin({
+  'simrat39/symbols-outline.nvim',
+  cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose' },
+  config = conf.symbols_outline,
+})
+
+plugin({
   'kevinhwang91/nvim-ufo',
   requires = 'kevinhwang91/promise-async',
   after = 'nvim-lspconfig',
   config = conf.ufo,
 })
 
-
 plugin({
   'kkoomen/vim-doge',
   cmd = 'DogeGenerate',
   run = ':call doge#install()',
-  config = conf.doge
+  config = conf.doge,
 })
