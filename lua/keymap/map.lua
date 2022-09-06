@@ -83,7 +83,7 @@ map.nlmappings = {
     d = { cmd('Lspsaga show_line_diagnostics'), 'Show Line Diagnostics' },
     e = { cmd('Lspsaga rename'), 'Lsp Rename' },
     i = { '<cmd>LspInfo<cr>', 'Info' },
-    I = { "<cmd>Mason<cr>", "Mason Info" },
+    I = { '<cmd>Mason<cr>', 'Mason Info' },
     f = { cmd("lua require'keymap.format'.format()"), 'Format' },
     -- d = { cmd('Lspsaga show_cursor_diagnostics'), 'Show Cursor Diagnostics' },
   },
@@ -93,6 +93,7 @@ map.nlmappings = {
     a = { cmd('DiffviewFileHistory'), 'All File' }, -- diffview all file
     o = { cmd('DiffviewOpen'), 'Open' },
     c = { cmd('DiffviewClose'), 'Close' },
+    g = { cmd('DogeGenerate'), 'Generate Doc' },
   },
 
   s = {

@@ -125,3 +125,8 @@ plugin({
     require('Comment').setup()
   end,
 })
+
+plugin({
+  'tpope/vim-repeat',
+  event = 'BufRead'
+})

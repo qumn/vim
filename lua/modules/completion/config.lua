@@ -90,6 +90,7 @@ function config.nvim_cmp()
       { name = 'path' },
       { name = 'buffer' },
     },
+    experimental = { ghost_text = true }, -- show virtual text selected
   })
 end
 
