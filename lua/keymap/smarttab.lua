@@ -106,7 +106,7 @@ _G.smart_tab = function()
     luasnip_status = luasnip.expand_or_locally_jumpable()
   end
 
-  if luasnip_status then
+  if luasnip_status then -- TODO: only jump to the position which behind current cursor
     return "<cmd>lua require'luasnip'.expand_or_jump()<CR>"
   elseif cmp.visible() then
     return "<cmd>lua require'cmp'.confirm({select= true, behavior=require'cmp'.ConfirmBehavior.Replace})<CR>"

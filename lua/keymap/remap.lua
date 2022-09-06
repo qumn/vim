@@ -32,6 +32,16 @@ xmap({ ' ', '', opts(noremap) })
 -- usage example
 nmap({
   -- noremal remap
+  {
+    'K',
+    function()
+      local winid = require('ufo').peekFoldedLinesUnderCursor()
+      if not winid then
+        vim.cmd('Lspsaga hover_doc')
+      end
+    end,
+    opts(noremap, silent),
+  },
   -- close buffer
   { '<C-x>k', cmd('bdelete'), opts(noremap, silent) },
   { 'H', '^', opts(noremap, silent) },

@@ -166,8 +166,8 @@ map.nmappings = {
     o = { cmd('Telescope oldfiles theme=get_ivy'), 'Oldfile' },
     s = { cmd('Telescope lsp_document_symbols theme=get_ivy'), 'Lsp Document Symbols' },
     S = { cmd('Telescope lsp_workspace_symbols theme=get_ivy'), 'Lsp Workspace Symbols' },
-    c = { cmd('Telescope git_commits theme=get_ivy'), '' },
-    p = { cmd('Telescope projects theme=get_ivy'), '' },
+    c = { cmd('Telescope git_commits theme=get_ivy'), 'Git Commits' },
+    p = { cmd('Telescope projects theme=get_ivy'), 'Projects' },
   },
   g = {
     h = { cmd('Lspsaga lsp_finder'), 'Lsp Finder' },
@@ -175,7 +175,6 @@ map.nmappings = {
     p = { cmd('Lspsaga preview_definition'), 'Lsp Preview Definition' },
     d = { cmd('lua vim.lsp.buf.definition()'), 'Goto Definetion' },
   },
-  K = { cmd('Lspsaga hover_doc'), 'Lspsaga Hover Doc' },
 }
 
 map.nopts = {
