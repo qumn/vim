@@ -68,6 +68,7 @@ plugin({
 
 plugin({
   'stevearc/dressing.nvim',
+  event = 'BufRead',
 })
 
 plugin({
@@ -78,6 +79,7 @@ plugin({
 
 plugin({
   'NvChad/nvim-colorizer.lua',
+  event = 'BufRead',
   config = function()
     require('colorizer').setup()
   end,
