@@ -77,7 +77,7 @@ function config.nvim_cmp()
           end
         end,
       }),
-      ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+      ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
     }),
     snippet = {
       expand = function(args)

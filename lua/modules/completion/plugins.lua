@@ -7,7 +7,7 @@ local conf = require('modules.completion.config')
 
 plugin({
   'neovim/nvim-lspconfig',
-  ft = { 'lua', 'rust', 'c', 'cpp', 'sh', 'json', 'javascript' },
+  ft = { 'lua', 'rust', 'c', 'cpp', 'sh', 'json', 'javascript', 'java' },
   config = conf.nvim_lsp,
 })
 
@@ -53,7 +53,7 @@ plugin({
 
 plugin({
   'jose-elias-alvarez/null-ls.nvim',
-  event = "BufRead",
+  event = 'BufRead',
   config = conf.null_ls,
 })
 
@@ -61,4 +61,9 @@ plugin({
   'ray-x/lsp_signature.nvim',
   event = 'InsertEnter',
   config = conf.lsp_signature,
+})
+
+plugin({
+  'mfussenegger/nvim-jdtls',
+  ft = 'java',
 })
