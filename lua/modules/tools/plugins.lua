@@ -96,7 +96,7 @@ plugin({
 
 plugin({
   'lambdalisue/suda.vim',
-  cmd = {'SudaWrite', 'SudaRead'},
+  cmd = { 'SudaWrite', 'SudaRead' },
   config = function()
     vim.g.suda_smart_edit = 1
   end,
@@ -128,5 +128,12 @@ plugin({
 
 plugin({
   'tpope/vim-repeat',
-  event = 'BufRead'
+  event = 'BufRead',
+})
+
+plugin({
+  'glacambre/firenvim',
+  run = function()
+    vim.fn['firenvim#install'](0)
+  end,
 })
