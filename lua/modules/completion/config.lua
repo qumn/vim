@@ -77,8 +77,27 @@ function config.nvim_cmp()
           end
         end,
       }),
-      ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
-    }),
+      ['<CR>'] = cmp.mapping(function(fallback)
+        local ok, luasnip = pcall(require, 'luasnip')
+        local luasnip_status = false
+        if ok then
+          luasnip_status = luasnip.expand_or_locally_jumpable()
+        end
+        if luasnip_status then
+          print("luasnip_status")
+          luasnip.expand_or_jump()
+        elseif cmp.visible() then
+          print("cmp.visible")
+          local confirm_opts = { behavior = cmp.ConfirmBehavior.Insert, select = true }
+          if cmp.confirm(confirm_opts) then
+            return -- success, exit early
+          end
+        else
+          print("fallback")
+          fallback() -- if not exited early, always fallback
+        end
+      end),
+    }, { 'i', 's' }),
     snippet = {
       expand = function(args)
         require('luasnip').lsp_expand(args.body)

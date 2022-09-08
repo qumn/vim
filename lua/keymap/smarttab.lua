@@ -106,10 +106,10 @@ _G.smart_tab = function()
     luasnip_status = luasnip.expand_or_locally_jumpable()
   end
 
-  if luasnip_status then -- TODO: only jump to the position which behind current cursor
-    return "<cmd>lua require'luasnip'.expand_or_jump()<CR>"
-  elseif cmp.visible() then
+  if cmp.visible() then
     return "<cmd>lua require'cmp'.confirm({select= true, behavior=require'cmp'.ConfirmBehavior.Replace})<CR>"
+  elseif luasnip_status then -- TODO: only jump to the position which behind current cursor
+    return "<cmd>lua require'luasnip'.expand_or_jump()<CR>"
   elseif jumpable(1) then
     return "require'luasnip'.jump(1)"
   elseif has_words_before() then
@@ -133,7 +133,6 @@ _G.smart_shift_tab = function()
 end
 
 _G.smart_return = function()
-  print('smart return')
   local cmp = require('cmp')
   local ok, luasnip = pcall(require, 'luasnip')
   local luasnip_status = false
