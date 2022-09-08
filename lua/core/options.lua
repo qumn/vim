@@ -4,7 +4,7 @@
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
 
 vim.opt.termguicolors = true
-vim.opt.guifont = 'Cascadia Code:h18'
+vim.opt.guifont = 'JetBrainsMono Nerd Font:h18'
 vim.opt.mouse = 'nv'
 vim.opt.errorbells = true
 vim.opt.visualbell = true
@@ -77,7 +77,7 @@ vim.opt.showcmd = false
 vim.opt.cmdheight = 2
 vim.opt.cmdwinheight = 5
 vim.opt.equalalways = false
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.display = 'lastline'
 vim.opt.showbreak = '↳  '
 vim.opt.listchars = 'tab:»·,nbsp:+,trail:▫,extends:→,precedes:←'

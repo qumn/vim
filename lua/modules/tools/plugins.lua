@@ -137,3 +137,11 @@ plugin({
     vim.fn['firenvim#install'](0)
   end,
 })
+
+--plugin({
+--  'rhysd/accelerated-jk',
+--  config = function()
+--    vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', { noremap = false, silent = true })
+--    vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', { noremap = false, silent = true })
+--  end,
+--})
