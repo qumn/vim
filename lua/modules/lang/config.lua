@@ -23,7 +23,11 @@ function config.nvim_treesitter()
     ignore_install = { 'phpdoc' },
     highlight = {
       enable = true,
+      additional_vim_regex_highlighting = false,
+      disable = { "latex" },
     },
+    indent = { enable = true, disable = { "yaml", "python" } },
+    autotag = { enable = false },
     rainbow = {
       enable = true,
       -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for

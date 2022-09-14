@@ -119,7 +119,8 @@ function config.lua_snip()
   ls.config.set_config({
     -- history = true,
     enable_autosnippets = true,
-    updateevents = 'TextChanged,TextChangedI',
+    -- updateevents = 'TextChanged,TextChangedI',
+    region_check_events = "CursorHold,InsertLeave,InsertEnter",
     delete_check_events = 'TextChanged,InsertEnter',
     ext_opts = {
       [types.choiceNode] = {

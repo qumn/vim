@@ -9,7 +9,7 @@ local saga = require('lspsaga')
 saga.init_lsp_saga({
   -- symbols in winbar
   symbol_in_winbar = {
-    enable = true,
+    enable = false,
   },
 })
 
