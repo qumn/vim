@@ -145,3 +145,4 @@ plugin({
 --    vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', { noremap = false, silent = true })
 --  end,
 --})
+--

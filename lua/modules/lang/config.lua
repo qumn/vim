@@ -88,7 +88,7 @@ function config.ufo()
 
   require('ufo').setup({
     open_fold_hl_timeout = 150,
-    close_fold_kinds = { 'imports', 'comment' },
+    close_fold_kinds = { 'imports' },
     fold_virt_text_handler = handler,
     preview = {
       win_config = {

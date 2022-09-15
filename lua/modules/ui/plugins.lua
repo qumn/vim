@@ -7,11 +7,16 @@ local conf = require('modules.ui.config')
 
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
 
+--plugin({
+--  'glepnir/galaxyline.nvim',
+--  branch = 'main',
+--  config = conf.galaxyline,
+--  requires = 'kyazdani42/nvim-web-devicons',
+--})
 plugin({
-  'glepnir/galaxyline.nvim',
-  branch = 'main',
-  config = conf.galaxyline,
-  requires = 'kyazdani42/nvim-web-devicons',
+  'nvim-lualine/lualine.nvim',
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  config = conf.lualine
 })
 
 plugin({

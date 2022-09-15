@@ -12,7 +12,7 @@ function config.zephyr()
   vim.cmd('colorscheme zephyr')
 end
 
-function config.galaxyline()
+function config.lualine()
   require('modules.ui.eviline')
 end
 
