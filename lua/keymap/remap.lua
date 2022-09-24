@@ -67,11 +67,8 @@ vmap({
   { 'H', '^', opts(noremap, silent) },
   { 'L', '$', opts(noremap, silent) },
 })
--- gui specialize config
-vim.g.gui_font_default_size = 18
-vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = 'Cascadia Code'
 
+-- gui specialize config
 RefreshGuiFont = function()
   vim.opt.guifont = string.format('%s:h%s', vim.g.gui_font_face, vim.g.gui_font_size)
 end

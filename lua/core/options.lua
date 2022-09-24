@@ -102,6 +102,10 @@ vim.opt.signcolumn = 'yes'
 vim.opt.conceallevel = 0
 vim.opt.concealcursor = 'niv'
 vim.opt.relativenumber = true
+-- gui font config
+vim.g.gui_font_default_size = 18
+vim.g.gui_font_size = vim.g.gui_font_default_size
+vim.g.gui_font_face = 'Cascadia Code'
 
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {
