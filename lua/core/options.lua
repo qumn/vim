@@ -107,6 +107,9 @@ vim.g.gui_font_default_size = 18
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = 'Cascadia Code'
 
+vim.g.keymap = 'norman'
+vim.g.is_norman = vim.g.keymap == 'norman'
+
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {
     name = 'macOS-clipboard',

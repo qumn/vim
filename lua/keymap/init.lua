@@ -4,3 +4,4 @@
 -- recommend plugins key defines in this file
 
 require('keymap.remap')
+require('keymap.norman')

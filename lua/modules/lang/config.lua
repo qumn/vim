@@ -21,12 +21,13 @@ function config.nvim_treesitter()
   require('nvim-treesitter.configs').setup({
     ensure_installed = ensure_installed,
     ignore_install = { 'phpdoc' },
+    prefer_git = true,
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
-      disable = { "latex" },
+      disable = { 'latex' },
     },
-    indent = { enable = true, disable = { "yaml", "python" } },
+    indent = { enable = true, disable = { 'yaml', 'python' } },
     autotag = { enable = false },
     rainbow = {
       enable = true,
@@ -41,12 +42,12 @@ function config.nvim_treesitter()
         enable = true,
         keymaps = {
           ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
+          [nmorqw('rf', 'if')] = '@function.inner',
           ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
-          ['ia'] = '@parameter.inner',
+          [nmorqw('rc', 'ic')] = '@class.inner',
+          [nmorqw('ra', 'ia')] = '@parameter.inner',
           ['aa'] = '@parameter.outer',
-          ['il'] = '@loop.inner',
+          [nmorqw('rl', 'il')] = '@loop.inner',
           ['al'] = '@loop.outer',
         },
       },

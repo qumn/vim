@@ -7,7 +7,7 @@ local conf = require('modules.completion.config')
 
 plugin({
   'neovim/nvim-lspconfig',
-  ft = { 'lua', 'rust', 'c', 'cpp', 'sh', 'json', 'javascript', 'java' },
+  ft = { 'lua', 'rust', 'c', 'cpp', 'sh', 'json', 'javascript', 'java', 'vue', 'typescript' },
   config = conf.nvim_lsp,
 })
 
@@ -42,6 +42,7 @@ plugin({
   'glepnir/lspsaga.nvim',
   -- branch = "main",
   after = 'nvim-lspconfig',
+  requires = 'kyazdani42/nvim-web-devicons',
   config = conf.lspsaga,
 })
 

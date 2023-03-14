@@ -107,7 +107,6 @@ function config.nvim_tree()
     update_focused_file = { enable = true, update_cwd = true },
     view = {
       width = 30,
-      height = 30,
       side = 'left',
       preserve_window_proportions = false,
       number = false,
@@ -200,12 +199,11 @@ function config.gitsigns()
       },
     },
     keymaps = {
-      -- Default keymap options
       noremap = true,
       buffer = true,
       -- Text objects
-      ['o ih'] = ':<C-U>lua require"gitsigns".text_object()<CR>',
-      ['x ih'] = ':<C-U>lua require"gitsigns".text_object()<CR>',
+      [nmorqw('o rh', 'o ih')] = ':<C-U>lua require"gitsigns".text_object()<CR>',
+      [nmorqw('x rh', 'o ih')] = ':<C-U>lua require"gitsigns".text_object()<CR>',
     },
   })
 end

@@ -6,7 +6,7 @@ if not packer_plugins['lspsaga.nvim'].loaded then
 end
 
 local saga = require('lspsaga')
-saga.init_lsp_saga({
+saga.setup({
   -- symbols in winbar
   symbol_in_winbar = {
     enable = false,
@@ -22,7 +22,7 @@ capabilities.textDocument.foldingRange = {
 if not packer_plugins['cmp-nvim-lsp'].loaded then
   vim.cmd([[packadd cmp-nvim-lsp]])
 end
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 function _G.open_lsp_log()
   local path = vim.lsp.get_log_path()
@@ -76,7 +76,7 @@ lspconfig.gopls.setup({
   },
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -143,6 +143,7 @@ local servers = {
   -- 'denols',
   'bashls',
   'jsonls',
+  'vuels',
 }
 
 for _, server in ipairs(servers) do

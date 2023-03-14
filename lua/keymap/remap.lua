@@ -4,8 +4,11 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
-local nmap, imap, cmap, xmap, smap, vmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.smap, keymap.vmap
+local utils = require('core.utils')
+local nmap, imap, cmap, xmap, smap, vmap, amap =
+  keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.smap, keymap.vmap, keymap.amap
 local silent, noremap, expr, remap = keymap.silent, keymap.noremap, keymap.expr, keymap.remap
+local nmorqw = utils.nmorqw
 local opts = keymap.new_opts
 local cmd = keymap.cmd
 
@@ -34,29 +37,24 @@ xmap({ ' ', '', opts(noremap) })
 nmap({
   -- noremal remap
   {
-    'K',
-    function()
-      local winid = require('ufo').peekFoldedLinesUnderCursor()
-      if not winid then
-        vim.cmd('Lspsaga hover_doc')
-      end
-    end,
+    nmorqw('I', 'K'),
+    cmd('Lspsaga hover_doc'),
     opts(noremap, silent),
   },
   -- close buffer
   { '<C-x>k', cmd('bdelete'), opts(noremap, silent) },
-  { 'H', '^', opts(noremap, silent) },
-  { 'L', '$', opts(noremap, silent) },
+  { nmorqw('Y', 'H'), '^', opts(noremap, silent) },
+  { nmorqw('O', 'L'), '$', opts(noremap, silent) },
   -- save
   { '<C-s>', cmd('write'), opts(noremap) },
   -- yank
-  { 'Y', 'y$', opts(noremap) },
+  -- { 'Y', 'y$', opts(noremap) },
   -- buffer jump
   { ']b', cmd('bn'), opts(noremap) },
   { '[b', cmd('bp'), opts(noremap) },
   -- window jump
-  { 'E', cmd('BufferLineCyclePrev'), opts(noremap, silent) },
-  { 'R', cmd('BufferLineCycleNext'), opts(noremap, silent) },
+  { nmorqw('gy', 'gh'), cmd('BufferLineCyclePrev'), opts(noremap, silent) },
+  { nmorqw('go', 'gl'), cmd('BufferLineCycleNext'), opts(noremap, silent) },
   { '==', cmd("lua require'keymap.format'.format()"), opts(noremap, silent) },
 })
 
@@ -101,3 +99,8 @@ nmap({
   end,
   opts(noremap, silent),
 })
+
+nmap({ nmorqw('<c-y>', '<c-h>'), cmd('lua require("tmux").move_left()'), opts(noremap, silent) })
+nmap({ nmorqw('<c-n>', '<c-j>'), cmd('lua require("tmux").move_bottom()'), opts(noremap, silent) })
+nmap({ nmorqw('<c-i>', '<c-k>'), cmd('lua require("tmux").move_top()'), opts(noremap, silent) })
+nmap({ nmorqw('<c-o>', '<c-l>'), cmd('lua require("tmux").move_right()'), opts(noremap, silent) })

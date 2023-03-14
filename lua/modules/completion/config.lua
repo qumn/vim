@@ -59,7 +59,7 @@ function config.nvim_cmp()
         })[entry.source.name]
 
         return vim_item
-      end,
+      end
     },
     -- You can set mappings if you want
     mapping = cmp.mapping.preset.insert({
@@ -68,14 +68,14 @@ function config.nvim_cmp()
       ['<C-e>'] = cmp.mapping.abort(),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-y>'] = cmp.mapping({
-        i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-        c = function(fallback)
-          if cmp.visible() then
-            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-          else
-            fallback()
-          end
-        end,
+       i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+       c = function(fallback)
+         if cmp.visible() then
+           cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+         else
+           fallback()
+         end
+       end,
       }),
       ['<CR>'] = cmp.mapping(function(fallback)
         local ok, luasnip = pcall(require, 'luasnip')
@@ -143,7 +143,7 @@ end
 
 function config.lspsaga()
   local saga = require('lspsaga')
-  saga.init_lsp_saga()
+  saga.setup({})
 end
 
 function config.auto_pairs()

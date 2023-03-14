@@ -56,7 +56,7 @@ function config.tmux()
       enable = false, -- 启动这个选项会使':'变得非常慢
     },
     navigation = {
-      enable_default_keybindings = true,
+      enable_default_keybindings = false,
     },
     resize = {
       enable_default_keybindings = true,

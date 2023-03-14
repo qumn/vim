@@ -116,5 +116,5 @@ keymap.vmap = map('v')
 keymap.xmap = map('x')
 keymap.tmap = map('t')
 keymap.smap = map('s')
-
+keymap.amap = map({'n', 'i', 'c', 'v', 'x', 't', 's'})
 return keymap

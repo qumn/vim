@@ -50,13 +50,13 @@ plugin({
   },
 })
 
-plugin({
-  'andymass/vim-matchup',
-  event = 'BufRead',
-  config = function()
-    vim.g.matchup_matchparen_offscreen = { method = 'popup' }
-  end,
-})
+--plugin({
+--  'andymass/vim-matchup',
+--  event = 'BufRead',
+--  config = function()
+--    vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+--  end,
+--})
 
 plugin({
   'voldikss/vim-translator',
@@ -74,11 +74,11 @@ plugin({
   end,
 })
 
-plugin({
-  'tpope/vim-surround',
-  event = 'BufRead',
-  keys = { 'c', 'd', 'y' },
-})
+-- plugin({
+--   'tpope/vim-surround',
+--   event = 'BufRead',
+--   keys = { 'c', 'd', 'b' },
+-- })
 
 plugin({
   'junegunn/vim-easy-align',
