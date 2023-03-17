@@ -59,10 +59,14 @@ plugin({
 --})
 
 plugin({
-  'voldikss/vim-translator',
-  cmd = 'TranslateW',
+  'JuanZoran/Trans.nvim',
+  run = 'bash ./install.sh',
+  requires = 'kkharji/sqlite.lua',
+  -- 如果你不需要任何配置的话, 可以直接按照下面的方式启动
   config = function()
-    vim.g.translator_default_engines = { 'bing', 'haici' }
+    require('Trans').setup({
+      -- your configuration here
+    })
   end,
 })
 
@@ -136,6 +140,22 @@ plugin({
   run = function()
     vim.fn['firenvim#install'](0)
   end,
+})
+
+plugin({
+  'iamcco/markdown-preview.nvim',
+  run = 'cd app && npm install',
+  setup = function()
+    vim.g.mkdp_filetypes = { 'markdown' }
+  end,
+  ft = { 'markdown' },
+})
+
+plugin({
+  'dhruvasagar/vim-table-mode',
+  --ft = { 'markdown' },
+  cmd = { 'TableModeToggle' },
+  config = conf.table_modle,
 })
 
 --plugin({

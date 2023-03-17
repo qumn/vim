@@ -106,7 +106,7 @@ map.nlmappings = {
     b = { cmd('Telescope buffers theme=get_ivy'), 'Search Buffer' },
     a = { cmd('Telescope live_grep theme=get_ivy'), 'Live Grep' },
     f = { cmd('Telescope find_files theme=get_ivy'), 'Find Files' },
-    o = { cmd('Telescope oldfiles theme=get_ivy'), 'Oldfile' },
+    e = { cmd('Telescope oldfiles theme=get_ivy'), 'Oldfile' },
     s = { cmd('Telescope lsp_document_symbols theme=get_ivy'), 'Lsp Document Symbols' },
     S = { cmd('Telescope lsp_workspace_symbols theme=get_ivy'), 'Lsp Workspace Symbols' },
     c = { cmd('Telescope git_commits theme=get_ivy'), '' },
@@ -114,7 +114,7 @@ map.nlmappings = {
   },
   t = {
     name = 'Translate',
-    w = { cmd('TranslateW'), 'Translate' },
+    w = { cmd('Translate'), 'Translate' },
   },
 }
 
@@ -130,14 +130,8 @@ map.nlopts = {
 map.nmappings = {
   [']'] = {
     name = 'Next',
-    g = {
-      cmd('lua require"gitsigns".next_hunk()'),
-      'Git Change',
-    },
-    e = {
-      cmd('Lspsaga diagnostic_jump_next'),
-      'Warning or Error',
-    },
+    g = { cmd('lua require"gitsigns".next_hunk()'), 'Git Change' },
+    e = { cmd('Lspsaga diagnostic_jump_next'), 'Warning or Error' },
     E = {
       cmd('lua require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })'),
       'Only Error',
@@ -146,25 +140,24 @@ map.nmappings = {
   ['['] = {
     name = 'Prev',
     g = { cmd('lua require"gitsigns".prev_hunk()'), 'Git Change' },
-    e = {
-      cmd('Lspsaga diagnostic_jump_prev'),
-      'Warning or Error',
-    },
+    e = { cmd('Lspsaga diagnostic_jump_prev'), 'Warning or Error' },
     E = { cmd('require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })'), 'Only Error' },
   },
   -- hop
   s = {
     name = 'Hop and Telescope',
-    l = { cmd('HopWordAC'), 'HopWord after' },
-    h = { cmd('HopWordBC'), 'HopWord before' },
-    j = { cmd('HopLineStartAC'), 'HopLine after' },
-    k = { cmd('HopLineStartBC'), 'HopLine before' },
+    [nmorqw('y', 'h')] = { cmd('HopWordBC'), 'HopWord before' },
+    [nmorqw('n', 'j')] = { cmd('HopLineStartAC'), 'HopLine after' },
+    [nmorqw('i', 'k')] = { cmd('HopLineStartBC'), 'HopLine before' },
+    [nmorqw('o', 'l')] = { cmd('HopWordAC'), 'HopWord after' },
+    v = { cmd('vsplit'), 'Split Vertically' },
+    h = { cmd('split'), 'Split' },
     m = { cmd('lua require("tsht").move()'), 'Treehop Move' },
-    v = { cmd('lua require("tsht").nodes()'), 'Treehop select' },
+    n = { cmd('lua require("tyht").nodes()'), 'Treehop select' },
     b = { cmd('Telescope buffers theme=get_ivy'), 'Search Buffer' },
     a = { cmd('Telescope live_grep theme=get_ivy'), 'Live Grep' },
     f = { cmd('Telescope find_files theme=get_ivy'), 'Find Files' },
-    o = { cmd('Telescope oldfiles theme=get_ivy'), 'Oldfile' },
+    e = { cmd('Telescope oldfiles theme=get_ivy'), 'Oldfile' },
     s = { cmd('Telescope lsp_document_symbols theme=get_ivy'), 'Lsp Document Symbols' },
     S = { cmd('Telescope lsp_workspace_symbols theme=get_ivy'), 'Lsp Workspace Symbols' },
     c = { cmd('Telescope git_commits theme=get_ivy'), 'Git Commits' },
@@ -173,7 +166,8 @@ map.nmappings = {
   g = {
     h = { cmd('Lspsaga lsp_finder'), 'Lsp Finder' },
     r = { cmd('Lspsaga rename'), 'Lsp Rename' },
-    p = { cmd('Lspsaga preview_definition'), 'Lsp Preview Definition' },
+    p = { cmd('Lspsaga peek_definition'), 'Lsp Preview Definition' },
+    k = { cmd('Lspsaga peek_type_definition'), 'Lsp Preview Definition' },
     d = { cmd('lua vim.lsp.buf.definition()'), 'Goto Definetion' },
   },
 }

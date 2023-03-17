@@ -84,16 +84,16 @@ function config.nvim_cmp()
           luasnip_status = luasnip.expand_or_locally_jumpable()
         end
         if luasnip_status then
-          print("luasnip_status")
+          --print("luasnip_status")
           luasnip.expand_or_jump()
         elseif cmp.visible() then
-          print("cmp.visible")
+          --print("cmp.visible")
           local confirm_opts = { behavior = cmp.ConfirmBehavior.Insert, select = true }
           if cmp.confirm(confirm_opts) then
             return -- success, exit early
           end
         else
-          print("fallback")
+          -- print("fallback")
           fallback() -- if not exited early, always fallback
         end
       end),
