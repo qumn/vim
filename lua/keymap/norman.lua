@@ -3,11 +3,6 @@ if not vim.g.is_norman then
 end
 
 vim.cmd [[
-  noremap n j
-  noremap y h
-  noremap i k
-  noremap o l
-
   " === norman keyboard layout
   noremap y h
   noremap n j
@@ -27,7 +22,25 @@ vim.cmd [[
   noremap j y
   noremap h n
   noremap H N
-  nnoremap k r
-  nnoremap K R
+  noremap k r
+  noremap K R
+
+
+  sunmap y
+  sunmap n
+  sunmap i
+  sunmap o
+  sunmap Y
+  sunmap O
+  sunmap N
+  sunmap r
+  sunmap R
+  sunmap l
+  sunmap L
+  sunmap j
+  sunmap h
+  sunmap H
+  sunmap k
+  sunmap K
 
 ]]

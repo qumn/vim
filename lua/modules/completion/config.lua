@@ -59,7 +59,7 @@ function config.nvim_cmp()
         })[entry.source.name]
 
         return vim_item
-      end
+      end,
     },
     -- You can set mappings if you want
     mapping = cmp.mapping.preset.insert({
@@ -68,14 +68,14 @@ function config.nvim_cmp()
       ['<C-e>'] = cmp.mapping.abort(),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-y>'] = cmp.mapping({
-       i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-       c = function(fallback)
-         if cmp.visible() then
-           cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-         else
-           fallback()
-         end
-       end,
+        i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+        c = function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+          else
+            fallback()
+          end
+        end,
       }),
       ['<CR>'] = cmp.mapping(function(fallback)
         local ok, luasnip = pcall(require, 'luasnip')
@@ -120,7 +120,7 @@ function config.lua_snip()
     -- history = true,
     enable_autosnippets = true,
     -- updateevents = 'TextChanged,TextChangedI',
-    region_check_events = "CursorHold,InsertLeave,InsertEnter",
+    region_check_events = 'CursorHold,InsertLeave,InsertEnter',
     delete_check_events = 'TextChanged,InsertEnter',
     ext_opts = {
       [types.choiceNode] = {
@@ -143,7 +143,35 @@ end
 
 function config.lspsaga()
   local saga = require('lspsaga')
-  saga.setup({})
+  saga.setup({
+    finder = {
+      keys = {
+        jump_to = 'p',
+        edit = { nmorqw('l', 'o'), '<CR>' },
+        vsplit = 's',
+        split = nmorqw('r', 'i'),
+        tabe = 't',
+        tabnew = nmorqw('T', 'r'),
+        quit = { 'q', '<ESC>' },
+        close_in_preview = '<ESC>',
+      },
+    },
+    outline = {
+      win_position = 'right',
+      win_with = '',
+      win_width = 30,
+      show_detail = true,
+      auto_preview = true,
+      auto_refresh = true,
+      auto_close = true,
+      custom_sort = nil,
+      keys = {
+        jump = { nmorqw('l', '<CR>') },
+        expand_collapse = 'u',
+        quit = 'q',
+      },
+    },
+  })
 end
 
 function config.auto_pairs()
