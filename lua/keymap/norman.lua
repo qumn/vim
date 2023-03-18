@@ -43,4 +43,8 @@ vim.cmd [[
   sunmap k
   sunmap K
 
+  ounmap r
+  ounmap R
+  xunmap r
+  xunmap R
 ]]

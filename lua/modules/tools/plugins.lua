@@ -2,7 +2,7 @@
 -- date: 2022-07-02
 -- License: MIT
 
-local plugin = require('core.pack').register_plugin
+local plugin = require('core.pack').package
 local conf = require('modules.tools.config')
 
 plugin({ 'antoinemadec/FixCursorHold.nvim', event = 'BufReadPre' })
@@ -11,11 +11,11 @@ plugin({
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
   config = conf.telescope,
-  requires = {
-    { 'nvim-lua/popup.nvim', opt = true },
-    { 'nvim-lua/plenary.nvim', opt = true },
-    { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
-    { 'nvim-telescope/telescope-file-browser.nvim', opt = true },
+  dependencies = {
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-fzy-native.nvim',
+    'nvim-telescope/telescope-file-browser.nvim',
   },
 })
 
@@ -45,8 +45,8 @@ plugin({
 plugin({
   'sindrets/diffview.nvim',
   cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
-  requires = {
-    { 'nvim-lua/plenary.nvim', opt = true },
+  dependencies = {
+    { 'nvim-lua/plenary.nvim' },
   },
 })
 
@@ -61,7 +61,8 @@ plugin({
 plugin({
   'JuanZoran/Trans.nvim',
   run = 'bash ./install.sh',
-  requires = 'kkharji/sqlite.lua',
+  cmd = { 'Translate' },
+  dependencies = { 'kkharji/sqlite.lua' },
   -- 如果你不需要任何配置的话, 可以直接按照下面的方式启动
   config = function()
     require('Trans').setup({
@@ -114,6 +115,9 @@ plugin({
 plugin({
   'Shatur/neovim-session-manager',
   config = conf.session_manager,
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+  },
 })
 
 plugin({
@@ -135,12 +139,12 @@ plugin({
   event = 'BufRead',
 })
 
-plugin({
-  'glacambre/firenvim',
-  run = function()
-    vim.fn['firenvim#install'](0)
-  end,
-})
+-- plugin({
+--   'glacambre/firenvim',
+--   run = function()
+--     vim.fn['firenvim#install'](0)
+--   end,
+-- })
 
 plugin({
   'iamcco/markdown-preview.nvim',
@@ -156,6 +160,31 @@ plugin({
   --ft = { 'markdown' },
   cmd = { 'TableModeToggle' },
   config = conf.table_modle,
+})
+
+vim.cmd("let g:targets_aiAI = 'arAR'")
+plugin({
+  'wellle/targets.vim',
+  event = 'BufRead',
+  config = function()
+    vim.cmd([[
+      autocmd User targets#mappings#user call targets#mappings#extend({
+          \ 's': { 'separator': [{'d':','}, {'d':'.'}, {'d':';'}, {'d':':'}, {'d':'+'}, {'d':'-'},
+          \                      {'d':'='}, {'d':'~'}, {'d':'_'}, {'d':'*'}, {'d':'#'}, {'d':'/'},
+          \                      {'d':'\'}, {'d':'|'}, {'d':'&'}, {'d':'$'}] },
+          \ '@': {
+          \     'separator': [{'d':','}, {'d':'.'}, {'d':';'}, {'d':':'}, {'d':'+'}, {'d':'-'},
+          \                   {'d':'='}, {'d':'~'}, {'d':'_'}, {'d':'*'}, {'d':'#'}, {'d':'/'},
+          \                   {'d':'\'}, {'d':'|'}, {'d':'&'}, {'d':'$'}],
+          \     'pair':      [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
+          \     'quote':     [{'d':"'"}, {'d':'"'}, {'d':'`'}],
+          \     'tag':       [{}],
+          \     },
+          \ })
+      omap b r@
+      xmap b r@
+    ]])
+  end,
 })
 
 --plugin({

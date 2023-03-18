@@ -2,7 +2,7 @@
 -- date: 2022-07-02
 -- License: MIT
 
-local plugin = require('core.pack').register_plugin
+local plugin = require('core.pack').package
 local conf = require('modules.ui.config')
 
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
@@ -16,7 +16,7 @@ plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
 plugin({
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-  config = conf.lualine
+  config = conf.lualine,
 })
 
 plugin({
@@ -42,7 +42,7 @@ plugin({
   'lewis6991/gitsigns.nvim',
   event = { 'BufRead', 'BufNewFile' },
   config = conf.gitsigns,
-  requires = { 'nvim-lua/plenary.nvim', opt = true },
+  dependencies = { 'nvim-lua/plenary.nvim' },
 })
 
 vim.g.gitblame_date_format = '%r'

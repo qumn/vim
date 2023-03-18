@@ -2,34 +2,57 @@
 -- date: 2022-07-02
 -- License: MIT
 
-local plugin = require('core.pack').register_plugin
+local plugin = require('core.pack').package
 local conf = require('modules.completion.config')
+
+local enable_lsp_filetype = {
+  'lua',
+  'rust',
+  'c',
+  'cpp',
+  'sh',
+  'json',
+  'javascript',
+  'java',
+  'vue',
+  'typescript',
+}
 
 plugin({
   'neovim/nvim-lspconfig',
-  ft = { 'lua', 'rust', 'c', 'cpp', 'sh', 'json', 'javascript', 'java', 'vue', 'typescript' },
+  ft = enable_lsp_filetype,
   config = conf.nvim_lsp,
+  dependencies = {
+    {
+      'glepnir/lspsaga.nvim',
+      config = conf.lspsaga,
+      dependencies = {
+        'kyazdani42/nvim-web-devicons',
+      },
+    },
+  },
 })
 
 plugin({
   'simrat39/rust-tools.nvim',
+  ft = 'rust'
 })
 
 plugin({
   'hrsh7th/nvim-cmp',
-  event = 'BufReadPre',
+  event = 'InsertEnter',
   config = conf.nvim_cmp,
-  requires = {
-    { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig' },
-    { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-    { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-    { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' },
+  dependencies = {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-buffer',
+    'saadparwaiz1/cmp_luasnip',
   },
 })
 
 plugin({
   'L3MON4D3/LuaSnip',
-  event = 'InsertEnter',
+  event = 'InsertCharPre',
   config = conf.lua_snip,
 })
 
@@ -38,13 +61,13 @@ plugin({
   config = conf.mason,
 })
 
-plugin({
-  'glepnir/lspsaga.nvim',
-  -- branch = "main",
-  after = 'nvim-lspconfig',
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = conf.lspsaga,
-})
+-- plugin({
+--   'glepnir/lspsaga.nvim',
+--   -- branch = "main",
+--   after = 'nvim-lspconfig',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   config = conf.lspsaga,
+-- })
 
 plugin({
   'windwp/nvim-autopairs',

@@ -1,10 +1,6 @@
 local api = vim.api
 local lspconfig = require('lspconfig')
 
-if not packer_plugins['lspsaga.nvim'].loaded then
-  vim.cmd([[packadd lspsaga.nvim]])
-end
-
 local saga = require('lspsaga')
 saga.setup({
   -- symbols in winbar
@@ -18,10 +14,6 @@ capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
-
-if not packer_plugins['cmp-nvim-lsp'].loaded then
-  vim.cmd([[packadd cmp-nvim-lsp]])
-end
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 function _G.open_lsp_log()
@@ -104,10 +96,6 @@ lspconfig.clangd.setup({
     '--header-insertion=iwyu',
   },
 })
-
-if not packer_plugins['rust-tools.nvim'].loaded then
-  vim.cmd([[packadd rust-tools.nvim]])
-end
 
 local rt = require('rust-tools')
 rt.setup({

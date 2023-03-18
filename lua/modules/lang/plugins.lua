@@ -2,25 +2,28 @@
 -- date: 2022-07-02
 -- License: MIT
 
-local plugin = require('core.pack').register_plugin
+local plugin = require('core.pack').package
 local conf = require('modules.lang.config')
 
 plugin({
   'nvim-treesitter/nvim-treesitter',
   event = 'BufRead',
   run = ':TSUpdate',
-  after = 'telescope.nvim',
   config = conf.nvim_treesitter,
 })
 
 plugin({
   'nvim-treesitter/nvim-treesitter-textobjects',
-  after = 'nvim-treesitter',
+  event = 'BufRead',
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter'
+  }
 })
 
 plugin({
   'p00f/nvim-ts-rainbow',
-  after = 'nvim-treesitter',
+  event = 'BufRead',
+  dependencies = { 'nvim-treesitter/nvim-treesitter' },
 })
 
 plugin({
@@ -31,9 +34,11 @@ plugin({
 
 plugin({
   'kevinhwang91/nvim-ufo',
-  requires = 'kevinhwang91/promise-async',
-  after = 'nvim-lspconfig',
   config = conf.ufo,
+  dependencies = {
+    'nvim-lspconfig',
+    'kevinhwang91/promise-async',
+  },
 })
 
 plugin({

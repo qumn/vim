@@ -1,7 +1,4 @@
 -- TODO: 完善java配置: debug
-if not packer_plugins['nvim-jdtls'].loaded then
-  vim.cmd([[packadd nvim-jdtls]])
-end
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
 local workspace_dir = '/Users/qumn/project/java/' .. project_name

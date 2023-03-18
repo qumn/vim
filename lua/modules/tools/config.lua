@@ -5,15 +5,6 @@
 local config = {}
 
 function config.telescope()
-  if not packer_plugins['plenary.nvim'].loaded then
-    vim.cmd([[packadd plenary.nvim]])
-  end
-  if not packer_plugins['popup.nvim'].loaded then
-    vim.cmd([[packadd popup.nvim]])
-    vim.cmd([[packadd telescope-fzy-native.nvim]])
-    vim.cmd([[packadd telescope-file-browser.nvim]])
-  end
-
   require('telescope').setup({
     defaults = {
       layout_config = {
@@ -65,9 +56,6 @@ function config.tmux()
 end
 
 function config.diffview()
-  if not packer_plugins['plenary.nvim'].loaded then
-    vim.cmd([[packadd plenary.nvim]])
-  end
   local actions = require('diffview.actions')
 
   require('diffview').setup({
@@ -187,9 +175,6 @@ function config.diffview()
 end
 
 function config.session_manager()
-  if not packer_plugins['plenary.nvim'].loaded then
-    vim.cmd([[packadd plenary.nvim]])
-  end
   local config_group = vim.api.nvim_create_augroup('MyConfigGroup', {}) -- A global group for all your config autocommands
 
   vim.api.nvim_create_autocmd({ 'User' }, {
