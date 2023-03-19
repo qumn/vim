@@ -100,5 +100,5 @@ nmap({
 
 nmap({ nmorqw('<c-y>', '<c-h>'), cmd('lua require("tmux").move_left()'), opts(noremap, silent) })
 nmap({ nmorqw('<c-n>', '<c-j>'), cmd('lua require("tmux").move_bottom()'), opts(noremap, silent) })
-nmap({ nmorqw('<c-i>', '<c-k>'), cmd('lua require("tmux").move_top()'), opts(noremap, silent) })
+nmap({ nmorqw('<M-\\>', '<c-k>'), cmd('lua require("tmux").move_top()'), opts(noremap, silent) })
 nmap({ nmorqw('<c-o>', '<c-l>'), cmd('lua require("tmux").move_right()'), opts(noremap, silent) })
