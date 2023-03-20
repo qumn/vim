@@ -24,6 +24,7 @@ vim.cmd [[
   noremap H N
   noremap k r
   noremap K R
+  noremap <c-l> <c-o>
 
 
   sunmap y

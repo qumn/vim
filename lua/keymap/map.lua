@@ -153,7 +153,7 @@ map.nmappings = {
     v = { cmd('vsplit'), 'Split Vertically' },
     h = { cmd('split'), 'Split' },
     m = { cmd('lua require("tsht").move()'), 'Treehop Move' },
-    n = { cmd('lua require("tyht").nodes()'), 'Treehop select' },
+    [nmorqw('j', 'n')] = { cmd('lua require("tyht").nodes()'), 'Treehop select' },
     b = { cmd('Telescope buffers theme=get_ivy'), 'Search Buffer' },
     a = { cmd('Telescope live_grep theme=get_ivy'), 'Live Grep' },
     f = { cmd('Telescope find_files theme=get_ivy'), 'Find Files' },

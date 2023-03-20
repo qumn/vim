@@ -89,3 +89,12 @@ plugin({
     require('colorizer').setup()
   end,
 })
+
+plugin({
+  'gelguy/wilder.nvim',
+  event = 'CmdlineEnter',
+  dependencies = {
+    'romgrk/fzy-lua-native',
+  },
+  config = conf.wilder
+})
