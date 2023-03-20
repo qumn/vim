@@ -5,7 +5,19 @@
 local plugin = require('core.pack').package
 local conf = require('modules.ui.config')
 
-plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
+plugin({
+  'glepnir/dashboard-nvim',
+  config = conf.dashboard,
+  dependencies = {
+    {
+      'Shatur/neovim-session-manager',
+      config = conf.session_manager,
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+      },
+    },
+  },
+})
 
 --plugin({
 --  'glepnir/galaxyline.nvim',
@@ -96,5 +108,5 @@ plugin({
   dependencies = {
     'romgrk/fzy-lua-native',
   },
-  config = conf.wilder
+  config = conf.wilder,
 })
