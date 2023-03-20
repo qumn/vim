@@ -186,6 +186,7 @@ plugin({
 
 plugin({
   'gelguy/wilder.nvim',
+  event = 'CmdlineEnter',
   dependencies = {
     'romgrk/fzy-lua-native',
   },

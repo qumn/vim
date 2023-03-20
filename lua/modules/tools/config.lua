@@ -176,14 +176,6 @@ end
 
 function config.session_manager()
   local config_group = vim.api.nvim_create_augroup('MyConfigGroup', {}) -- A global group for all your config autocommands
-
-  vim.api.nvim_create_autocmd({ 'User' }, {
-    pattern = "SessionLoadPost",
-    group = config_group,
-    callback = function()
-      require('dashboard.preview'):close_preview_window()
-    end,
-  })
   local sm = require('session_manager')
   sm.setup({
     sessions_dir = vim.env.HOME .. '/.cache/nvim/session',
@@ -199,7 +191,6 @@ function config.session_manager()
     max_path_length = 80, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
   })
 end
-
 
 function config.which_key()
   local wk = require('which-key')
@@ -261,7 +252,7 @@ function config.which_key()
 end
 
 function config.table_modle()
-  vim.cmd [[
+  vim.cmd([[
     function! s:isAtStartOfLine(mapping)
       let text_before_cursor = getline('.')[0 : col('.')-1]
       let mapping_pattern = '\V' . escape(a:mapping, '\')
@@ -275,7 +266,7 @@ function config.table_modle()
     inoreabbrev <expr> __
               \ <SID>isAtStartOfLine('__') ?
               \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-  ]]
+  ]])
 end
 
 return config
