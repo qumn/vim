@@ -35,7 +35,7 @@ plugin({
 
 plugin({
   'simrat39/rust-tools.nvim',
-  ft = 'rust'
+  ft = 'rust',
 })
 
 plugin({
@@ -73,6 +73,16 @@ plugin({
   'windwp/nvim-autopairs',
   event = 'InsertEnter',
   config = conf.auto_pairs,
+})
+plugin({
+  'windwp/nvim-ts-autotag',
+  config = function()
+    require('nvim-treesitter.configs').setup({
+      autotag = {
+        enable = true,
+      },
+    })
+  end,
 })
 
 plugin({

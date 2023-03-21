@@ -165,10 +165,10 @@ map.nmappings = {
   },
   g = {
     h = { cmd('Lspsaga lsp_finder'), 'Lsp Finder' },
-    r = { cmd('Lspsaga rename'), 'Lsp Rename' },
+    r = { cmd('Lspsaga lsp_finder'), 'Lsp Rename' },
     p = { cmd('Lspsaga peek_definition'), 'Lsp Preview Definition' },
-    k = { cmd('Lspsaga peek_type_definition'), 'Lsp Preview Definition' },
-    d = { cmd('lua vim.lsp.buf.definition()'), 'Goto Definetion' },
+    s = { cmd('Lspsaga peek_type_definition'), 'Lsp Preview Definition' },
+    d = { cmd('Lspsaga goto_definition'), 'Goto Definetion' },
   },
 }
 

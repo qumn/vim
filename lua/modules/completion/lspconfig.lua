@@ -75,7 +75,7 @@ lspconfig.lua_ls.setup({
     Lua = {
       diagnostics = {
         enable = true,
-        globals = { 'vim', 'packer_plugins' },
+        globals = { 'vim', 'packer_plugins', 'hs' },
       },
       runtime = { version = 'LuaJIT' },
       workspace = {
@@ -131,7 +131,7 @@ local servers = {
   -- 'denols',
   'bashls',
   'jsonls',
-  'vuels',
+  'volar',
 }
 
 for _, server in ipairs(servers) do
