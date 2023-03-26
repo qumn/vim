@@ -31,10 +31,11 @@ plugin({
     require('hop').setup()
   end,
 })
-plugin({
-  'ahmedkhalf/project.nvim',
-  config = conf.project,
-})
+
+-- plugin({
+--   'ahmedkhalf/project.nvim',
+--   config = conf.project,
+-- })
 
 plugin({
   'aserowy/tmux.nvim',

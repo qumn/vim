@@ -171,7 +171,8 @@ function config.symbols_outline()
 end
 
 function config.doge()
-  vim.g.doge_mapping = '<Leader>dG'
+  vim.g.doge_mapping = '<Leader>dg'
+  --vim.g.doge_filetype_aliases = { javascript = { 'vue' } }
 end
 
 return config

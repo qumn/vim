@@ -10,6 +10,9 @@ plugin({
   event = 'BufRead',
   run = ':TSUpdate',
   config = conf.nvim_treesitter,
+  dependencies = {
+    'nvim-treesitter/playground'
+  }
 })
 
 plugin({
@@ -43,7 +46,7 @@ plugin({
 
 plugin({
   'kkoomen/vim-doge',
-  cmd = 'DogeGenerate',
+  --cmd = 'DogeGenerate',
   run = ':call doge#install()',
   config = conf.doge,
 })

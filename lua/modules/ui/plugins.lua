@@ -110,3 +110,21 @@ plugin({
   },
   config = conf.wilder,
 })
+
+plugin({
+  'glepnir/porcelain.nvim',
+})
+
+plugin({
+  'glepnir/flybuf.nvim',
+  cmd = 'FlyBuf',
+  config = function()
+    require('flybuf').setup({
+      hotkey = 'asetgyniohwdfkjurzcvbpm', -- hotkye
+      border = 'single', -- border
+      quit = 'q', -- quit flybuf window
+      mark = 'l', -- mark as delet or cancel delete
+      delete = 'x', -- delete marked buffers or buffers which cursor in
+    })
+  end,
+})

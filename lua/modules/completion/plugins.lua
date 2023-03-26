@@ -76,6 +76,7 @@ plugin({
 })
 plugin({
   'windwp/nvim-ts-autotag',
+  event = 'BufRead',
   config = function()
     require('nvim-treesitter.configs').setup({
       autotag = {

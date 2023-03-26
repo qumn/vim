@@ -56,6 +56,7 @@ nmap({
   { '==', cmd("lua require'keymap.format'.format()"), opts(noremap, silent) },
 })
 
+
 -- commandline remap
 cmap({ '<C-b>', '<Left>', opts(noremap) })
 
@@ -102,3 +103,4 @@ nmap({ nmorqw('<c-y>', '<c-h>'), cmd('lua require("tmux").move_left()'), opts(no
 nmap({ nmorqw('<c-n>', '<c-j>'), cmd('lua require("tmux").move_bottom()'), opts(noremap, silent) })
 nmap({ nmorqw('<M-\\>', '<c-k>'), cmd('lua require("tmux").move_top()'), opts(noremap, silent) })
 nmap({ nmorqw('<c-o>', '<c-l>'), cmd('lua require("tmux").move_right()'), opts(noremap, silent) })
+vmap({ 'P', '"0p', opts(noremap, silent) })
