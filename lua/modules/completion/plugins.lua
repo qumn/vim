@@ -102,3 +102,21 @@ plugin({
   'mfussenegger/nvim-jdtls',
   ft = 'java',
 })
+plugin({
+  'zbirenbaum/copilot-cmp',
+  event = { 'BufRead', 'BufNewFile' },
+  config = function()
+    require('copilot_cmp').setup({
+    })
+  end,
+  dependencies = {
+    'zbirenbaum/copilot.lua',
+    event = { 'BufRead', 'BufNewFile' },
+    config = function()
+      require('copilot').setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
+})

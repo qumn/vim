@@ -4,8 +4,8 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
-local nmap, imap, cmap, xmap, smap, vmap, amap =
-  keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.smap, keymap.vmap, keymap.amap
+local nmap, imap, cmap, xmap, smap, vmap, amap, omap =
+  keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.smap, keymap.vmap, keymap.amap, keymap.omap
 local silent, noremap, expr, remap = keymap.silent, keymap.noremap, keymap.expr, keymap.remap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
@@ -104,3 +104,7 @@ nmap({ nmorqw('<c-n>', '<c-j>'), cmd('lua require("tmux").move_bottom()'), opts(
 nmap({ nmorqw('<M-\\>', '<c-k>'), cmd('lua require("tmux").move_top()'), opts(noremap, silent) })
 nmap({ nmorqw('<c-o>', '<c-l>'), cmd('lua require("tmux").move_right()'), opts(noremap, silent) })
 vmap({ 'P', '"0p', opts(noremap, silent) })
+omap({'x', '<Plug>(leap-forward-till)', opts(noremap, silent)})
+xmap({'x', '<Plug>(leap-forward-till)', opts(noremap, silent)})
+omap({'X', '<Plug>(leap-backward-till)', opts(noremap, silent)})
+xmap({'X', '<Plug>(leap-backward-till)', opts(noremap, silent)})

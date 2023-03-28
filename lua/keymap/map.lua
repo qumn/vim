@@ -27,7 +27,7 @@ map.nlmappings = {
   c = { cmd('bd'), 'Close Buffer' },
   h = { cmd('nohlsearch'), 'No Highlight' },
   w = { cmd('w!'), 'Save Buffer' },
-  e = { cmd('NvimTreeFindFileToggle'), 'NvimTree Toggle' },
+  e = { cmd('NvimTreeFindFile'), 'NvimTree Toggle' },
   n = { cmd('DashboardNewFile'), 'Dashboard New File' },
   o = { cmd('LSoutlineToggle'), 'LSoutlineToggle' }, -- outline use `o` to jump
   q = { map.smart_quit, 'Quit' },
@@ -168,7 +168,9 @@ map.nmappings = {
     h = { cmd('Lspsaga lsp_finder'), 'Lsp Finder' },
     r = { cmd('Lspsaga lsp_finder'), 'Lsp Rename' },
     p = { cmd('Lspsaga peek_definition'), 'Lsp Preview Definition' },
-    s = { cmd('Lspsaga peek_type_definition'), 'Lsp Preview Definition' },
+    --s = { cmd('Lspsaga peek_type_definition'), 'Lsp Preview Definition' },
+    s = { '<Plug>(leap-forward-to)', 'leap forward to' },
+    S = { '<Plug>(leap-backward-to)', 'leap backward to' },
     d = { cmd('Lspsaga goto_definition'), 'Goto Definetion' },
   },
 }

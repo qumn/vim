@@ -2,12 +2,6 @@ local api = vim.api
 local lspconfig = require('lspconfig')
 
 local saga = require('lspsaga')
-saga.setup({
-  -- symbols in winbar
-  symbol_in_winbar = {
-    enable = false,
-  },
-})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {

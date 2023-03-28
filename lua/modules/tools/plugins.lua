@@ -32,6 +32,53 @@ plugin({
   end,
 })
 
+plugin({
+  'ggandor/leap.nvim',
+  event = { 'BufRead', 'BufNewFile' },
+  config = function()
+    require('leap').setup({
+      safe_labels = {
+        't',
+        'f',
+        'u',
+        'h',
+        'j',
+        'x',
+        'r',
+        'l',
+        'k',
+        ';',
+        'T',
+        'F',
+        'U',
+        'H',
+        'J',
+        'X',
+        'R',
+        'L',
+        'K',
+      },
+    })
+    vim.api.nvim_set_hl(0, 'LeapMatch', {
+      -- For light themes, set to 'black' or similar.
+      fg = 'white',
+      bold = true,
+      nocombine = true,
+    })
+    -- Of course, specify some nicer shades instead of the default "red" and "blue".
+    vim.api.nvim_set_hl(0, 'LeapLabelPrimary', {
+      fg = '#F38BA8',
+      bold = true,
+      nocombine = true,
+    })
+    vim.api.nvim_set_hl(0, 'LeapLabelSecondary', {
+      fg = '#89DCEB',
+      bold = true,
+      nocombine = true,
+    })
+  end,
+})
+
 -- plugin({
 --   'ahmedkhalf/project.nvim',
 --   config = conf.project,
@@ -176,4 +223,3 @@ plugin({
     ]])
   end,
 })
-

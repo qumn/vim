@@ -46,6 +46,7 @@ function config.nvim_cmp()
           Event = '',
           Operator = '',
           TypeParameter = ' ',
+          Copilot = "",
         }
         local meta_type = vim_item.kind
         -- load lspkind icons
@@ -104,8 +105,9 @@ function config.nvim_cmp()
       end,
     },
     sources = {
-      { name = 'luasnip' },
+      { name = 'copilot' },
       { name = 'nvim_lsp' },
+      { name = 'luasnip' },
       { name = 'path' },
       { name = 'buffer' },
     },
@@ -130,8 +132,6 @@ function config.lua_snip()
       },
     },
   })
-  require('luasnip.loaders.from_lua').lazy_load({ paths = vim.fn.stdpath('config') .. '/snippets' })
-  require('luasnip.loaders.from_vscode').lazy_load()
   require('luasnip.loaders.from_vscode').lazy_load({
     paths = { './snippets/' },
   })
@@ -146,8 +146,8 @@ function config.lspsaga()
   saga.setup({
     finder = {
       keys = {
-        jump_to = 'p',
-        edit = { nmorqw('l', 'o'), '<CR>' },
+        jump_to = 'g',
+        edit =  nmorqw('l', 'o'),
         vsplit = 's',
         split = nmorqw('r', 'i'),
         tabe = 't',

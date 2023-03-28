@@ -50,8 +50,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrwSettings = 1
 vim.g.loaded_netrwFileHandlers = 1
 
+require('core.options')
 require('core.utils')
 require('core.pack'):boot_strap()
-require('core.options')
 require('keymap')
 require('internal.event')
