@@ -127,3 +127,20 @@ if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
 
+if vim.loop.os_uname().sysname == 'Linux' then
+  vim.g.clipboard = {
+    name = 'Linux wayland clipboard',
+    copy = {
+      ['+'] = 'wl-copy',
+      ['*'] = 'wl-copy',
+    },
+    paste = {
+      ['+'] = 'wl-paste',
+      ['*'] = 'wl-paste',
+    },
+    cache_enabled = 0,
+  }
+  vim.g.python_host_prog = '/usr/bin/python'
+  vim.g.python3_host_prog = '/usr/bin/python3'
+end
+
