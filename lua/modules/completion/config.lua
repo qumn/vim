@@ -46,7 +46,8 @@ function config.nvim_cmp()
           Event = '',
           Operator = '',
           TypeParameter = ' ',
-          Copilot = "",
+          Copilot = '',
+          Neorg = 'N '
         }
         local meta_type = vim_item.kind
         -- load lspkind icons
@@ -107,6 +108,7 @@ function config.nvim_cmp()
     sources = {
       { name = 'copilot' },
       { name = 'nvim_lsp' },
+      { name = 'neorg' },
       { name = 'luasnip' },
       { name = 'path' },
       { name = 'buffer' },
@@ -147,7 +149,7 @@ function config.lspsaga()
     finder = {
       keys = {
         jump_to = 'g',
-        edit =  nmorqw('l', 'o'),
+        edit = nmorqw('l', 'o'),
         vsplit = 's',
         split = nmorqw('r', 'i'),
         tabe = 't',

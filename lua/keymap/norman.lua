@@ -4,10 +4,15 @@ end
 
 vim.cmd [[
   " === norman keyboard layout
-  noremap y h
-  noremap n j
-  noremap i k
-  noremap o l
+  nnoremap y h
+  nnoremap n j
+  nnoremap i k
+  nnoremap o l
+  vnoremap y h
+  vnoremap n j
+  vnoremap i k
+  vnoremap o l
+
   noremap Y ^
   noremap O $
   noremap N J
@@ -27,25 +32,25 @@ vim.cmd [[
   noremap <c-l> <c-o>
 
 
-  sunmap y
-  sunmap n
-  sunmap i
-  sunmap o
-  sunmap Y
-  sunmap O
-  sunmap N
-  sunmap r
-  sunmap R
-  sunmap l
-  sunmap L
-  sunmap j
-  sunmap h
-  sunmap H
-  sunmap k
-  sunmap K
+  " sunmap y
+  " sunmap n
+  " sunmap i
+  " sunmap o
+  " sunmap Y
+  " sunmap O
+  " sunmap N
+  " sunmap r
+  " sunmap R
+  " sunmap l
+  " sunmap L
+  " sunmap j
+  " sunmap h
+  " sunmap H
+  " sunmap k
+  " sunmap K
 
-  ounmap r
-  ounmap R
-  xunmap r
-  xunmap R
+  " ounmap r
+  " ounmap R
+  " xunmap r
+  " xunmap R
 ]]

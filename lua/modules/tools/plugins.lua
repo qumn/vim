@@ -202,7 +202,7 @@ plugin({
   config = conf.table_modle,
 })
 
-vim.cmd("let g:targets_aiAI = 'arAR'")
+-- vim.cmd("let g:targets_aiAI = 'aiAI'")
 plugin({
   'wellle/targets.vim',
   event = 'BufRead',
@@ -218,8 +218,53 @@ plugin({
           \     'tag':       [{}],
           \     },
           \ })
-      omap q r@
-      xmap q r@
+      omap q i@
+      xmap q i@
     ]])
   end,
 })
+
+plugin({
+  {
+    dir = '/Users/qumn/project/vim/neorg',
+    build = ':Neorg sync-parsers',
+    -- event = 'VeryLazy',
+    ft = 'norg',
+    opts = {
+      load = {
+        ['core.defaults'] = {}, -- Loads default behaviour
+        ['core.norg.concealer'] = {}, -- Adds pretty icons to your documents
+        ['core.integrations.nvim-cmp'] = {},
+        ['core.export'] = {},
+        ['core.export.markdown'] = {},
+        ['core.norg.completion'] = {
+          config = {
+            engine = 'nvim-cmp',
+          },
+        },
+        ['core.norg.dirman'] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = '~/notes',
+            },
+          },
+        },
+      },
+    },
+    dependencies = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'mfussenegger/nvim-treehopper' },
+      { 'nvim-neorg/neorg-telescope' },
+    },
+  },
+})
+
+
+-- plugin({
+--   'edluffy/hologram.nvim',
+--   config = function()
+--     require('hologram').setup({
+--       auto_display = false
+--     })
+--   end,
+-- })

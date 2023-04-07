@@ -9,13 +9,16 @@ plugin({
   'glepnir/dashboard-nvim',
   config = conf.dashboard,
   dependencies = {
-    {
-      'Shatur/neovim-session-manager',
-      config = conf.session_manager,
-      dependencies = {
-        'nvim-lua/plenary.nvim',
-      },
-    },
+    'Shatur/neovim-session-manager',
+  },
+})
+
+plugin({
+  'Shatur/neovim-session-manager',
+  commit = 'e7a2cbf56b5fd3a223f2774b535499fc62eca6ef',
+  config = conf.session_manager,
+  dependencies = {
+    'nvim-lua/plenary.nvim',
   },
 })
 
