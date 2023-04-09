@@ -13,11 +13,11 @@ function map.smart_quit()
       prompt = 'You have unsaved changes. Quit anyway? (y/n) ',
     }, function(input)
       if input == 'y' then
-        vim.cmd('q!')
+        vim.cmd('quitall!')
       end
     end)
   else
-    vim.cmd('q!')
+    vim.cmd('quitall!')
   end
 end
 
@@ -114,6 +114,7 @@ map.nlmappings = {
     S = { cmd('Telescope lsp_workspace_symbols theme=get_ivy'), 'Lsp Workspace Symbols' },
     c = { cmd('Telescope git_commits theme=get_ivy'), '' },
     p = { cmd('Telescope projects theme=get_ivy'), '' },
+    m = { cmd('Telescope help_tags theme=get_ivy'), '' },
   },
   t = {
     name = 'Translate',

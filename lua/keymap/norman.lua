@@ -1,17 +1,24 @@
 if not vim.g.is_norman then
-  return;
+  return
 end
 
-vim.cmd [[
+vim.cmd([[
   " === norman keyboard layout
   nnoremap y h
   nnoremap n j
   nnoremap i k
   nnoremap o l
+
   vnoremap y h
   vnoremap n j
   vnoremap i k
   vnoremap o l
+
+  " a workaround for the fact that `i` are used up in visual mode
+  vnoremap " i"
+  vnoremap ( i)
+  vnoremap [ i]
+  vnoremap { i}
 
   noremap Y ^
   noremap O $
@@ -53,4 +60,4 @@ vim.cmd [[
   " ounmap R
   " xunmap r
   " xunmap R
-]]
+]])

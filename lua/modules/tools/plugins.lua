@@ -202,7 +202,7 @@ plugin({
   config = conf.table_modle,
 })
 
--- vim.cmd("let g:targets_aiAI = 'aiAI'")
+vim.cmd("let g:targets_aiAI = 'a`A~'")
 plugin({
   'wellle/targets.vim',
   event = 'BufRead',
@@ -218,8 +218,8 @@ plugin({
           \     'tag':       [{}],
           \     },
           \ })
-      omap q i@
-      xmap q i@
+      omap q `@
+      xmap q `@
     ]])
   end,
 })

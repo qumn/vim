@@ -47,7 +47,7 @@ function config.nvim_cmp()
           Operator = '',
           TypeParameter = ' ',
           Copilot = '',
-          Neorg = 'N '
+          Neorg = 'N ',
         }
         local meta_type = vim_item.kind
         -- load lspkind icons
@@ -146,10 +146,14 @@ end
 function config.lspsaga()
   local saga = require('lspsaga')
   saga.setup({
+    scroll_preview = {
+      scroll_down = '<C-f>',
+      scroll_up = '<C-b>',
+    },
     finder = {
       keys = {
         jump_to = 'g',
-        edit = nmorqw('l', 'o'),
+        expand_or_jump = nmorqw('l', 'o'),
         vsplit = 's',
         split = nmorqw('r', 'i'),
         tabe = 't',
