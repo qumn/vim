@@ -19,6 +19,10 @@ vim.cmd([[
   vnoremap ( i)
   vnoremap [ i]
   vnoremap { i}
+  onoremap o l
+  xnoremap o l
+  onoremap y h
+  xnoremap y h
 
   noremap Y ^
   noremap O $
@@ -37,27 +41,4 @@ vim.cmd([[
   noremap k r
   noremap K R
   noremap <c-l> <c-o>
-
-
-  " sunmap y
-  " sunmap n
-  " sunmap i
-  " sunmap o
-  " sunmap Y
-  " sunmap O
-  " sunmap N
-  " sunmap r
-  " sunmap R
-  " sunmap l
-  " sunmap L
-  " sunmap j
-  " sunmap h
-  " sunmap H
-  " sunmap k
-  " sunmap K
-
-  " ounmap r
-  " ounmap R
-  " xunmap r
-  " xunmap R
 ]])
