@@ -5,16 +5,43 @@
 local config = {}
 
 function config.telescope()
+  local actions = require('telescope.actions')
   require('telescope').setup({
     defaults = {
-      layout_config = {
-        horizontal = { prompt_position = 'top', results_width = 0.6 },
-        vertical = { mirror = false },
-      },
+      -- layout_config = {
+      --   horizontal = { prompt_position = 'top', results_width = 0.6 },
+      --   vertical = { mirror = false },
+      -- },
+      theme = 'ivy',
       sorting_strategy = 'ascending',
+      layout_strategy = 'bottom_pane',
+      layout_config = {
+        height = 0.5,
+      },
+      border = true,
+      borderchars = {
+        prompt = { '─', ' ', ' ', ' ', '─', '─', ' ', ' ' },
+        results = { ' ' },
+        preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+      },
       file_previewer = require('telescope.previewers').vim_buffer_cat.new,
       grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
       qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+      mappings = {
+        i = {
+          ['<C-s>'] = actions.select_horizontal,
+          ['<C-n>'] = actions.move_selection_next,
+          ['<C-i>'] = actions.move_selection_previous,
+        },
+        n = {
+          ['n'] = actions.move_selection_next,
+          ['i'] = actions.move_selection_previous,
+          ['Y'] = actions.move_to_top,
+          ['M'] = actions.move_to_middle,
+          ['O'] = actions.move_to_bottom,
+          ['<C-s>'] = actions.select_horizontal,
+        },
+      },
     },
     extensions = {
       fzy_native = {

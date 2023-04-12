@@ -153,9 +153,9 @@ function config.lspsaga()
     finder = {
       keys = {
         jump_to = 'g',
-        expand_or_jump = nmorqw('l', 'o'),
-        vsplit = 's',
-        split = nmorqw('r', 'i'),
+        expand_or_jump = '<CR>',
+        vsplit = 'v',
+        split = 's',
         tabe = 't',
         tabnew = nmorqw('T', 'r'),
         quit = { 'q', '<ESC>' },
