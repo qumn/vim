@@ -110,8 +110,6 @@ _G.smart_tab = function()
     return "<cmd>lua require'cmp'.confirm({select= true, behavior=require'cmp'.ConfirmBehavior.Replace})<CR>"
   elseif luasnip_status then -- TODO: only jump to the position which behind current cursor
     return "<cmd>lua require'luasnip'.expand_or_jump()<CR>"
-  elseif jumpable(1) then
-    return "require'luasnip'.jump(1)"
   elseif has_words_before() then
     return '<Tab>'
   else

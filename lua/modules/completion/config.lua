@@ -13,61 +13,41 @@ function config.nvim_cmp()
   local cmp = require('cmp')
   cmp.setup({
     preselect = cmp.PreselectMode.Item,
+
     window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
+      completion = {
+        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
+        -- col_offset = -3,
+        side_padding = 0,
+      },
     },
+    -- window = {
+    --   completion = cmp.config.window.bordered(),
+    --   documentation = cmp.config.window.bordered(),
+    -- },
     formatting = {
       fields = { 'kind', 'abbr', 'menu' },
       format = function(entry, vim_item)
-        local lspkind_icons = {
-          Text = '',
-          Method = ' ',
-          Function = '',
-          Constructor = ' ',
-          Field = ' ',
-          Variable = ' ',
-          Class = '',
-          Interface = '',
-          Module = '',
-          Property = '',
-          Unit = ' ',
-          Value = '',
-          Enum = ' ',
-          Keyword = 'ﱃ',
-          Snippet = ' ',
-          Color = ' ',
-          File = ' ',
-          Reference = 'Ꮢ',
-          Folder = ' ',
-          EnumMember = ' ',
-          Constant = ' ',
-          Struct = ' ',
-          Event = '',
-          Operator = '',
-          TypeParameter = ' ',
-          Copilot = '',
-          Neorg = 'N ',
-        }
-        local meta_type = vim_item.kind
-        -- load lspkind icons
-        vim_item.kind = lspkind_icons[vim_item.kind] .. ''
+        local kind = require('lspkind').cmp_format({
+          mode = 'symbol_text',
+          maxwidth = 50,
+          symbol_map = { Copilot = '' },
+        })(entry, vim_item)
 
-        vim_item.menu = ({
-          buffer = ' Buffer',
-          nvim_lsp = meta_type,
-          path = ' Path',
-          luasnip = ' LuaSnip',
-        })[entry.source.name]
+        local strings = vim.split(kind.kind, '%s', { trimempty = true })
+        kind.kind = ' ' .. (strings[1] or '') .. ' '
+        kind.menu = '    (' .. (strings[2] or '') .. ')'
 
-        return vim_item
+        return kind
       end,
     },
     -- You can set mappings if you want
     mapping = cmp.mapping.preset.insert({
+      [nmorqw('<C-n>', '<C-j>')] = cmp.mapping.select_next_item(),
+      [nmorqw('<M-\\>', '<C-k>')] = cmp.mapping.select_prev_item(), --
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-e>'] = cmp.mapping.abort(),
+      ['<C-e>'] = cmp.mapping.close(),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-y>'] = cmp.mapping({
         i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
@@ -156,6 +136,7 @@ function config.lspsaga()
         expand_or_jump = '<CR>',
         vsplit = 'v',
         split = 's',
+        edit = nmorqw('l', 'o'),
         tabe = 't',
         tabnew = nmorqw('T', 'r'),
         quit = { 'q', '<ESC>' },
