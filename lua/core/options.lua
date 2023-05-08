@@ -127,7 +127,7 @@ if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
 
-if vim.loop.os_uname().sysname == 'Linux' then
+if vim.loop.os_uname().sysname == 'Linux' and os.getenv("XDG_SESSION_TYPE") == "wayland" then
   vim.g.clipboard = {
     name = 'Linux wayland clipboard',
     copy = {

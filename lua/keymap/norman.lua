@@ -41,4 +41,10 @@ vim.cmd([[
   noremap k r
   noremap K R
   noremap <c-l> <c-o>
+
+  " map for jump between windows
+  nnoremap <C-w>y <C-w>h
+  nnoremap <C-w>n <C-w>j
+  nnoremap <C-w>i <C-w>k
+  nnoremap <C-w>o <C-w>l
 ]])

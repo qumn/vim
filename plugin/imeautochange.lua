@@ -2,10 +2,15 @@
 -- it can store the ime when you leave insert mode
 -- then change it back when you enter insert mode
 -- the plugin dependen on macism command
+-- in ssh mode
+if os.getenv("XDG_SESSION_TYPE") == "tty" then
+  return
+end
 
 -- is has macism command
 if vim.fn.executable('macism') ~= 1 then
   print("can't find macism command")
+  return
 end
 
 local ctx = {}
