@@ -12,20 +12,20 @@ local cmd = keymap.cmd
 
 -- Use space as leader key
 vim.g.mapleader = ' '
-require('keymap.smarttab')
+-- require('keymap.smarttab')
 
-imap({
-  -- tab key
-  { '<TAB>', _G.smart_tab, opts(expr, silent, remap) },
-  { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
-  { '<C-h>', '<Bs>', opts(noremap) },
-  --{ '<CR>', _G.smart_return, opts(expr, silent, remap) },
-})
+-- imap({
+--   -- tab key
+--   { '<TAB>', _G.smart_tab, opts(expr, silent, remap) },
+--   { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
+--   { '<C-h>', '<Bs>', opts(noremap) },
+--   --{ '<CR>', _G.smart_return, opts(expr, silent, remap) },
+-- })
 
-smap({
-  { '<TAB>', _G.smart_tab, opts(expr, silent, remap) },
-  { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
-})
+-- smap({
+--   { '<TAB>', _G.smart_tab, opts(expr, silent, remap) },
+--   { '<S-TAB>', _G.smart_shift_tab, opts(expr, silent, remap) },
+-- })
 
 -- leaderkey
 nmap({ ' ', '', opts(noremap) })

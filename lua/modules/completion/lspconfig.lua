@@ -120,11 +120,11 @@ lspconfig.tsserver.setup({
   capabilities = capabilities,
 })
 
-lspconfig.unocss.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern('unocss.config.js', 'unocss.config.ts', 'uno.config.ts', 'uno.config.js'),
-})
+-- lspconfig.unocss.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   root_dir = lspconfig.util.root_pattern('unocss.config.js', 'unocss.config.ts', 'uno.config.ts', 'uno.config.js'),
+-- })
 
 lspconfig.bashls.setup({
   on_attach = on_attach,
@@ -138,6 +138,7 @@ local servers = {
   -- 'denols',
   'jsonls',
   'volar',
+  'tailwindcss'
 }
 
 for _, server in ipairs(servers) do
