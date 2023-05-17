@@ -138,7 +138,8 @@ local servers = {
   -- 'denols',
   'jsonls',
   'volar',
-  'tailwindcss'
+  'tailwindcss',
+  -- 'dartls',
 }
 
 for _, server in ipairs(servers) do

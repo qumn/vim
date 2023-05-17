@@ -158,6 +158,18 @@ plugin({
 plugin({
   'sindrets/winshift.nvim',
   cmd = 'WinShift',
+  config = function()
+    require('winshift').setup({
+      keymaps = {
+        win_move_mode = {
+          ['y'] = 'left',
+          ['n'] = 'down',
+          ['i'] = 'up',
+          ['o'] = 'right',
+        },
+      },
+    })
+  end,
 })
 
 plugin({
@@ -258,7 +270,6 @@ plugin({
     },
   },
 })
-
 
 -- plugin({
 --   'edluffy/hologram.nvim',

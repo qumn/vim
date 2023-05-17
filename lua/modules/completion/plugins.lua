@@ -108,8 +108,7 @@ plugin({
   'zbirenbaum/copilot-cmp',
   event = { 'BufRead', 'BufNewFile' },
   config = function()
-    require('copilot_cmp').setup({
-    })
+    require('copilot_cmp').setup({})
   end,
   dependencies = {
     'zbirenbaum/copilot.lua',
@@ -121,4 +120,16 @@ plugin({
       })
     end,
   },
+})
+
+plugin({
+  'akinsho/flutter-tools.nvim',
+  -- ft = 'dart',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'stevearc/dressing.nvim', -- optional for vim.ui.select
+  },
+  config = function()
+    require('flutter-tools').setup()
+  end
 })
