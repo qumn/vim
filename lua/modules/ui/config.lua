@@ -21,7 +21,7 @@ function config.indent_blankline()
     char = '│',
     use_treesitter_scope = true,
     show_first_indent_level = true,
-    show_current_context = false,
+    show_current_context = true,
     show_current_context_start = false,
     show_current_context_start_on_current_line = false,
     filetype_exclude = {
@@ -112,7 +112,7 @@ function config.session_manager()
     autosave_ignore_filetypes = { -- All buffers of these file types will be closed before the session is saved.
       'gitcommit',
       'dashboard',
-      "NvimTree"
+      'NvimTree',
     },
     autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
     max_path_length = 80, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
@@ -131,9 +131,9 @@ end
 
 function config.nvim_tree()
   require('nvim-tree').setup({
-    respect_buf_cwd = true,
-    update_cwd = true,
-    update_focused_file = { enable = true, update_cwd = true },
+    -- respect_buf_cwd = false,
+    -- update_cwd = false,
+    -- update_focused_file = { enable = true, update_cwd = true },
     view = {
       width = 30,
       side = 'left',

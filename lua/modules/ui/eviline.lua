@@ -2,6 +2,7 @@
 -- Author: shadmansaleh
 -- Credit: glepnir
 local lualine = require('lualine')
+local copilot_status = require('modules.ui.copilot_status')
 
 -- Color table for highlights
 -- stylua: ignore
@@ -119,7 +120,6 @@ ins_left({
   end,
   padding = { right = 1 },
 })
-
 ins_left({
   -- filesize component
   'filesize',
@@ -174,6 +174,19 @@ ins_left({
   end,
   icon = ' LSP:',
   color = { fg = '#ffffff', gui = 'bold' },
+})
+
+ins_right({
+  copilot_status.get_icon,
+  color = function()
+    local state_color = {
+      normal = colors.green,
+      inprogress = colors.yellow,
+      warning = colors.orange,
+      error = colors.red,
+    }
+    return { fg = state_color[copilot_status.get_status()] }
+  end,
 })
 
 -- Add components to right sections

@@ -32,6 +32,7 @@ plugin({
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   config = conf.lualine,
+  dependencies = { 'zbirenbaum/copilot.lua' },
 })
 
 plugin({
@@ -42,7 +43,7 @@ plugin({
 })
 
 plugin({
-  'akinsho/nvim-bufferline.lua',
+  'qumn/bufferline.nvim',
   config = conf.nvim_bufferline,
   requires = 'kyazdani42/nvim-web-devicons',
 })
