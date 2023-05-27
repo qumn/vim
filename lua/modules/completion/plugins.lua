@@ -131,5 +131,5 @@ plugin({
   },
   config = function()
     require('flutter-tools').setup()
-  end
+  end,
 })

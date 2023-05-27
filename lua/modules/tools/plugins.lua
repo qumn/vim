@@ -108,7 +108,9 @@ plugin({
 
 plugin({
   'JuanZoran/Trans.nvim',
-  run = 'bash ./install.sh',
+  run = function()
+    require('Trans').install()
+  end,
   cmd = { 'Translate' },
   dependencies = { 'kkharji/sqlite.lua' },
   -- 如果你不需要任何配置的话, 可以直接按照下面的方式启动
@@ -127,11 +129,35 @@ plugin({
   end,
 })
 
--- plugin({
---   'tpope/vim-surround',
---   event = 'BufRead',
---   keys = { 'c', 'd', 'b' },
--- })
+-- vim.cmd([[let g:surround_no_mappings = 1]])
+-- set global variable
+vim.g.surround_no_mappings = 1
+plugin({
+  'tpope/vim-surround',
+  event = 'BufRead',
+  keys = { 'c', 'd', 'j' },
+  config = function()
+    vim.cmd([[
+      nmap ds  <Plug>Dsurround
+      nmap cs  <Plug>Csurround
+      nmap cS  <Plug>CSurround
+      nmap js  <Plug>Ysurround
+      nmap jS  <Plug>YSurround
+      nmap jss <Plug>Yssurround
+      nmap jSs <Plug>YSsurround
+      nmap jSS <Plug>YSsurround
+      xmap S   <Plug>VSurround
+      xmap gS  <Plug>VgSurround
+      if !exists("g:surround_no_insert_mappings") || ! g:surround_no_insert_mappings
+          if !hasmapto("<Plug>Isurround","i") && "" == mapcheck("<C-S>","i")
+              imap    <C-S> <Plug>Isurround
+          endif
+          imap      <C-G>s <Plug>Isurround
+          imap      <C-G>S <Plug>ISurround
+      endif
+  ]])
+  end,
+})
 
 plugin({
   'junegunn/vim-easy-align',

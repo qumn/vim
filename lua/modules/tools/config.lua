@@ -39,7 +39,8 @@ function config.telescope()
           ['Y'] = actions.move_to_top,
           ['M'] = actions.move_to_middle,
           ['O'] = actions.move_to_bottom,
-          ['<C-s>'] = actions.select_horizontal,
+          ['s'] = actions.select_horizontal,
+          ['v'] = actions.select_vertical
         },
       },
     },

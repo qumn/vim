@@ -15,7 +15,7 @@ vim.cmd([[
   vnoremap o l
 
   " a workaround for the fact that `i` are used up in visual mode
-  vnoremap " i"
+  " vnoremap " i"
   vnoremap ( i)
   vnoremap [ i]
   vnoremap { i}

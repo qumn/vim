@@ -166,7 +166,7 @@ map.nmappings = {
     S = { cmd('Telescope lsp_workspace_symbols'), 'Lsp Workspace Symbols' },
     c = { cmd('Telescope git_commits'), 'Git Commits' },
     p = { cmd('Telescope projects'), 'Projects' },
-    t = { cmd('FlyBuf'), 'FlyBuf' },
+    t = { cmd('BufferLinePick'), 'BufferLinePick' },
   },
   g = {
     h = { cmd('Lspsaga lsp_finder'), 'Lsp Finder' },

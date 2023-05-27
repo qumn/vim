@@ -105,7 +105,7 @@ vim.opt.relativenumber = true
 -- gui font config
 vim.g.gui_font_default_size = 18
 vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = 'Cascadia Code'
+vim.g.gui_font_face = 'CaskaydiaCove Nerd Font'
 
 vim.g.keymap = 'norman'
 vim.g.is_norman = vim.g.keymap == 'norman'

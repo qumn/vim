@@ -102,8 +102,8 @@ function config.nvim_cmp()
       end,
     },
     sources = {
-      { name = 'copilot' },
       { name = 'nvim_lsp' },
+      { name = 'copilot' },
       { name = 'neorg' },
       { name = 'luasnip' },
       { name = 'path' },
