@@ -63,14 +63,6 @@ plugin({
   config = conf.mason,
 })
 
--- plugin({
---   'glepnir/lspsaga.nvim',
---   -- branch = "main",
---   after = 'nvim-lspconfig',
---   requires = 'kyazdani42/nvim-web-devicons',
---   config = conf.lspsaga,
--- })
-
 plugin({
   'windwp/nvim-autopairs',
   event = 'InsertEnter',
@@ -105,17 +97,6 @@ plugin({
   ft = 'java',
 })
 
--- plugin({
---   'zbirenbaum/copilot-cmp',
---   event = { 'BufRead', 'BufNewFile' },
---   config = function()
---     require('copilot_cmp').setup({})
---   end,
---   dependencies = {
---     'zbirenbaum/copilot.lua',
---   },
--- })
-
 plugin({
   'zbirenbaum/copilot.lua',
   event = { 'BufRead', 'BufNewFile' },
@@ -143,7 +124,7 @@ plugin({
 
 plugin({
   'akinsho/flutter-tools.nvim',
-  -- ft = 'dart',
+  ft = 'dart',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'stevearc/dressing.nvim', -- optional for vim.ui.select

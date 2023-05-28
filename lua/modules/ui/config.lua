@@ -133,6 +133,7 @@ function config.nvim_tree()
   require('nvim-tree').setup({
     -- respect_buf_cwd = false,
     -- update_cwd = false,
+    on_attach = require('modules.ui.nvim_tree').on_attach,
     update_focused_file = { enable = true, update_cwd = true },
     view = {
       width = 30,
@@ -310,3 +311,4 @@ function config.wilder()
 end
 
 return config
+

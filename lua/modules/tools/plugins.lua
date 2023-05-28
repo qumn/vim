@@ -16,6 +16,7 @@ plugin({
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-fzy-native.nvim',
     'nvim-telescope/telescope-file-browser.nvim',
+    'nvim-telescope/telescope-project.nvim',
   },
 })
 
@@ -120,7 +121,6 @@ plugin({
     })
   end,
 })
-
 
 -- vim.cmd([[let g:surround_no_mappings = 1]])
 -- set global variable

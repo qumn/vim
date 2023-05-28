@@ -80,7 +80,7 @@ function config.nvim_cmp()
         if cmp.visible() then
           cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
         elseif copilot.is_visible() then
-          copilot.accept_line()
+          copilot.accept()
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         elseif has_words_before() then
