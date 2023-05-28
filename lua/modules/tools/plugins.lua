@@ -19,18 +19,18 @@ plugin({
   },
 })
 
-plugin({
-  'mfussenegger/nvim-treehopper',
-  event = 'BufRead',
-})
+-- plugin({
+--   'mfussenegger/nvim-treehopper',
+--   event = 'BufRead',
+-- })
 
-plugin({
-  'phaazon/hop.nvim',
-  cmd = { 'HopWordAC', 'HopWordBC', 'HopLineStartAC', 'HopLineStartBC' },
-  config = function()
-    require('hop').setup()
-  end,
-})
+-- plugin({
+--   'phaazon/hop.nvim',
+--   cmd = { 'HopWordAC', 'HopWordBC', 'HopLineStartAC', 'HopLineStartBC' },
+--   config = function()
+--     require('hop').setup()
+--   end,
+-- })
 
 plugin({
   'ggandor/leap.nvim',
@@ -121,13 +121,6 @@ plugin({
   end,
 })
 
-plugin({
-  'folke/todo-comments.nvim',
-  event = 'BufRead',
-  config = function()
-    require('todo-comments').setup()
-  end,
-})
 
 -- vim.cmd([[let g:surround_no_mappings = 1]])
 -- set global variable
@@ -135,7 +128,7 @@ vim.g.surround_no_mappings = 1
 plugin({
   'tpope/vim-surround',
   event = 'BufRead',
-  keys = { 'c', 'd', 'j' },
+  -- keys = { 'c', 'd', 'j' },
   config = function()
     vim.cmd([[
       nmap ds  <Plug>Dsurround
@@ -296,12 +289,3 @@ plugin({
     },
   },
 })
-
--- plugin({
---   'edluffy/hologram.nvim',
---   config = function()
---     require('hologram').setup({
---       auto_display = false
---     })
---   end,
--- })

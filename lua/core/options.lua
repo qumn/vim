@@ -85,7 +85,7 @@ vim.opt.winblend = 10
 
 vim.opt.undofile = true
 vim.opt.synmaxcol = 2500
-vim.opt.formatoptions = '1jcroql'
+vim.opt.formatoptions = '1jql'
 vim.opt.textwidth = 80
 vim.opt.expandtab = true
 vim.opt.autoindent = true

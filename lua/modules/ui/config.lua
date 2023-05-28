@@ -133,7 +133,7 @@ function config.nvim_tree()
   require('nvim-tree').setup({
     -- respect_buf_cwd = false,
     -- update_cwd = false,
-    -- update_focused_file = { enable = true, update_cwd = true },
+    update_focused_file = { enable = true, update_cwd = true },
     view = {
       width = 30,
       side = 'left',
