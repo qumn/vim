@@ -48,3 +48,10 @@ vim.cmd([[
   nnoremap <C-w>i <C-w>k
   nnoremap <C-w>o <C-w>l
 ]])
+
+if vim.g.neovide then
+  vim.cmd([[
+    map <D-v> "+p
+    cmap <D-v> "+p
+  ]])
+end

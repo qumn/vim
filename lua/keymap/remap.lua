@@ -56,7 +56,6 @@ nmap({
   { '==', cmd("lua require'keymap.format'.format()"), opts(noremap, silent) },
 })
 
-
 -- commandline remap
 cmap({ '<C-b>', '<Left>', opts(noremap) })
 
@@ -101,10 +100,14 @@ nmap({
 
 nmap({ nmorqw('<c-y>', '<c-h>'), cmd('lua require("tmux").move_left()'), opts(noremap, silent) })
 nmap({ nmorqw('<c-n>', '<c-j>'), cmd('lua require("tmux").move_bottom()'), opts(noremap, silent) })
-nmap({ nmorqw('<M-\\>', '<c-k>'), cmd('lua require("tmux").move_top()'), opts(noremap, silent) })
+if vim.g.neovide then
+  nmap({ nmorqw('<C-i>', '<c-k>'), cmd('lua require("tmux").move_top()'), opts(noremap, silent) })
+else
+  nmap({ nmorqw('<M-\\>', '<c-k>'), cmd('lua require("tmux").move_top()'), opts(noremap, silent) })
+end
 nmap({ nmorqw('<c-o>', '<c-l>'), cmd('lua require("tmux").move_right()'), opts(noremap, silent) })
 vmap({ 'P', '"0p', opts(noremap, silent) })
-omap({'x', '<Plug>(leap-forward-till)', opts(noremap, silent)})
-xmap({'x', '<Plug>(leap-forward-till)', opts(noremap, silent)})
-omap({'X', '<Plug>(leap-backward-till)', opts(noremap, silent)})
-xmap({'X', '<Plug>(leap-backward-till)', opts(noremap, silent)})
+omap({ 'x', '<Plug>(leap-forward-till)', opts(noremap, silent) })
+xmap({ 'x', '<Plug>(leap-forward-till)', opts(noremap, silent) })
+omap({ 'X', '<Plug>(leap-backward-till)', opts(noremap, silent) })
+xmap({ 'X', '<Plug>(leap-backward-till)', opts(noremap, silent) })

@@ -22,6 +22,7 @@ function map.smart_quit()
 end
 
 map.nlmappings = {
+  ["'"] = { cmd('ToggleTerm'), 'Terminal' },
   [';'] = { cmd('Dashboard'), 'Dashboard' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', 'Comment toggle current line' },
   c = { cmd('bd'), 'Close Buffer' },
@@ -113,7 +114,7 @@ map.nlmappings = {
     s = { cmd('Telescope lsp_document_symbols'), 'Lsp Document Symbols' },
     S = { cmd('Telescope lsp_dynamic_workspace_symbols'), 'Lsp Workspace Symbols' },
     c = { cmd('Telescope git_commits'), '' },
-    p = { cmd('Telescope projects'), '' },
+    p = { cmd('Telescope project'), '' },
     m = { cmd('Telescope help_tags'), '' },
   },
   t = {
@@ -173,7 +174,7 @@ map.nmappings = {
     s = { cmd('Telescope lsp_document_symbols'), 'Lsp Document Symbols' },
     S = { cmd('Telescope lsp_workspace_symbols'), 'Lsp Workspace Symbols' },
     c = { cmd('Telescope git_commits'), 'Git Commits' },
-    p = { cmd('Telescope projects'), 'Projects' },
+    p = { cmd('Telescope project'), 'Projects' },
     t = { cmd('BufferLinePick'), 'BufferLinePick' },
   },
   g = {
