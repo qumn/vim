@@ -289,3 +289,10 @@ plugin({
     },
   },
 })
+
+plugin({
+  'akinsho/toggleterm.nvim',
+  version = '*',
+  opts = {
+  },
+})

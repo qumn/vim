@@ -80,6 +80,7 @@ require('catppuccin').setup({
     hop = true,
     notify = true,
     telekasten = true,
+    semantic_tokens = true,
     symbols_outline = true,
     mini = false,
     aerial = false,

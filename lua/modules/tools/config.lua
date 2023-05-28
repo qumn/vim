@@ -52,6 +52,7 @@ function config.telescope()
       project = {
         base_dirs = {
           '~/project',
+          '~/.config/'
         },
         hidden_files = true, -- default: false
         theme = 'dropdown',

@@ -18,6 +18,10 @@ function config.nvim_cmp()
   local cmp = require('cmp')
   local luasnip = require('luasnip')
   local copilot = require("copilot.suggestion");
+  local pre = nmorqw('<M-\\>', '<C-k>')
+  if vim.g.neovide then
+    pre = nmorqw('<C-i>', '<C-k>')
+  end
 
   cmp.setup({
     preselect = cmp.PreselectMode.Item,
@@ -52,7 +56,7 @@ function config.nvim_cmp()
     -- You can set mappings if you want
     mapping = cmp.mapping.preset.insert({
       [nmorqw('<C-n>', '<C-j>')] = cmp.mapping.select_next_item(),
-      [nmorqw('<M-\\>', '<C-k>')] = cmp.mapping.select_prev_item(), --
+      [pre] = cmp.mapping.select_prev_item(), --
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-u>'] = cmp.mapping.scroll_docs(4),
       ['<C-e>'] = cmp.mapping.close(),
