@@ -137,7 +137,9 @@ map.nmappings = {
     g = { cmd('lua require"gitsigns".next_hunk()'), 'Git Change' },
     e = { cmd('Lspsaga diagnostic_jump_next'), 'Warning or Error' },
     E = {
-      cmd('lua require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })'),
+      function()
+        require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })
+      end,
       'Only Error',
     },
   },
@@ -145,7 +147,13 @@ map.nmappings = {
     name = 'Prev',
     g = { cmd('lua require"gitsigns".prev_hunk()'), 'Git Change' },
     e = { cmd('Lspsaga diagnostic_jump_prev'), 'Warning or Error' },
-    E = { cmd('require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })'), 'Only Error' },
+    E = {
+      -- cmd('lua require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })'),
+      function()
+        require('lspsaga.diagnostic'):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+      end,
+      'Only Error',
+    },
   },
   -- hop
   s = {
@@ -176,6 +184,8 @@ map.nmappings = {
     s = { '<Plug>(leap-forward-to)', 'leap forward to' },
     S = { '<Plug>(leap-backward-to)', 'leap backward to' },
     d = { cmd('Lspsaga goto_definition'), 'Goto Definetion' },
+    t = { cmd('Lspsaga peek_type_definition'), 'Show Line Diagnostics' },
+    T = { cmd('Lspsaga goto_type_definition'), 'Show Line Diagnostics' },
   },
 }
 

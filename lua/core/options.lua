@@ -109,6 +109,7 @@ vim.g.gui_font_face = 'CaskaydiaCove Nerd Font'
 
 vim.g.keymap = 'norman'
 vim.g.is_norman = vim.g.keymap == 'norman'
+vim.g.theme = 'catppuccin-mocha'
 
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {
