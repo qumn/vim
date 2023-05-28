@@ -17,6 +17,8 @@ end
 function config.nvim_cmp()
   local cmp = require('cmp')
   local luasnip = require('luasnip')
+  local copilot = require("copilot.suggestion");
+
   cmp.setup({
     preselect = cmp.PreselectMode.Item,
 
@@ -52,7 +54,7 @@ function config.nvim_cmp()
       [nmorqw('<C-n>', '<C-j>')] = cmp.mapping.select_next_item(),
       [nmorqw('<M-\\>', '<C-k>')] = cmp.mapping.select_prev_item(), --
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-u>'] = cmp.mapping.scroll_docs(4),
       ['<C-e>'] = cmp.mapping.close(),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-y>'] = cmp.mapping({
@@ -66,8 +68,8 @@ function config.nvim_cmp()
         end,
       }),
       ['<CR>'] = cmp.mapping(function(fallback)
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
+        if luasnip.locally_jumpable(1) then
+          luasnip.jump(1)
         elseif cmp.visible() then
           cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
         else
@@ -77,8 +79,12 @@ function config.nvim_cmp()
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+        elseif copilot.is_visible() then
+          copilot.accept_line()
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
+        elseif has_words_before() then
+          cmp.complete()
         else
           fallback()
         end
@@ -103,7 +109,6 @@ function config.nvim_cmp()
     },
     sources = {
       { name = 'nvim_lsp' },
-      { name = 'copilot' },
       { name = 'neorg' },
       { name = 'luasnip' },
       { name = 'path' },

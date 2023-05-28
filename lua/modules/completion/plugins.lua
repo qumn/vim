@@ -104,22 +104,41 @@ plugin({
   'mfussenegger/nvim-jdtls',
   ft = 'java',
 })
+
+-- plugin({
+--   'zbirenbaum/copilot-cmp',
+--   event = { 'BufRead', 'BufNewFile' },
+--   config = function()
+--     require('copilot_cmp').setup({})
+--   end,
+--   dependencies = {
+--     'zbirenbaum/copilot.lua',
+--   },
+-- })
+
 plugin({
-  'zbirenbaum/copilot-cmp',
+  'zbirenbaum/copilot.lua',
   event = { 'BufRead', 'BufNewFile' },
   config = function()
-    require('copilot_cmp').setup({})
+    require('copilot').setup({
+      suggestion = { enabled = true, auto_trigger = true },
+      panel = {
+        enabled = true,
+        auto_refresh = false,
+        keymap = {
+          jump_prev = '[[',
+          jump_next = ']]',
+          accept = '<CR>',
+          refresh = 'gr',
+          open = '<M-CR>',
+        },
+        layout = {
+          position = 'bottom', -- | top | left | right
+          ratio = 0.4,
+        },
+      },
+    })
   end,
-  dependencies = {
-    'zbirenbaum/copilot.lua',
-    event = { 'BufRead', 'BufNewFile' },
-    config = function()
-      require('copilot').setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end,
-  },
 })
 
 plugin({
