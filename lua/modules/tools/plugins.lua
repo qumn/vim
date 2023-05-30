@@ -295,4 +295,9 @@ plugin({
   version = '*',
   opts = {
   },
+  config = function ()
+    require('toggleterm').setup{
+      open_mapping = [[<c-t>]]
+    }
+  end
 })

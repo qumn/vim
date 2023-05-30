@@ -59,7 +59,7 @@ function config.nvim_cmp()
       [pre] = cmp.mapping.select_prev_item(), --
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-u>'] = cmp.mapping.scroll_docs(4),
-      ['<C-e>'] = cmp.mapping.close(),
+      ['<C-h>'] = cmp.mapping.close(),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-y>'] = cmp.mapping({
         i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
@@ -151,6 +151,9 @@ end
 function config.lspsaga()
   local saga = require('lspsaga')
   saga.setup({
+    symbol_in_winbar = {
+      enable = false
+    },
     scroll_preview = {
       scroll_down = '<C-f>',
       scroll_up = '<C-b>',

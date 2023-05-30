@@ -6,6 +6,10 @@ local config = {}
 
 function config.telescope()
   local actions = require('telescope.actions')
+  local prev = "<M-\\>";
+  if vim.g.neovide then
+    prev = "<C-i>"
+  end
   require('telescope').setup({
     defaults = {
       -- layout_config = {
@@ -31,7 +35,7 @@ function config.telescope()
         i = {
           ['<C-s>'] = actions.select_horizontal,
           ['<C-n>'] = actions.move_selection_next,
-          ['<C-i>'] = actions.move_selection_previous,
+          [prev] =  actions.move_selection_previous,
         },
         n = {
           ['n'] = actions.move_selection_next,

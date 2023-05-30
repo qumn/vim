@@ -44,9 +44,9 @@ plugin({
   },
 })
 
-plugin({
-  'kkoomen/vim-doge',
-  --cmd = 'DogeGenerate',
-  run = ':call doge#install()',
-  config = conf.doge,
-})
+-- plugin({
+--   'kkoomen/vim-doge',
+--   --cmd = 'DogeGenerate',
+--   run = ':call doge#install()',
+--   config = conf.doge,
+-- })

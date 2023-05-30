@@ -22,8 +22,8 @@ function map.smart_quit()
 end
 
 map.nlmappings = {
-  ["'"] = { cmd('ToggleTerm'), 'Terminal' },
-  [';'] = { cmd('Dashboard'), 'Dashboard' },
+  -- [";"] = { cmd('ToggleTerm'), 'Terminal' },
+  ["'"] = { cmd('Dashboard'), 'Dashboard' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', 'Comment toggle current line' },
   c = { cmd('bd'), 'Close Buffer' },
   h = { cmd('nohlsearch'), 'No Highlight' },
