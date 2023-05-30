@@ -40,7 +40,9 @@ vim.cmd([[
   noremap H N
   noremap k r
   noremap K R
-  noremap <c-l> <c-o>
+  nnoremap <c-l> <c-o>
+  nnoremap <c-r> <c-i>
+  nnoremap <c-u> <c-r>
 
   " map for jump between windows
   nnoremap <C-w>y <C-w>h
