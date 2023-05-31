@@ -54,6 +54,12 @@ plugin({
   config = conf.catppuccin,
 })
 
+vim.g.everforest_background = 'hard'
+vim.g.everforest_better_performance = 1
+vim.g.everforest_enable_italic = 1
+vim.g.everforest_diagnostic_text_highlight = 1
+vim.g.everforest_diagnostic_line_highlight = 1
+vim.g.everforest_diagnostic_virtual_text = 'colored'
 plugin({
   'sainnhe/everforest',
   version = false,
@@ -61,7 +67,6 @@ plugin({
   priority = 1000, -- make sure to load this before all the other start plugins
   -- Optional; default configuration will be used if setup isn't called.
   config = function()
-    vim.g.everforest_background = 'hard'
   end,
 })
 plugin({ 'ellisonleao/gruvbox.nvim', priority = 1000 })

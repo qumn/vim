@@ -23,7 +23,7 @@ function config.nvim_treesitter()
     ignore_install = { 'phpdoc' },
     prefer_git = true,
     highlight = {
-      enable = false,
+      enable = true,
       additional_vim_regex_highlighting = false,
       disable = { 'latex' },
     },
