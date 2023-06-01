@@ -111,3 +111,4 @@ omap({ 'x', '<Plug>(leap-forward-till)', opts(noremap, silent) })
 xmap({ 'x', '<Plug>(leap-forward-till)', opts(noremap, silent) })
 omap({ 'X', '<Plug>(leap-backward-till)', opts(noremap, silent) })
 xmap({ 'X', '<Plug>(leap-backward-till)', opts(noremap, silent) })
+

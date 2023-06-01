@@ -5,8 +5,8 @@ end
 vim.cmd([[
   " === norman keyboard layout
   nnoremap y h
-  nnoremap n j
-  nnoremap i k
+  " nnoremap n j
+  " nnoremap i k
   nnoremap o l
 
   vnoremap y h
@@ -64,7 +64,7 @@ if vim.g.neovide then
 end
 
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
+  local opts = { buffer = 0 }
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
   -- vim.keymap.set('t', 'ni', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-y>', [[<Cmd>wincmd h<CR>]], opts)
@@ -80,3 +80,19 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+vim.keymap.set('n', 'n', function()
+  if vim.v.count > 0 then
+    return "m'" .. vim.v.count .. 'j'
+  else
+    return 'gj'
+  end
+end, { noremap = true, expr = true })
+
+vim.keymap.set('n', 'i', function()
+  if vim.v.count > 0 then
+    return "m'" .. vim.v.count .. 'k'
+  else
+    return 'gk'
+  end
+end, { noremap = true, expr = true })

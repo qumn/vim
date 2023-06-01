@@ -72,7 +72,6 @@ M.highlight = {
 
 function M.mod_hl(hl_name, opts)
   local is_ok, hl_def = pcall(vim.api.nvim_get_hl, 0, { name = hl_name, link = false })
-  print(is_ok, vim.inspect(hl_def))
   if is_ok then
     for k, v in pairs(opts) do
       hl_def[k] = v
