@@ -6,10 +6,7 @@ local config = {}
 
 function config.telescope()
   local actions = require('telescope.actions')
-  local prev = "<M-\\>";
-  if vim.g.neovide then
-    prev = "<C-i>"
-  end
+  local prev = "<C-i>"
   require('telescope').setup({
     defaults = {
       -- layout_config = {

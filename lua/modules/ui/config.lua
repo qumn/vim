@@ -95,7 +95,7 @@ function config.dashboard()
   })
   local utils = require('session_manager.utils')
   local session_name = utils.dir_to_session_filename(vim.loop.cwd())
-  if true then
+  if session_name:exists() or vim.g.neovide then
     vim.api.nvim_clear_autocmds({ event = 'UIEnter', group = 'Dashboard' })
   end
 end
@@ -109,6 +109,9 @@ function config.session_manager()
     autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
     autosave_last_session = true, -- Automatically save last session on exit and on session switch.
     autosave_ignore_not_normal = true, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
+    autosave_ignore_dirs = {
+      '~',
+    },
     autosave_ignore_filetypes = { -- All buffers of these file types will be closed before the session is saved.
       'gitcommit',
       'dashboard',
@@ -125,16 +128,25 @@ function config.nvim_bufferline()
       modified_icon = '✥',
       --buffer_close_icon = '',
       always_show_bufferline = false,
+      offsets = {
+        {
+          filetype = 'NvimTree',
+          text = 'File Explorer',
+          highlight = 'Directory',
+          separator = true, -- use a "true" to enable the default, or set your own character
+        },
+      },
     },
   })
 end
 
 function config.nvim_tree()
   require('nvim-tree').setup({
-    -- respect_buf_cwd = false,
-    -- update_cwd = false,
+    -- root_dirs = { '.', '~' },
+    sync_root_with_cwd = true,
+    respect_buf_cwd = true,
     on_attach = require('modules.ui.nvim_tree').on_attach,
-    -- update_focused_file = { enable = true, update_cwd = true },
+    -- update_focused_file = { enable = true, update_root = true },
     view = {
       width = 30,
       side = 'left',
@@ -143,13 +155,6 @@ function config.nvim_tree()
       relativenumber = false,
       signcolumn = 'yes',
       hide_root_folder = false,
-      mappings = {
-        list = {
-          { key = { nmorqw('l', 'o') }, action = 'edit' },
-          { key = { 's' }, action = 'split' },
-          { key = { 'v' }, action = 'vsplit' },
-        },
-      },
     },
     renderer = {
       indent_markers = {
@@ -311,4 +316,3 @@ function config.wilder()
 end
 
 return config
-

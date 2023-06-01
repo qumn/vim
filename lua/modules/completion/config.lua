@@ -18,10 +18,7 @@ function config.nvim_cmp()
   local cmp = require('cmp')
   local luasnip = require('luasnip')
   local copilot = require("copilot.suggestion");
-  local pre = nmorqw('<M-\\>', '<C-k>')
-  if vim.g.neovide then
-    pre = nmorqw('<C-i>', '<C-k>')
-  end
+  local pre = nmorqw('<C-i>', '<C-k>')
 
   cmp.setup({
     preselect = cmp.PreselectMode.Item,

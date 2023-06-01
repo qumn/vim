@@ -21,6 +21,10 @@ function map.smart_quit()
   end
 end
 
+local command = {
+  dart = 'FlutterRun',
+}
+
 map.nlmappings = {
   -- [";"] = { cmd('ToggleTerm'), 'Terminal' },
   ["'"] = { cmd('Dashboard'), 'Dashboard' },
@@ -33,7 +37,27 @@ map.nlmappings = {
     i = { cmd('Telescope neorg insert_link'), 'Inset linkable' },
     f = { cmd('Telescope neorg find_linkable'), 'Inset linkable' },
   },
-  o = { cmd('LSoutlineToggle'), 'LSoutlineToggle' }, -- outline use `o` to jump
+  r = {
+    function()
+      local filetype = vim.bo.filetype
+      if command[filetype] then
+         cmd(command[filetype])
+      else
+        print('No run command for ' .. filetype)
+      end
+    end,
+    'run',
+  },
+  o = {
+    function()
+      if vim.bo.filetype == 'dart' then
+        vim.cmd('FlutterOutlineToggle')
+      else
+        vim.cmd('SymbolsOutline')
+      end
+    end,
+    'LSoutlineToggle',
+  }, -- outline use `o` to jump
   q = { map.smart_quit, 'Quit' },
   b = {
     name = 'Buffers',

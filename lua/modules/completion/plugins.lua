@@ -108,7 +108,7 @@ plugin({
         keymap = {
           accept = '<C-a>',
           next = nmorqw('<C-n>', '<C-j>'),
-          prev = nmorqw('<M-\\>', '<C-k>'),
+          prev = nmorqw('<C-i>', '<C-k>'),
         },
       },
       panel = {

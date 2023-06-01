@@ -6,7 +6,7 @@ local plugin = require('core.pack').package
 local conf = require('modules.ui.config')
 
 plugin({
-  'glepnir/dashboard-nvim',
+  'qumn/dashboard-nvim',
   config = conf.dashboard,
   dependencies = {
     'Shatur/neovim-session-manager',
