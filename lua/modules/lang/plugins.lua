@@ -37,6 +37,7 @@ plugin({
 
 plugin({
   'kevinhwang91/nvim-ufo',
+  event = 'BufRead',
   config = conf.ufo,
   dependencies = {
     'nvim-lspconfig',

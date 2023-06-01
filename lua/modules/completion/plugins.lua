@@ -102,7 +102,15 @@ plugin({
   event = { 'BufRead', 'BufNewFile' },
   config = function()
     require('copilot').setup({
-      suggestion = { enabled = true, auto_trigger = true },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = '<C-a>',
+          next = nmorqw('<C-n>', '<C-j>'),
+          prev = nmorqw('<M-\\>', '<C-k>'),
+        },
+      },
       panel = {
         enabled = true,
         auto_refresh = false,
