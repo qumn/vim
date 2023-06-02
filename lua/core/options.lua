@@ -73,7 +73,8 @@ vim.opt.helpheight = 12
 vim.opt.previewheight = 12
 vim.opt.showcmd = false
 -- just for nightly
-vim.opt.cmdheight = 0
+-- because neovide can't use noice.nvim
+vim.opt.cmdheight = vim.g.neovide and 1 or 0
 vim.opt.cmdwinheight = 5
 vim.opt.equalalways = false
 vim.opt.laststatus = 3
@@ -103,7 +104,7 @@ vim.opt.conceallevel = 0
 vim.opt.concealcursor = 'niv'
 vim.opt.relativenumber = true
 -- gui font config
-vim.g.gui_font_default_size = 12
+vim.g.gui_font_default_size = 18
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = 'CaskaydiaCove Nerd Font'
 
@@ -144,4 +145,3 @@ if vim.loop.os_uname().sysname == 'Linux' and os.getenv("XDG_SESSION_TYPE") == "
   vim.g.python_host_prog = '/usr/bin/python'
   vim.g.python3_host_prog = '/usr/bin/python3'
 end
-

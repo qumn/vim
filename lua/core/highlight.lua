@@ -62,6 +62,7 @@ M.highlight = {
   semshiBuiltin = { italic = true },
 
   InlayHint = { italic = true },
+  LspInlayHint = { italic = true },
 
   -- lsp semantic token
   ['@repeat'] = { italic = true },
@@ -96,5 +97,4 @@ vim.api.nvim_create_autocmd({ 'VimEnter', 'ColorScheme' }, {
   end,
 })
 
-vim.cmd('set termguicolors')
 return M
