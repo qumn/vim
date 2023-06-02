@@ -49,6 +49,7 @@ plugin({
     'hrsh7th/cmp-buffer',
     'saadparwaiz1/cmp_luasnip',
     'L3MON4D3/LuaSnip',
+    'hrsh7th/cmp-cmdline',
   },
 })
 
@@ -151,13 +152,29 @@ plugin({
           virtual_text = true, -- show the highlight using virtual text
           virtual_text_str = '■', -- the virtual text character to highlight
         },
-        -- capabilities = function(config)
-        --   print('dart lsp capabilities')
-        --   print(vim.inspect(config))
-        --   config.specificThingIDontWant = false
-        --   return config
-        -- end,
       },
+    })
+  end,
+})
+
+plugin({
+  'lvimuser/lsp-inlayhints.nvim',
+  event = 'LspAttach',
+  branch = 'anticonceal',
+  config = function()
+    require('lsp-inlayhints').setup()
+    vim.api.nvim_create_augroup('LspAttach_inlayhints', {})
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = 'LspAttach_inlayhints',
+      callback = function(args)
+        if not (args.data and args.data.client_id) then
+          return
+        end
+
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        require('lsp-inlayhints').on_attach(client, bufnr)
+      end,
     })
   end,
 })

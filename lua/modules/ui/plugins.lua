@@ -30,6 +30,7 @@ plugin({
 --})
 plugin({
   'nvim-lualine/lualine.nvim',
+  event = 'BufReadPre',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   config = conf.lualine,
   dependencies = { 'zbirenbaum/copilot.lua' },
@@ -44,6 +45,7 @@ plugin({
 
 plugin({
   'qumn/bufferline.nvim',
+  event = 'BufReadPre',
   config = conf.nvim_bufferline,
   requires = 'kyazdani42/nvim-web-devicons',
 })
@@ -66,9 +68,9 @@ plugin({
   lazy = false,
   priority = 1000, -- make sure to load this before all the other start plugins
   -- Optional; default configuration will be used if setup isn't called.
-  config = function()
-  end,
+  config = function() end,
 })
+
 plugin({ 'ellisonleao/gruvbox.nvim', priority = 1000 })
 plugin({
   'folke/tokyonight.nvim',
@@ -129,13 +131,56 @@ plugin({
   end,
 })
 
+-- plugin({
+--   'gelguy/wilder.nvim',
+--   event = 'CmdlineEnter',
+--   dependencies = {
+--     'romgrk/fzy-lua-native',
+--   },
+--   config = conf.wilder,
+-- })
+--
+-- lazy.nvim
 plugin({
-  'gelguy/wilder.nvim',
-  event = 'CmdlineEnter',
-  dependencies = {
-    'romgrk/fzy-lua-native',
+  'folke/noice.nvim',
+  event = 'VeryLazy',
+  opts = {
+    -- add any options here
   },
-  config = conf.wilder,
+  config = function()
+    require('noice').setup({
+
+      messages = {
+        -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+        -- This is a current Neovim limitation.
+        enabled = not vim.g.neovide, -- enables the Noice messages UI
+      },
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+          ['vim.lsp.util.stylize_markdown'] = true,
+          ['cmp.entry.get_documentation'] = true,
+        },
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false, -- add a border to hover docs and signature help
+      },
+    })
+  end,
+  dependencies = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    'MunifTanjim/nui.nvim',
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    'rcarriga/nvim-notify',
+  },
 })
 
 plugin({

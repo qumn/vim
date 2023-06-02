@@ -61,6 +61,8 @@ M.highlight = {
   TSParameter = { italic = true },
   semshiBuiltin = { italic = true },
 
+  InlayHint = { italic = true },
+
   -- lsp semantic token
   ['@repeat'] = { italic = true },
   ['@lsp.type.parameter'] = { link = 'aqua' },

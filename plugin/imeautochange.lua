@@ -7,6 +7,11 @@ if os.getenv("XDG_SESSION_TYPE") == "tty" then
   return
 end
 
+-- current only support macos
+if vim.loop.os_uname().sysname ~= 'Darwin' then
+  return
+end
+
 -- is has macism command
 if vim.fn.executable('macism') ~= 1 then
   print("can't find macism command")

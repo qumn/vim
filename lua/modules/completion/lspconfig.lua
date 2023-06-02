@@ -1,7 +1,7 @@
 local api = vim.api
 local lspconfig = require('lspconfig')
 
-local saga = require('lspsaga')
+-- local saga = require('lspsaga')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
@@ -67,6 +67,10 @@ lspconfig.lua_ls.setup({
   capabilities = capabilities,
   settings = {
     Lua = {
+      hint = {
+        enable = true,
+        -- virtualText = true,
+      },
       diagnostics = {
         enable = true,
         globals = { 'vim', 'packer_plugins', 'hs' },
@@ -93,6 +97,11 @@ lspconfig.clangd.setup({
 
 local rt = require('rust-tools')
 rt.setup({
+  tools = {
+    inlay_hints = {
+      auto = false,
+    },
+  },
   server = {
     on_attach = on_attach,
     capabilities = capabilities,

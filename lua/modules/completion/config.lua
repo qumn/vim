@@ -17,7 +17,7 @@ end
 function config.nvim_cmp()
   local cmp = require('cmp')
   local luasnip = require('luasnip')
-  local copilot = require("copilot.suggestion");
+  local copilot = require('copilot.suggestion')
   local pre = nmorqw('<C-i>', '<C-k>')
 
   cmp.setup({
@@ -117,6 +117,26 @@ function config.nvim_cmp()
     },
     experimental = { ghost_text = true }, -- show virtual text selected
   })
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' },
+    },
+  })
+
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' },
+    }, {
+      {
+        name = 'cmdline',
+        option = {
+          ignore_cmds = { 'Man', '!' },
+        },
+      },
+    }),
+  })
 end
 
 function config.lua_snip()
@@ -149,7 +169,7 @@ function config.lspsaga()
   local saga = require('lspsaga')
   saga.setup({
     symbol_in_winbar = {
-      enable = false
+      enable = false,
     },
     scroll_preview = {
       scroll_down = '<C-f>',
