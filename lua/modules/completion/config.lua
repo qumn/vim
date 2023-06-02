@@ -169,7 +169,7 @@ function config.lspsaga()
   local saga = require('lspsaga')
   saga.setup({
     symbol_in_winbar = {
-      enable = false,
+      enable = false
     },
     scroll_preview = {
       scroll_down = '<C-f>',

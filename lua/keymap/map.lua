@@ -41,7 +41,7 @@ map.nlmappings = {
     function()
       local filetype = vim.bo.filetype
       if command[filetype] then
-         cmd(command[filetype])
+         vim.cmd(command[filetype])
       else
         print('No run command for ' .. filetype)
       end
