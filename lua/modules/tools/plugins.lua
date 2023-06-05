@@ -190,6 +190,24 @@ plugin({
     })
   end,
 })
+plugin({
+  'anuvyklack/windows.nvim',
+  cmd = {
+    'WindowsMaximize',
+    'WindowsMaximizeVertically',
+    'WindowsMaximizeHorizontally',
+    'WindowsEqualize',
+    'WindowsEnableAutowidth',
+    'WindowsDisableAutowidth',
+    'WindowsToggleAutowidth',
+  },
+  config = function()
+    require('windows').setup()
+  end,
+  dependencies = {
+    'anuvyklack/middleclass',
+  },
+})
 
 plugin({
   'folke/which-key.nvim',
@@ -293,12 +311,11 @@ plugin({
 plugin({
   'akinsho/toggleterm.nvim',
   version = '*',
-  opts = {
-  },
-  config = function ()
-    require('toggleterm').setup{
+  opts = {},
+  config = function()
+    require('toggleterm').setup({
       open_mapping = [[<c-t>]],
-      shell = "/bin/zsh"
-    }
-  end
+      shell = '/bin/zsh',
+    })
+  end,
 })

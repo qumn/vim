@@ -41,7 +41,7 @@ map.nlmappings = {
     function()
       local filetype = vim.bo.filetype
       if command[filetype] then
-         vim.cmd(command[filetype])
+        vim.cmd(command[filetype])
       else
         print('No run command for ' .. filetype)
       end
@@ -196,7 +196,7 @@ map.nmappings = {
     f = { cmd('Telescope find_files'), 'Find Files' },
     e = { cmd('Telescope oldfiles'), 'Oldfile' },
     s = { cmd('Telescope lsp_document_symbols'), 'Lsp Document Symbols' },
-    S = { cmd('Telescope lsp_workspace_symbols'), 'Lsp Workspace Symbols' },
+    S = { cmd('Telescope lsp_dynamic_workspace_symbols'), 'Lsp Workspace Symbols' },
     c = { cmd('Telescope git_commits'), 'Git Commits' },
     p = { cmd('Telescope project'), 'Projects' },
     t = { cmd('BufferLinePick'), 'BufferLinePick' },
@@ -211,6 +211,12 @@ map.nmappings = {
     d = { cmd('Lspsaga goto_definition'), 'Goto Definetion' },
     t = { cmd('Lspsaga peek_type_definition'), 'Show Line Diagnostics' },
     T = { cmd('Lspsaga goto_type_definition'), 'Show Line Diagnostics' },
+  },
+  ['<C-w>'] = {
+    z     = { cmd('WindowsMaximize'), 'Windows Maximize' },
+    ['_'] = {cmd('WindowsMaximizeVertically'), 'Windows Maximize Vertically'},
+    ['|'] = {cmd('WindowsMaximizeHorizontally'), 'Windows Maximize Horizontally'},
+    ['='] = {cmd('WindowsEqualize'), 'Windows Equalize'},
   },
 }
 
