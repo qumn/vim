@@ -1,0 +1,4 @@
+{
+  "dashboard-nvim": { "branch": "master", "commit": "e73a7f0edc398a4d8c3a5dfad17d9f2b26697cf6" },
+  "nvim-treesitter": { "branch": "master", "commit": "a6063b22c9e6d8660b82255d251c19d150725d9f" }
+}

@@ -67,7 +67,7 @@ function config.dashboard()
       week_header = {
         enable = true,
       },
-      exclude_letter = { 'n', 'i', 's' },
+      exclude_letter = { 'u', 'n', 'i', 's', 'p' },
       shortcut = {
         { desc = ' Update', group = '@property', action = 'Lazy update', key = 'u' },
         {
@@ -85,28 +85,29 @@ function config.dashboard()
           key = 'a',
         },
         {
-          desc = ' dotfiles',
+          desc = ' Project',
           group = 'Number',
-          action = 'Telescope dotfiles',
-          key = 'd',
+          action = 'Telescope project',
+          key = 'p',
         },
       },
     },
   })
   local utils = require('session_manager.utils')
   local session_name = utils.dir_to_session_filename(vim.loop.cwd())
-  if session_name:exists() or vim.g.neovide then
+  if session_name:exists() and not vim.g.neovide then
     vim.api.nvim_clear_autocmds({ event = 'UIEnter', group = 'Dashboard' })
   end
 end
 
 function config.session_manager()
   local sm = require('session_manager')
+  local autoload_mode = require('session_manager.config').AutoloadMode
   sm.setup({
     sessions_dir = vim.env.HOME .. '/.cache/nvim/session',
     path_replacer = '__', -- The character to which the path separator will be replaced for session files.
     colon_replacer = '++', -- The character to which the colon symbol will be replaced for session files.
-    autoload_mode = require('session_manager.config').AutoloadMode.CurrentDir, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
+    autoload_mode = vim.g.neovide and autoload_mode.Disabled or autoload_mode.CurrentDir, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
     autosave_last_session = true, -- Automatically save last session on exit and on session switch.
     autosave_ignore_not_normal = true, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
     autosave_ignore_dirs = {

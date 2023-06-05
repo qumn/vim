@@ -16,6 +16,7 @@ end
 
 function config.nvim_cmp()
   local cmp = require('cmp')
+  local types = require('cmp.types')
   local luasnip = require('luasnip')
   local copilot = require('copilot.suggestion')
   local pre = nmorqw('<C-i>', '<C-k>')
@@ -51,7 +52,13 @@ function config.nvim_cmp()
       end,
     },
     -- You can set mappings if you want
-    mapping = cmp.mapping.preset.insert({
+    mapping = {
+      ['<Down>'] = {
+        i = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+      },
+      ['<Up>'] = {
+        i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
+      },
       [nmorqw('<C-n>', '<C-j>')] = cmp.mapping.select_next_item(),
       [pre] = cmp.mapping.select_prev_item(), --
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -80,10 +87,10 @@ function config.nvim_cmp()
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
-        elseif copilot.is_visible() then
-          copilot.accept()
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
+        elseif copilot.is_visible() then -- use <C-a> to accept
+          copilot.accept()
         elseif has_words_before() then
           cmp.complete()
         else
@@ -102,7 +109,7 @@ function config.nvim_cmp()
         'i',
         's',
       }),
-    }),
+    },
     snippet = {
       expand = function(args)
         require('luasnip').lsp_expand(args.body)
@@ -117,26 +124,29 @@ function config.nvim_cmp()
     },
     experimental = { ghost_text = true }, -- show virtual text selected
   })
-  cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' },
-    },
-  })
-
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' },
-    }, {
-      {
-        name = 'cmdline',
-        option = {
-          ignore_cmds = { 'Man', '!' },
-        },
+  -- in neovide cannot use noice, so use cmp-coroutine instead
+  if vim.g.neovide then
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' },
       },
-    }),
-  })
+    })
+
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' },
+      }, {
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = { 'Man', '!' },
+          },
+        },
+      }),
+    })
+  end
 end
 
 function config.lua_snip()
@@ -169,7 +179,7 @@ function config.lspsaga()
   local saga = require('lspsaga')
   saga.setup({
     symbol_in_winbar = {
-      enable = false
+      enable = false,
     },
     scroll_preview = {
       scroll_down = '<C-f>',

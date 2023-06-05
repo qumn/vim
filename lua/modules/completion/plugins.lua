@@ -87,11 +87,11 @@ plugin({
   config = conf.null_ls,
 })
 
-plugin({
-  'ray-x/lsp_signature.nvim',
-  event = 'InsertEnter',
-  config = conf.lsp_signature,
-})
+-- plugin({
+--   'ray-x/lsp_signature.nvim',
+--   event = 'InsertEnter',
+--   config = conf.lsp_signature,
+-- })
 
 plugin({
   'mfussenegger/nvim-jdtls',

@@ -1,7 +1,7 @@
 local model = {}
-local keymap = require('core.keymap')
-
-function nmorqw(nm, qw)
+--- @param nm string norman key
+--- @param qw string qwerty key
+function _G.nmorqw(nm, qw)
   return vim.g.is_norman and nm or qw
 end
 model.nmorqw = nmorqw
@@ -29,7 +29,7 @@ function model.get_file_under_cursor()
   return nil
 end
 
-function render_image()
+function _G.render_image()
   local file_path = model.get_file_under_cursor()
   if file_path == nil then
     print('No image file found')
