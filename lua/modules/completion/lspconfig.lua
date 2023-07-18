@@ -140,6 +140,21 @@ lspconfig.bashls.setup({
   capabilities = capabilities,
   filetypes = { 'sh', 'bash', 'zsh' },
 })
+lspconfig.eslint.setup({
+  on_attach = function(_client, bufnr)
+    -- saga.init_lsp_saga()
+    on_attach()
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      buffer = bufnr,
+      command = 'EslintFixAll',
+    })
+  end,
+  capabilities = capabilities,
+  -- filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  settings = {
+    autoFixOnSave = true
+  },
+})
 
 local servers = {
   'dockerls',
@@ -148,6 +163,7 @@ local servers = {
   'jsonls',
   'volar',
   'tailwindcss',
+  'texlab',
   -- 'dartls',
 }
 

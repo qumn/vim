@@ -125,28 +125,26 @@ function config.nvim_cmp()
     experimental = { ghost_text = true }, -- show virtual text selected
   })
   -- in neovide cannot use noice, so use cmp-coroutine instead
-  if vim.g.neovide then
-    cmp.setup.cmdline('/', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' },
-      },
-    })
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' },
+    },
+  })
 
-    cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = 'path' },
-      }, {
-        {
-          name = 'cmdline',
-          option = {
-            ignore_cmds = { 'Man', '!' },
-          },
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' },
+    }, {
+      {
+        name = 'cmdline',
+        option = {
+          ignore_cmds = { 'Man', '!' },
         },
-      }),
-    })
-  end
+      },
+    }),
+  })
 end
 
 function config.lua_snip()
