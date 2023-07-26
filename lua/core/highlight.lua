@@ -42,6 +42,8 @@ M.highlight = {
   CmpItemKindColor = { fg = '#D8EEEB', bg = '#58B5A8' },
   CmpItemKindTypeParameter = { fg = '#D8EEEB', bg = '#58B5A8' },
 
+  TSVariable = { link = 'Blue' },
+  TSConstant = { fg = '#FFE082', bold = true },
   TSKeywordReturn = { bold = true, italic = true },
   TSConstBuiltin = { bold = true, italic = true },
   TSFuncBuiltin = { bold = true, italic = true },
