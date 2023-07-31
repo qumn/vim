@@ -1,3 +1,4 @@
+set leader=" "
 " === norman keyboard layout
 nnoremap y h
 nnoremap n j
@@ -44,4 +45,17 @@ nnoremap <C-w>y <C-w>h
 nnoremap <C-w>n <C-w>j
 nnoremap <C-w>i <C-w>k
 nnoremap <C-w>o <C-w>l
+nnoremap <C-y> <C-w>h
+nnoremap <C-n> <C-w>j
+nnoremap <C-i> <C-w>k
+nnoremap <C-o> <C-w>l
+
+
+nnoremap go gt
+nnoremap gy gT
+
+" nnoremap <silent> <C-a> ggVG
+nnoremap <silent> <leader>h :nohl<CR>
+nnoremap <silent> <leader>w :w!<CR>
+nnoremap <silent> <leader>q :q!<CR>
 
