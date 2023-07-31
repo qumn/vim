@@ -50,6 +50,8 @@ vim.cmd([[
   nnoremap <C-w>i <C-w>k
   nnoremap <C-w>o <C-w>l
 
+  xnoremap p pgvy
+
   " tnoremap <silent><leader>; <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
   autocmd TermEnter term://*toggleterm#*
