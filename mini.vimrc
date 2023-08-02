@@ -59,3 +59,6 @@ nnoremap <silent> <leader>h :nohl<CR>
 nnoremap <silent> <leader>w :w!<CR>
 nnoremap <silent> <leader>q :q!<CR>
 
+nnoremap js <plugys>
+nnoremap ds <plugds>
+nnoremap cs <plugcs>

@@ -33,52 +33,52 @@ plugin({
 --   end,
 -- })
 
-plugin({
-  'ggandor/leap.nvim',
-  event = { 'BufRead', 'BufNewFile' },
-  config = function()
-    require('leap').setup({
-      safe_labels = {
-        't',
-        'f',
-        'u',
-        'h',
-        'j',
-        'x',
-        'r',
-        'l',
-        'k',
-        ';',
-        'T',
-        'F',
-        'U',
-        'H',
-        'J',
-        'X',
-        'R',
-        'L',
-        'K',
-      },
-    })
-    vim.api.nvim_set_hl(0, 'LeapMatch', {
-      -- For light themes, set to 'black' or similar.
-      fg = 'white',
-      bold = true,
-      nocombine = true,
-    })
-    -- Of course, specify some nicer shades instead of the default "red" and "blue".
-    vim.api.nvim_set_hl(0, 'LeapLabelPrimary', {
-      fg = '#F38BA8',
-      bold = true,
-      nocombine = true,
-    })
-    vim.api.nvim_set_hl(0, 'LeapLabelSecondary', {
-      fg = '#89DCEB',
-      bold = true,
-      nocombine = true,
-    })
-  end,
-})
+-- plugin({
+--   'ggandor/leap.nvim',
+--   event = { 'BufRead', 'BufNewFile' },
+--   config = function()
+--     require('leap').setup({
+--       safe_labels = {
+--         't',
+--         'f',
+--         'u',
+--         'h',
+--         'j',
+--         'x',
+--         'r',
+--         'l',
+--         'k',
+--         ';',
+--         'T',
+--         'F',
+--         'U',
+--         'H',
+--         'J',
+--         'X',
+--         'R',
+--         'L',
+--         'K',
+--       },
+--     })
+--     vim.api.nvim_set_hl(0, 'LeapMatch', {
+--       -- For light themes, set to 'black' or similar.
+--       fg = 'white',
+--       bold = true,
+--       nocombine = true,
+--     })
+--     -- Of course, specify some nicer shades instead of the default "red" and "blue".
+--     vim.api.nvim_set_hl(0, 'LeapLabelPrimary', {
+--       fg = '#F38BA8',
+--       bold = true,
+--       nocombine = true,
+--     })
+--     vim.api.nvim_set_hl(0, 'LeapLabelSecondary', {
+--       fg = '#89DCEB',
+--       bold = true,
+--       nocombine = true,
+--     })
+--   end,
+-- })
 
 -- plugin({
 --   'ahmedkhalf/project.nvim',
@@ -316,6 +316,30 @@ plugin({
     require('toggleterm').setup({
       open_mapping = [[<c-t>]],
       shell = '/bin/zsh',
+    })
+  end,
+})
+
+plugin({
+  'folke/flash.nvim',
+  event = 'VeryLazy',
+  ---@type Flash.Config
+  opts = {},
+  -- stylua: ignore
+  keys = {
+    { "gs", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "gS", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  },
+  config = function()
+    require('flash').setup({
+      labels = 'asetgyniohqwdfkjurlzxcvbpm',
+      highlight = {
+        -- show a backdrop with hl FlashBackdrop
+        backdrop = false,
+      },
     })
   end,
 })
