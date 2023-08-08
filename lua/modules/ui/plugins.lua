@@ -13,14 +13,14 @@ plugin({
   },
 })
 
-plugin({
-  'Shatur/neovim-session-manager',
-  commit = 'e7a2cbf56b5fd3a223f2774b535499fc62eca6ef',
-  config = conf.session_manager,
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-  },
-})
+-- plugin({
+--   'Shatur/neovim-session-manager',
+--   commit = 'e7a2cbf56b5fd3a223f2774b535499fc62eca6ef',
+--   config = conf.session_manager,
+--   dependencies = {
+--     'nvim-lua/plenary.nvim',
+--   },
+-- })
 
 --plugin({
 --  'glepnir/galaxyline.nvim',
@@ -79,12 +79,12 @@ plugin({
   opts = {},
 })
 
-plugin({
-  'lewis6991/gitsigns.nvim',
-  event = { 'BufRead', 'BufNewFile' },
-  config = conf.gitsigns,
-  dependencies = { 'nvim-lua/plenary.nvim' },
-})
+-- plugin({
+--   'lewis6991/gitsigns.nvim',
+--   event = { 'BufRead', 'BufNewFile' },
+--   config = conf.gitsigns,
+--   dependencies = { 'nvim-lua/plenary.nvim' },
+-- })
 
 vim.g.gitblame_date_format = '%r'
 plugin({

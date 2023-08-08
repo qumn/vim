@@ -93,11 +93,11 @@ function config.dashboard()
       },
     },
   })
-  local utils = require('session_manager.utils')
-  local session_name = utils.dir_to_session_filename(vim.loop.cwd())
-  if session_name:exists() and not vim.g.neovide then
-    vim.api.nvim_clear_autocmds({ event = 'UIEnter', group = 'Dashboard' })
-  end
+  -- local utils = require('session_manager.utils')
+  -- local session_name = utils.dir_to_session_filename(vim.loop.cwd())
+  -- if session_name:exists() and not vim.g.neovide then
+  --   vim.api.nvim_clear_autocmds({ event = 'UIEnter', group = 'Dashboard' })
+  -- end
 end
 
 function config.session_manager()

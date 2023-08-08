@@ -81,11 +81,11 @@ plugin({
   end,
 })
 
-plugin({
-  'jose-elias-alvarez/null-ls.nvim',
-  event = 'BufRead',
-  config = conf.null_ls,
-})
+-- plugin({
+--   'jose-elias-alvarez/null-ls.nvim',
+--   event = 'BufRead',
+--   config = conf.null_ls,
+-- })
 
 -- plugin({
 --   'ray-x/lsp_signature.nvim',

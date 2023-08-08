@@ -127,6 +127,7 @@ rt.setup({
 lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+  fileTypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
 })
 
 -- lspconfig.unocss.setup({
