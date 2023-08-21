@@ -8,9 +8,9 @@ local conf = require('modules.ui.config')
 plugin({
   'qumn/dashboard-nvim',
   config = conf.dashboard,
-  dependencies = {
-    'Shatur/neovim-session-manager',
-  },
+  -- dependencies = {
+  --   'Shatur/neovim-session-manager',
+  -- },
 })
 
 -- plugin({
