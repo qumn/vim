@@ -231,13 +231,13 @@ function config.gitsigns()
         linehl = 'GitSignsChangeLn',
       },
     },
-    keymaps = {
-      noremap = true,
-      buffer = true,
-      -- Text objects
-      [nmorqw('o rh', 'o ih')] = ':<C-U>lua require"gitsigns".text_object()<CR>',
-      [nmorqw('x rh', 'o ih')] = ':<C-U>lua require"gitsigns".text_object()<CR>',
-    },
+    -- keymaps = {
+    --   noremap = true,
+    --   buffer = true,
+    --   -- Text objects
+    --   [nmorqw('o rh', 'o ih')] = ':<C-U>lua require"gitsigns".text_object()<CR>',
+    --   [nmorqw('x rh', 'o ih')] = ':<C-U>lua require"gitsigns".text_object()<CR>',
+    -- },
   })
 end
 

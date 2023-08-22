@@ -74,7 +74,7 @@ vim.opt.previewheight = 12
 vim.opt.showcmd = false
 -- just for nightly
 -- because neovide can't use noice.nvim
-vim.opt.cmdheight = vim.g.neovide and 1 or 0
+vim.opt.cmdheight = 1
 vim.opt.cmdwinheight = 5
 vim.opt.equalalways = false
 vim.opt.laststatus = 3

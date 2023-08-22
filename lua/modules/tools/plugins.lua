@@ -335,6 +335,9 @@ plugin({
   config = function()
     require('flash').setup({
       labels = 'asetgyniohqwdfkjurlzxcvbpm',
+      jump = {
+        autojump = false,
+      },
       highlight = {
         -- show a backdrop with hl FlashBackdrop
         backdrop = false,

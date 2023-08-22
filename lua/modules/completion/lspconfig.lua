@@ -135,6 +135,10 @@ lspconfig.tsserver.setup({
 --   capabilities = capabilities,
 --   root_dir = lspconfig.util.root_pattern('unocss.config.js', 'unocss.config.ts', 'uno.config.ts', 'uno.config.js'),
 -- })
+--
+lspconfig.kotlin_language_server.setup({
+  root_dir = lspconfig.util.root_pattern('settings.gradle', 'settings.gradle.kts')
+})
 
 lspconfig.bashls.setup({
   on_attach = on_attach,
