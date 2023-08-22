@@ -53,6 +53,7 @@ vim.cmd([[
   xnoremap p pgvy
 
   " tnoremap <silent><leader>; <Cmd>exe v:count1 . "ToggleTerm"<CR>
+  tnoremap <silent><C-i> <C-\><C-n><C-w>k
 
   autocmd TermEnter term://*toggleterm#*
         \ tnoremap <silent><C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
