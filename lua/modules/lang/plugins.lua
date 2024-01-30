@@ -46,9 +46,15 @@ plugin({
 })
 
 plugin({
-  'mhartington/formatter.nvim',
-  config = conf.formatter,
+  'nvimdev/guard.nvim',
+  -- Builtin configuration, optional
+  ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'typescript', 'javascript', 'javascriptreact', 'vue' },
+  dependencies = {
+    'nvimdev/guard-collection',
+  },
+  config = conf.guard
 })
+
 
 -- plugin({
 --   'kkoomen/vim-doge',

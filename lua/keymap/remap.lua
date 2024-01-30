@@ -53,7 +53,7 @@ nmap({
   -- window jump
   { nmorqw('gy', 'gh'), cmd('BufferLineCyclePrev'), opts(noremap, silent) },
   { nmorqw('go', 'gl'), cmd('BufferLineCycleNext'), opts(noremap, silent) },
-  { '==', cmd('Format'), opts(noremap, silent) },
+  { '==', cmd('GuardFmt'), opts(noremap, silent) },
 })
 
 -- commandline remap

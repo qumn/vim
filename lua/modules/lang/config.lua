@@ -59,50 +59,68 @@ function config.ufo()
   vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
   vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
-  local handler = function(virtText, lnum, endLnum, width, truncate)
-    local newVirtText = {}
-    local suffix = ('  %d '):format(endLnum - lnum)
-    local sufWidth = vim.fn.strdisplaywidth(suffix)
-    local targetWidth = width - sufWidth
-    local curWidth = 0
-    for _, chunk in ipairs(virtText) do
-      local chunkText = chunk[1]
-      local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-      if targetWidth > curWidth + chunkWidth then
-        table.insert(newVirtText, chunk)
-      else
-        chunkText = truncate(chunkText, targetWidth - curWidth)
-        local hlGroup = chunk[2]
-        table.insert(newVirtText, { chunkText, hlGroup })
-        chunkWidth = vim.fn.strdisplaywidth(chunkText)
-        -- str width returned from truncate() may less than 2nd argument, need padding
-        if curWidth + chunkWidth < targetWidth then
-          suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
-        end
-        break
-      end
-      curWidth = curWidth + chunkWidth
-    end
-    table.insert(newVirtText, { suffix, 'MoreMsg' })
-    return newVirtText
-  end
-
+  -- local handler = function(virtText, lnum, endLnum, width, truncate)
+  --   local newVirtText = {}
+  --   local suffix = ('  %d '):format(endLnum - lnum)
+  --   local sufWidth = vim.fn.strdisplaywidth(suffix)
+  --   local targetWidth = width - sufWidth
+  --   local curWidth = 0
+  --   for _, chunk in ipairs(virtText) do
+  --     local chunkText = chunk[1]
+  --     local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+  --     if targetWidth > curWidth + chunkWidth then
+  --       table.insert(newVirtText, chunk)
+  --     else
+  --       chunkText = truncate(chunkText, targetWidth - curWidth)
+  --       local hlGroup = chunk[2]
+  --       table.insert(newVirtText, { chunkText, hlGroup })
+  --       chunkWidth = vim.fn.strdisplaywidth(chunkText)
+  --       -- str width returned from truncate() may less than 2nd argument, need padding
+  --       if curWidth + chunkWidth < targetWidth then
+  --         suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+  --       end
+  --       break
+  --     end
+  --     curWidth = curWidth + chunkWidth
+  --   end
+  --   table.insert(newVirtText, { suffix, 'MoreMsg' })
+  --   return newVirtText
+  -- end
+  --
+  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- capabilities.textDocument.foldingRange = {
+  --   dynamicRegistration = false,
+  --   lineFoldingOnly = true,
+  -- }
+  -- local language_servers = require('lspconfig').util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+  -- for _, ls in ipairs(language_servers) do
+  --   require('lspconfig')[ls].setup({
+  --     capabilities = capabilities,
+  --     -- you can add other fields for setting up lsp server in this table
+  --   })
+  -- end
+  -- require('ufo').setup()
   require('ufo').setup({
-    open_fold_hl_timeout = 150,
-    close_fold_kinds = { 'imports' },
-    fold_virt_text_handler = handler,
-    preview = {
-      win_config = {
-        border = { '', '─', '', '', '', '─', '', '' },
-        winhighlight = 'Normal:Folded',
-        winblend = 0,
-      },
-      mappings = {
-        scrollU = '<C-u>',
-        scrollD = '<C-d>',
-      },
-    },
+    provider_selector = function(bufnr, filetype, buftype)
+      return { 'treesitter', 'indent' }
+    end,
   })
+  -- require('ufo').setup({
+  --   open_fold_hl_timeout = 150,
+  --   close_fold_kinds = { 'imports' },
+  --   -- fold_virt_text_handler = handler,
+  --   preview = {
+  --     win_config = {
+  --       border = { '', '─', '', '', '', '─', '', '' },
+  --       winhighlight = 'Normal:Folded',
+  --       winblend = 0,
+  --     },
+  --     mappings = {
+  --       scrollU = '<C-u>',
+  --       scrollD = '<C-d>',
+  --     },
+  --   },
+  -- })
 end
 
 function config.symbols_outline()
@@ -175,59 +193,25 @@ function config.doge()
   --vim.g.doge_filetype_aliases = { javascript = { 'vue' } }
 end
 
-function config.formatter()
-  -- Utilities for creating configurations
-  local util = require('formatter.util')
-
-  -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-  require('formatter').setup({
-    -- Enable or disable logging
-    logging = true,
-    -- Set the log level
-    log_level = vim.log.levels.WARN,
-    -- All formatter configurations are opt-in
-    filetype = {
-      -- Formatter configurations for filetype "lua" go here
-      -- and will be executed in order
-      lua = {
-        -- "formatter.filetypes.lua" defines default configurations for the
-        -- "lua" filetype
-        require('formatter.filetypes.lua').stylua,
-
-        -- You can also define your own configuration
-        function()
-          -- Supports conditional formatting
-          if util.get_current_buffer_file_name() == 'special.lua' then
-            return nil
-          end
-
-          -- Full specification of configurations is down below and in Vim help
-          -- files
-          return {
-            exe = 'stylua',
-            args = {
-              '--search-parent-directories',
-              '--stdin-filepath',
-              util.escape_path(util.get_current_buffer_file_path()),
-              '--',
-              '-',
-            },
-            stdin = true,
-          }
-        end,
-      },
-      go = {
-        require('formatter.filetypes.go').gofmt,
-      },
-      -- Use the special "*" filetype for defining formatter configurations on
-      -- any filetype
-      ['*'] = {
-        -- "formatter.filetypes.any" defines default configurations for any
-        -- filetype
-        require('formatter.filetypes.any').remove_trailing_whitespace,
-      },
-    },
+function config.guard()
+  local ft = require('guard.filetype')
+  ft('c'):fmt({
+    cmd = 'clang-format',
+    stdin = true,
+    ignore_patterns = { 'neovim', 'vim' },
   })
+
+  ft('lua'):fmt({
+    cmd = 'stylua',
+    args = { '-' },
+    stdin = true,
+    ignore_patterns = '%w_spec%.lua',
+  })
+  ft('go'):fmt('lsp'):append('golines')
+  ft('rust'):fmt('rustfmt')
+  ft('typescript', 'javascript', 'typescriptreact', 'javascriptreact'):fmt('prettier')
+
+  require('guard').setup()
 end
 
 return config
