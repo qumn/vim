@@ -112,7 +112,7 @@ map.nlmappings = {
     e = { cmd('lua vim.lsp.buf.rename()'), 'Lsp Rename' },
     i = { cmd('LspInfo'), 'Info' },
     I = { cmd('Mason'), 'Mason Info' },
-    f = { cmd("lua require'keymap.format'.format()"), 'Format' },
+    f = { cmd('Format'), 'Format' },
     -- d = { cmd('Lspsaga show_cursor_diagnostics'), 'Show Cursor Diagnostics' },
   },
   d = {
