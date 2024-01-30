@@ -1,7 +1,6 @@
 local api = vim.api
 local my_group = vim.api.nvim_create_augroup('GlepnirGroup', {})
 
-
 -- a yank highlight
 vim.cmd('highlight YankHighlight guifg=#81c784 guibg=#384251')
 

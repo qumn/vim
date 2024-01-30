@@ -6,7 +6,7 @@ local config = {}
 
 function config.telescope()
   local actions = require('telescope.actions')
-  local prev = "<C-i>"
+  local prev = '<C-i>'
   require('telescope').setup({
     defaults = {
       -- layout_config = {
@@ -32,7 +32,7 @@ function config.telescope()
         i = {
           ['<C-s>'] = actions.select_horizontal,
           ['<C-n>'] = actions.move_selection_next,
-          [prev] =  actions.move_selection_previous,
+          [prev] = actions.move_selection_previous,
         },
         n = {
           ['n'] = actions.move_selection_next,
@@ -53,7 +53,7 @@ function config.telescope()
       project = {
         base_dirs = {
           '~/project',
-          '~/.config/'
+          '~/.config/',
         },
         hidden_files = true, -- default: false
         theme = 'dropdown',

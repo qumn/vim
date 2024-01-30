@@ -3,7 +3,7 @@
 -- then change it back when you enter insert mode
 -- the plugin dependen on macism command
 -- in ssh mode
-if os.getenv("XDG_SESSION_TYPE") == "tty" then
+if os.getenv('XDG_SESSION_TYPE') == 'tty' then
   return
 end
 

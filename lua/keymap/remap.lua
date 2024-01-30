@@ -53,7 +53,7 @@ nmap({
   -- window jump
   { nmorqw('gy', 'gh'), cmd('BufferLineCyclePrev'), opts(noremap, silent) },
   { nmorqw('go', 'gl'), cmd('BufferLineCycleNext'), opts(noremap, silent) },
-  { '==', cmd("lua require'keymap.format'.format()"), opts(noremap, silent) },
+  { '==', cmd('Format'), opts(noremap, silent) },
 })
 
 -- commandline remap
@@ -109,4 +109,3 @@ xmap({ 'x', '<Plug>(leap-forward-till)', opts(noremap, silent) })
 omap({ 'X', '<Plug>(leap-backward-till)', opts(noremap, silent) })
 xmap({ 'X', '<Plug>(leap-backward-till)', opts(noremap, silent) })
 imap({ '<C-p>', vim.lsp.buf.signature_help, opts(noremap, silent) })
-

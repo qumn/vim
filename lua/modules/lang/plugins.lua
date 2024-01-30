@@ -11,16 +11,16 @@ plugin({
   run = ':TSUpdate',
   config = conf.nvim_treesitter,
   dependencies = {
-    'nvim-treesitter/playground'
-  }
+    'nvim-treesitter/playground',
+  },
 })
 
 plugin({
   'nvim-treesitter/nvim-treesitter-textobjects',
   event = 'BufRead',
   dependencies = {
-    'nvim-treesitter/nvim-treesitter'
-  }
+    'nvim-treesitter/nvim-treesitter',
+  },
 })
 
 plugin({
@@ -43,6 +43,11 @@ plugin({
     'nvim-lspconfig',
     'kevinhwang91/promise-async',
   },
+})
+
+plugin({
+  'mhartington/formatter.nvim',
+  config = conf.formatter,
 })
 
 -- plugin({

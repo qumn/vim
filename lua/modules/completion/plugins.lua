@@ -82,12 +82,6 @@ plugin({
 })
 
 -- plugin({
---   'jose-elias-alvarez/null-ls.nvim',
---   event = 'BufRead',
---   config = conf.null_ls,
--- })
-
--- plugin({
 --   'ray-x/lsp_signature.nvim',
 --   event = 'InsertEnter',
 --   config = conf.lsp_signature,

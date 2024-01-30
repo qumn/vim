@@ -348,10 +348,12 @@ plugin({
 
 -- Lua
 plugin({
-  "narutoxy/silicon.lua",
-  requires = { "nvim-lua/plenary.nvim" },
+  'narutoxy/silicon.lua',
+  requires = { 'nvim-lua/plenary.nvim' },
   config = function()
     require('silicon').setup({})
-    vim.keymap.set('v', '<Leader>s',  function() require('silicon').visualise_api() end)
-  end
+    vim.keymap.set('v', '<Leader>s', function()
+      require('silicon').visualise_api()
+    end)
+  end,
 })

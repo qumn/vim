@@ -127,7 +127,7 @@ rt.setup({
 lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  fileTypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+  fileTypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
 })
 
 -- lspconfig.unocss.setup({
@@ -137,7 +137,7 @@ lspconfig.tsserver.setup({
 -- })
 --
 lspconfig.kotlin_language_server.setup({
-  root_dir = lspconfig.util.root_pattern('settings.gradle', 'settings.gradle.kts')
+  root_dir = lspconfig.util.root_pattern('settings.gradle', 'settings.gradle.kts'),
 })
 
 lspconfig.bashls.setup({
@@ -157,7 +157,7 @@ lspconfig.eslint.setup({
   capabilities = capabilities,
   -- filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
   settings = {
-    autoFixOnSave = true
+    autoFixOnSave = true,
   },
 })
 

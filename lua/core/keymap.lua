@@ -117,5 +117,5 @@ keymap.xmap = map('x')
 keymap.omap = map('o')
 keymap.tmap = map('t')
 keymap.smap = map('s')
-keymap.amap = map({'n', 'i', 'c', 'v', 'x', 't', 's', 'o'})
+keymap.amap = map({ 'n', 'i', 'c', 'v', 'x', 't', 's', 'o' })
 return keymap

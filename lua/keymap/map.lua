@@ -202,8 +202,8 @@ map.nmappings = {
     t = { cmd('BufferLinePick'), 'BufferLinePick' },
   },
   g = {
-    h = { cmd('Lspsaga lsp_finder'), 'Lsp Finder' },
-    r = { cmd('Lspsaga lsp_finder'), 'Lsp Rename' },
+    h = { cmd('Lspsaga finder'), 'Lsp Finder' },
+    r = { cmd('Lspsaga rename'), 'Lsp Rename' },
     p = { cmd('Lspsaga peek_definition'), 'Lsp Preview Definition' },
     --s = { cmd('Lspsaga peek_type_definition'), 'Lsp Preview Definition' },
     s = { '<Plug>(leap-forward-to)', 'leap forward to' },
@@ -213,10 +213,10 @@ map.nmappings = {
     T = { cmd('Lspsaga goto_type_definition'), 'Show Line Diagnostics' },
   },
   ['<C-w>'] = {
-    z     = { cmd('WindowsMaximize'), 'Windows Maximize' },
-    ['_'] = {cmd('WindowsMaximizeVertically'), 'Windows Maximize Vertically'},
-    ['|'] = {cmd('WindowsMaximizeHorizontally'), 'Windows Maximize Horizontally'},
-    ['='] = {cmd('WindowsEqualize'), 'Windows Equalize'},
+    z = { cmd('WindowsMaximize'), 'Windows Maximize' },
+    ['_'] = { cmd('WindowsMaximizeVertically'), 'Windows Maximize Vertically' },
+    ['|'] = { cmd('WindowsMaximizeHorizontally'), 'Windows Maximize Horizontally' },
+    ['='] = { cmd('WindowsEqualize'), 'Windows Equalize' },
   },
 }
 

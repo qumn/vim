@@ -185,15 +185,14 @@ function config.lspsaga()
     },
     finder = {
       keys = {
-        jump_to = 'g',
-        expand_or_jump = '<CR>',
-        vsplit = 'v',
-        split = 's',
-        edit = nmorqw('l', 'o'),
-        tabe = 't',
+        shuttle = '[w',
+        toggle_or_open = 'o',
+        vsplit = 's',
+        split = 'i',
+        tabe = { 't', '<CR>' },
         tabnew = nmorqw('T', 'r'),
-        quit = { 'q', '<ESC>' },
-        close_in_preview = '<ESC>',
+        quit = 'q',
+        close = '<ESC>',
       },
     },
     outline = {
