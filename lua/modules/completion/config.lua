@@ -187,8 +187,8 @@ function config.lspsaga()
       keys = {
         shuttle = '[w',
         toggle_or_open = 'o',
-        vsplit = 's',
-        split = 'i',
+        vsplit = 'v',
+        split = 's',
         tabe = { 't', '<CR>' },
         tabnew = nmorqw('T', 'r'),
         quit = 'q',

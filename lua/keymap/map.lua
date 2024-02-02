@@ -25,6 +25,11 @@ local command = {
   dart = 'FlutterRun',
 }
 
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = 'lazygit', direction = 'float', hidden = true })
+
+vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
+
 map.nlmappings = {
   -- [";"] = { cmd('ToggleTerm'), 'Terminal' },
   ["'"] = { cmd('Dashboard'), 'Dashboard' },
@@ -103,7 +108,13 @@ map.nlmappings = {
     o = { cmd('Telescope git_status'), 'Open changed file' },
     b = { cmd('Telescope git_branches'), 'Checkout branch' },
     c = { cmd('Telescope git_commits'), 'Checkout commit' },
-    g = { cmd('Lspsaga open_floaterm lazygit'), 'lazygit' },
+    -- g = { cmd('Lspsaga open_floaterm lazygit'), 'lazygit' },
+    g = {
+      function()
+        lazygit:toggle()
+      end,
+      'lazygit',
+    },
   },
   l = {
     name = 'Lsp',
@@ -112,7 +123,7 @@ map.nlmappings = {
     e = { cmd('lua vim.lsp.buf.rename()'), 'Lsp Rename' },
     i = { cmd('LspInfo'), 'Info' },
     I = { cmd('Mason'), 'Mason Info' },
-    f = { cmd('Format'), 'Format' },
+    f = { cmd('GuardFmt'), 'Format' },
     -- d = { cmd('Lspsaga show_cursor_diagnostics'), 'Show Cursor Diagnostics' },
   },
   d = {
