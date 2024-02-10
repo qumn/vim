@@ -35,6 +35,12 @@ plugin({
   config = conf.lualine,
   dependencies = { 'zbirenbaum/copilot.lua' },
 })
+plugin({
+  'linrongbin16/lsp-progress.nvim',
+  config = function()
+    require('lsp-progress').setup()
+  end,
+})
 
 plugin({
   'kyazdani42/nvim-tree.lua',

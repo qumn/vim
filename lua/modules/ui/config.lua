@@ -165,6 +165,7 @@ function config.nvim_tree()
       -- hide_root_folder = false,
     },
     renderer = {
+      group_empty = true,
       indent_markers = {
         enable = true,
         inline_arrows = true,
@@ -196,7 +197,7 @@ function config.nvim_tree()
             staged = '',
             unmerged = '',
             unstaged = '',
-            untracked = 'ﲉ',
+            untracked = '',
           },
         },
       },

@@ -57,7 +57,8 @@ vim.cmd([[
   " tmapclear
 
   " tnoremap <silent><leader>; <Cmd>exe v:count1 . "ToggleTerm"<CR>
-  " tnoremap <silent><C-i> <C-\><C-n><C-w>k
+  tnoremap <silent><C-i> <C-\><C-n><C-w>k
+  tnoremap <silent><C-n> <C-\><C-n><C-w>j
 
   autocmd TermEnter term://*toggleterm#*
         \ tnoremap <silent><C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
