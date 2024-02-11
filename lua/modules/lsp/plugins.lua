@@ -3,7 +3,7 @@
 -- License: MIT
 
 local plugin = require('core.pack').package
-local conf = require('modules.completion.config')
+local conf = require('modules.lsp.config')
 
 local enable_lsp_filetype = {
   'lua',
