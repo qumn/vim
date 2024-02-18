@@ -275,31 +275,54 @@ plugin({
 
 plugin({
   {
-    dir = '/Users/qumn/project/vim/neorg',
+    -- dir = '/Users/qumn/project/vim/neorg',
+    'nvim-neorg/neorg',
     build = ':Neorg sync-parsers',
     -- event = 'VeryLazy',
     ft = 'norg',
-    opts = {
-      load = {
-        ['core.defaults'] = {}, -- Loads default behaviour
-        ['core.norg.concealer'] = {}, -- Adds pretty icons to your documents
-        ['core.integrations.nvim-cmp'] = {},
-        ['core.export'] = {},
-        ['core.export.markdown'] = {},
-        ['core.norg.completion'] = {
-          config = {
-            engine = 'nvim-cmp',
+    -- opts = {
+    --   load = {
+    --     ['core.concealer'] = {}, -- Adds pretty icons to your documents
+    --     ['core.integrations.nvim-cmp'] = {},
+    --     ['core.export'] = {},
+    --     ['core.syntax'] = {},
+    --     ['core.export.markdown'] = {},
+    --     -- ['core.norg.completion'] = {
+    --     --   config = {
+    --     --     engine = 'nvim-cmp',
+    --     --   },
+    --     -- },
+    --     ['core.dirman'] = { -- Manages Neorg workspaces
+    --       config = {
+    --         workspaces = {
+    --           notes = '~/notes',
+    --         },
+    --       },
+    --     },
+    --   },
+    -- },
+    config = function()
+      require('neorg').setup({
+        load = {
+          ['core.defaults'] = {},
+          ['core.export'] = {},
+          ['core.export.markdown'] = {
+            config = {
+              extensions = 'all',
+            },
           },
-        },
-        ['core.norg.dirman'] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = '~/notes',
+          ['core.completion'] = { config = { engine = 'nvim-cmp' } },
+          ['core.concealer'] = {},
+          ['core.dirman'] = {
+            config = {
+              workspaces = {
+                notes = '~/notes',
+              },
             },
           },
         },
-      },
-    },
+      })
+    end,
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { 'mfussenegger/nvim-treehopper' },

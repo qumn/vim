@@ -7,7 +7,7 @@ local conf = require('modules.lang.config')
 
 plugin({
   'nvim-treesitter/nvim-treesitter',
-  event = 'BufRead',
+  -- event = 'BufRead',
   run = ':TSUpdate',
   config = conf.nvim_treesitter,
   dependencies = {
@@ -52,9 +52,8 @@ plugin({
   dependencies = {
     'nvimdev/guard-collection',
   },
-  config = conf.guard
+  config = conf.guard,
 })
-
 
 -- plugin({
 --   'kkoomen/vim-doge',
