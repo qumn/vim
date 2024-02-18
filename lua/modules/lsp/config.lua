@@ -124,7 +124,6 @@ function config.nvim_cmp()
     },
     experimental = { ghost_text = true }, -- show virtual text selected
   })
-  -- in neovide cannot use noice, so use cmp-coroutine instead
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {

@@ -346,7 +346,6 @@ plugin({
 plugin({
   'folke/flash.nvim',
   event = 'VeryLazy',
-  opts = {},
   -- stylua: ignore
   keys = {
     { "gs", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
@@ -358,6 +357,10 @@ plugin({
   config = function()
     require('flash').setup({
       labels = 'asetgyniohqwdfkjurlzxcvbpm',
+      char = {
+        enable = true,
+        highlight = { backdrop = false },
+      },
       jump = {
         autojump = false,
       },
