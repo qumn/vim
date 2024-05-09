@@ -27,6 +27,15 @@ function config.nvim_treesitter()
       additional_vim_regex_highlighting = false,
       disable = { 'latex' },
     },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = 'gnn', -- set to `false` to disable one of the mappings
+        node_incremental = 'grn',
+        scope_incremental = 'grc',
+        node_decremental = 'grm',
+      },
+    },
     indent = { enable = true, disable = { 'yaml', 'python' } },
     autotag = { enable = false },
     rainbow = {
@@ -197,8 +206,7 @@ function config.guard()
   })
   ft('go'):fmt('lsp'):append('golines')
   ft('rust'):fmt('rustfmt')
-  ft('typescript', 'javascript', 'typescriptreact', 'javascriptreact'):fmt('prettier')
-
+  ft('typescript,javascript,typescriptreact,javascriptreact'):fmt('prettier')
   require('guard').setup()
 end
 

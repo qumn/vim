@@ -169,6 +169,7 @@ local servers = {
   'volar',
   -- 'tailwindcss',
   'texlab',
+  'typst_lsp',
   -- 'dartls',
 }
 
